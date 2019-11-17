@@ -19,7 +19,6 @@ using namespace Eigen;
 MatrixXd B_copy;
 
 void initialisation(){
-  //test
 
     std::cout<<"Enter initialisation"<<std::endl;
 
@@ -28,19 +27,19 @@ void initialisation(){
     B_copy.row(0)<< 0, 1, 2;
 
 
-    std::cout<<"B_copy"<<(B_copy)<<std::endl;
     Bezier *B=new Bezier(B_copy,B_copy);
-    std::cout<<"Bx"<<*(B->Bx)<<std::endl;
+    //std::cout<<"B_copy"<<(B_copy)<<std::endl;
+    //std::cout<<"Bx"<<*(B->Bx)<<std::endl;
 
     //Les entites sont bien créées
     Color* C = new Color();
     Parameters W(B,C);
-
-
-    std::cout<<"Test Entitities : W.B->Nb_bezigons "<<W.B->Nb_bezigons<<std::endl;
+    //std::cout<<"Test Entitities : W.B->Nb_bezigons "<<W.B->Nb_bezigons<<std::endl;
+    
     B->set_point_x(1,1,99);
-    std::cout<<"B_copy"<<(B_copy)<<std::endl;
-    std::cout<<"Bx"<<*(B->Bx)<<std::endl;
+    //B_copy nest pas modifie
+    //std::cout<<"B_copy"<<(B_copy)<<std::endl;
+    //std::cout<<"Bx"<<*(B->Bx)<<std::endl;
 
 
     }
