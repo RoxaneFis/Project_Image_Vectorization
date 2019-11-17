@@ -50,15 +50,29 @@ public:
     void set_point_y(int i, int j, int coord_y){
         By->row(i)[j]=coord_y;
     }
+    void print_Bx(){
+        std::cout<<*Bx<<std::endl;}
+    void print_By(){
+        std::cout<<*By<<std::endl;
+    }
+    
 
 };
 
 
 class Color{
 public:
-    Color(){
-        C = new MatrixXd(6, 3);
+    Color(int _dim){
+        dim=_dim;
+        C = new MatrixXd(_dim, 3);
         C->setZero();
+    }
+
+     Color(const MatrixXd &C_){
+        dim=C_.rows();
+        C = new MatrixXd(dim, 3);
+        *C=C_;
+
     }
 
     int getColorImage(int x, int y){
@@ -68,9 +82,13 @@ public:
     void setColor(int index,int RGB, int color){
         C->row(index)[RGB]=color;
     }
+    void print_Matrix(){
+        std::cout<<*C<<std::endl;
+    }
 
 private:
     MatrixXd *C; //Co a C5
+    int dim;
 
 
 };
