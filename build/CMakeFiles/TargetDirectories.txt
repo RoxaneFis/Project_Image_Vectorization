@@ -1,0 +1,11 @@
+/Users/roxanefischer/INF574/projet_vectorization/code_Image_Vectorization/build/CMakeFiles/rebuild_cache.dir
+/Users/roxanefischer/INF574/projet_vectorization/code_Image_Vectorization/build/CMakeFiles/main.dir
+/Users/roxanefischer/INF574/projet_vectorization/code_Image_Vectorization/build/CMakeFiles/edit_cache.dir
+/Users/roxanefischer/INF574/projet_vectorization/code_Image_Vectorization/build/glad/CMakeFiles/rebuild_cache.dir
+/Users/roxanefischer/INF574/projet_vectorization/code_Image_Vectorization/build/glad/CMakeFiles/edit_cache.dir
+/Users/roxanefischer/INF574/projet_vectorization/code_Image_Vectorization/build/glad/CMakeFiles/glad.dir
+/Users/roxanefischer/INF574/projet_vectorization/code_Image_Vectorization/build/glfw/CMakeFiles/rebuild_cache.dir
+/Users/roxanefischer/INF574/projet_vectorization/code_Image_Vectorization/build/glfw/CMakeFiles/edit_cache.dir
+/Users/roxanefischer/INF574/projet_vectorization/code_Image_Vectorization/build/glfw/src/CMakeFiles/rebuild_cache.dir
+/Users/roxanefischer/INF574/projet_vectorization/code_Image_Vectorization/build/glfw/src/CMakeFiles/edit_cache.dir
+/Users/roxanefischer/INF574/projet_vectorization/code_Image_Vectorization/build/glfw/src/CMakeFiles/glfw.dir
