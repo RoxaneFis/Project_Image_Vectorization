@@ -10,17 +10,16 @@
 
 #include "RMS.cpp"
 
-#ifndef INCLUDE_BEZIER
-  #define INCLUDE_BEZIER
-  #include "bezier.cpp"
-#endif
 
+#ifndef INCLUDE_ENTITIES
+  #define INCLUDE_ENTITIES
+  #include "entities.cpp"
+#endif
 
 
 class Energy{
 public:  
     void energy(){
-        bezier();
         RMS();
         std::cout<<"enter energy"<<std::endl;
     }
