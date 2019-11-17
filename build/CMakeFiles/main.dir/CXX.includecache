@@ -20,6 +20,20 @@ opencv2/highgui/highgui.hpp
 opencv2/imgproc/imgproc.hpp
 -
 
+/Users/roxanefischer/INF574/projet_vectorization/code_Image_Vectorization/bezier.cpp
+iostream
+-
+ostream
+-
+igl/opengl/glfw/Viewer.h
+-
+igl/readPLY.h
+-
+opencv2/highgui/highgui.hpp
+-
+opencv2/imgproc/imgproc.hpp
+-
+
 /Users/roxanefischer/INF574/projet_vectorization/code_Image_Vectorization/energy.cpp
 iostream
 -
@@ -35,6 +49,8 @@ opencv2/imgproc/imgproc.hpp
 -
 RMS.cpp
 /Users/roxanefischer/INF574/projet_vectorization/code_Image_Vectorization/RMS.cpp
+bezier.cpp
+/Users/roxanefischer/INF574/projet_vectorization/code_Image_Vectorization/bezier.cpp
 
 /Users/roxanefischer/INF574/projet_vectorization/code_Image_Vectorization/initialisation.cpp
 iostream
@@ -49,6 +65,8 @@ opencv2/highgui/highgui.hpp
 -
 opencv2/imgproc/imgproc.hpp
 -
+bezier.cpp
+/Users/roxanefischer/INF574/projet_vectorization/code_Image_Vectorization/bezier.cpp
 
 /Users/roxanefischer/INF574/projet_vectorization/code_Image_Vectorization/main.cpp
 iostream

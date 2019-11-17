@@ -1,3 +1,4 @@
+
 #include <iostream>
 #include <ostream>
 
@@ -7,9 +8,8 @@
 #include <opencv2/highgui/highgui.hpp>
 #include <opencv2/imgproc/imgproc.hpp>
 
-#include "bezier.cpp"
 
-void initialisation(){
-        bezier();
-        std::cout<<"enter initialisation"<<std::endl;
+
+void bezier(){
+        std::cout<<"use of bezier"<<std::endl;
     }

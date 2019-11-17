@@ -76,8 +76,8 @@ preinstall: glfw/preinstall
 # Target rules for target CMakeFiles/main.dir
 
 # All Build rule for target.
-CMakeFiles/main.dir/all: glfw/src/CMakeFiles/glfw.dir/all
 CMakeFiles/main.dir/all: glad/CMakeFiles/glad.dir/all
+CMakeFiles/main.dir/all: glfw/src/CMakeFiles/glfw.dir/all
 	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/depend
 	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/roxanefischer/INF574/projet_vectorization/code_Image_Vectorization/build/CMakeFiles --progress-num=19,20 "Built target main"
