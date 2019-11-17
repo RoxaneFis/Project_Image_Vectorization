@@ -10,6 +10,7 @@
 #include "initialisation.cpp"
 #include "energy.cpp"
 
+
 class Propagation{
 public:  
     void propagation(){

@@ -7,7 +7,13 @@
 #include <opencv2/highgui/highgui.hpp>
 #include <opencv2/imgproc/imgproc.hpp>
 
-#include "bezier.cpp"
+#ifndef INCLUDE_BEZIER
+  #define INCLUDE_BEZIER
+  #include "bezier.cpp"
+#endif
+
+
+
 
 void initialisation(){
         bezier();

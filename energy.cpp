@@ -7,8 +7,15 @@
 #include <opencv2/highgui/highgui.hpp>
 #include <opencv2/imgproc/imgproc.hpp>
 
+
 #include "RMS.cpp"
-#include "bezier.cpp"
+
+#ifndef INCLUDE_BEZIER
+  #define INCLUDE_BEZIER
+  #include "bezier.cpp"
+#endif
+
+
 
 class Energy{
 public:  
