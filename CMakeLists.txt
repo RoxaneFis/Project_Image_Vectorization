@@ -19,9 +19,13 @@ find_package(LIBIGL REQUIRED QUIET)
 
 
 INCLUDE_DIRECTORIES(${OpenCV_INCLUDE_DIRS})
-add_executable(main main.cpp)
-target_link_libraries(main igl::core igl::opengl_glfw)
-TARGET_LINK_LIBRARIES(main ${OpenCV_LIBS})
+
+file(GLOB SRCFILES *.cpp)
+file(GLOB HEADERFILES *.h)
+add_executable(image_vect ${SRCFILES} ${HEADERFILES})
+
+target_link_libraries(image_vect igl::core igl::opengl_glfw)
+TARGET_LINK_LIBRARIES(image_vect ${OpenCV_LIBS})
 
 
 
