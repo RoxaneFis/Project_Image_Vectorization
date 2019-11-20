@@ -11,12 +11,15 @@
 #include <opencv2/highgui/highgui.hpp>
 #include <opencv2/imgproc/imgproc.hpp>
 
-#include "Initialisation.h"
+#include "Entities.h"
 #include "Energy.h"
 
 class Propagation {
+private:
+	VectorizationData* vd;
 public:
-	void propagation();
+	Propagation(VectorizationData _vd);
+	void propagate();
 };
 
 #endif

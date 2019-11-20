@@ -11,7 +11,7 @@
 #include <opencv2/highgui/highgui.hpp>
 #include <opencv2/imgproc/imgproc.hpp>
 
-class Bezier 
+class Bezier
 {
 private:
 	int Nb_bezigons;
@@ -37,21 +37,19 @@ private:
 
 public:
 	Color(int _dim);
-	Color(const Eigen::MatrixXd& C_);
+	Color(const Eigen::MatrixXd& _C);
 	int getColorImage(int x, int y);
 	void setColor(int index, int RGB, int color);
 	void print_Matrix();
 };
 
 
-struct Parameters
+struct VectorizationData
 {
 	Bezier* B;
 	Color* C;
-	Parameters(Bezier* _B, Color* _C) {
-		B = _B;
-		C = _C;
-	}
+	cv::Mat I;
+	VectorizationData(Bezier* _B, Color* _C, cv::Mat _I);
 };
 
 #endif

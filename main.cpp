@@ -5,12 +5,23 @@ using namespace std;
 using namespace Eigen;
 
 int main(int argc, char* argv[]) {
-	Propagation P;
-	P.propagation();
-	std::cout << "enter main" << std::endl;
 
-	Mat B = imread("../fruits.jpg");
-	imshow("Sample", B);
+	const Mat B = imread("../fruits.jpg");
+	//imshow("Sample", B);
+
+	std::cout << "Initializing vectorization ..." << std::endl;
+	vd = &initialisation(B);
+
+	signal(SIGINT, run);
+
 	waitKey();
 	return 0;
 };
+
+void run(int signum) {
+	std::cout << "Optimizing bezigons..." << std::endl;
+	Propagation P(*vd);
+	P.propagate();
+
+	signal(SIGINT, run);
+}

@@ -5,7 +5,7 @@ using namespace std;
 using namespace Eigen;
 
 //
-// Initializing Bezier entity:
+// Bezier entity:
 //
 
 Bezier::Bezier(int N) {
@@ -49,7 +49,7 @@ void Bezier::print_By() {
 
 
 //
-// Initializing Color entity:
+// Color entity:
 //
 
 Color::Color(int _dim) {
@@ -57,21 +57,28 @@ Color::Color(int _dim) {
 	C = new MatrixXd(_dim, 3);
 	C->setZero();
 };
-
-Color::Color(const MatrixXd& C_) {
-	dim = C_.rows();
+Color::Color(const MatrixXd& _C) {
+	dim = _C.rows();
 	C = new MatrixXd(dim, 3);
-	*C = C_;
+	*C = _C;
 
 };
-
 int Color::getColorImage(int x, int y) {
 	return 0;
 };
-
 void Color::setColor(int index, int RGB, int color) {
 	C->row(index)[RGB] = color;
 };
 void Color::print_Matrix() {
 	std::cout << *C << std::endl;
 };
+
+//
+// VectorizationData entity:
+//
+
+VectorizationData::VectorizationData(Bezier* _B, Color* _C, cv::Mat _I) {
+	B = _B;
+	C = _C;
+	I = _I;
+}
