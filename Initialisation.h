@@ -14,6 +14,14 @@
 
 #include "Entities.h"
 
+
+struct Vector_Points{
+    std::vector<cv::Point> vector_points;
+    cv::Mat image;
+};
+
 void initialisation();
+void onMouse(int event, int x, int y, int foo, void* p);
+void initialisation_on_mouse(cv::Mat Image);
 
 #endif
