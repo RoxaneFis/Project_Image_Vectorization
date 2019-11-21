@@ -4,6 +4,7 @@
 #define INITIALISATION_H_INCLUDED
 
 #include <iostream>
+#include <csignal>
 #include <ostream>
 
 #include <igl/opengl/glfw/Viewer.h>
@@ -13,15 +14,15 @@
 #include <opencv2/imgproc/imgproc.hpp>
 
 #include "Entities.h"
+#include "Image.h"
 
-
-struct Vector_Points{
-    std::vector<cv::Point> vector_points;
-    cv::Mat image;
+struct VectorPoints {
+	std::vector<cv::Point>* vector_points;
+	Image<cv::Vec3b> image;
 };
 
-void initialisation();
-void onMouse(int event, int x, int y, int foo, void* p);
-void initialisation_on_mouse(cv::Mat Image);
+const std::string WINDOW_NAME = "Init";
+VectorizationData initialisation(Image<cv::Vec3b> I);
+void onMouse(int event, int x, int y, int flags, void* p);
 
 #endif

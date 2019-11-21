@@ -1,7 +1,9 @@
 #include "Propagation.h"
 
-void Propagation::propagation() {
-	initialisation();
-	Energy E;
-	E.energy();
+Propagation::Propagation(VectorizationData _vd) {
+	vd = &_vd;
 };
+
+void Propagation::propagate() {
+	std::cout << "Prop" << std::endl;
+}

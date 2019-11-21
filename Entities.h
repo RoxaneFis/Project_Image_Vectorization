@@ -11,22 +11,32 @@
 #include <opencv2/highgui/highgui.hpp>
 #include <opencv2/imgproc/imgproc.hpp>
 
-class Bezier 
+#include "Image.h"
+
+class Bezier
 {
 private:
 	int Nb_bezigons;
-	Eigen::MatrixXd* Bx;
-	Eigen::MatrixXd* By;
+	const int plot_resolution = 500;
+	const int dim = 2;
+	Eigen::MatrixXi* Bx;
+	Eigen::MatrixXi* By;
 
 public:
 	Bezier(int N);
-	Bezier(const Eigen::MatrixXd& B_x, const Eigen::MatrixXd& B_y);
+	Bezier(const Eigen::MatrixXi& B_x, const Eigen::MatrixXi& B_y);
+	Bezier(const std::vector<cv::Point>& vector_points);
 	float arclength();
-	Eigen::MatrixXd intersection();
+	Eigen::MatrixXi intersection();
 	void set_point_x(int i, int j, int coord_x);
 	void set_point_y(int i, int j, int coord_y);
+	int get_ptx(int i, int j);
+	int get_pty(int i, int j);
 	void print_Bx();
 	void print_By();
+	int cubic_bezier(double t,int x0,int x1,int x2,int x3);
+	Eigen::MatrixXi cubic_interpolation(double t);
+	Eigen::MatrixXi plot_curve(Image<cv::Vec3b> I);
 };
 
 class Color
@@ -37,21 +47,19 @@ private:
 
 public:
 	Color(int _dim);
-	Color(const Eigen::MatrixXd& C_);
+	Color(const Eigen::MatrixXd& _C);
 	int getColorImage(int x, int y);
 	void setColor(int index, int RGB, int color);
 	void print_Matrix();
 };
 
 
-struct Parameters
+struct VectorizationData
 {
 	Bezier* B;
 	Color* C;
-	Parameters(Bezier* _B, Color* _C) {
-		B = _B;
-		C = _C;
-	}
+	cv::Mat I;
+	VectorizationData(Bezier* _B, Color* _C, cv::Mat _I);
 };
 
 #endif
