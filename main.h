@@ -18,7 +18,5 @@
 #include "Entities.h"
 
 int main(int argc, char* argv[]);
-void run(int signum);
-VectorizationData* vd;
 
 #endif

@@ -4,14 +4,18 @@ using namespace cv;
 using namespace std;
 using namespace Eigen;
 
-VectorizationData initialisation(const Mat& I) {
+VectorizationData initialisation(Image<cv::Vec3b> I) {
 	std::cout << "Enter initialisation" << std::endl;
 	
-	VectorPoints data_entered;
-	data_entered.image = I;
-
-	imshow(WINDOW_NAME, data_entered.image);
-	cv::setMouseCallback(WINDOW_NAME, onMouse, (void*)&data_entered);
+	VectorPoints data;
+	data.image = I;
+	vector<Point> vector_points;
+	data.vector_points = vector_points;
+	
+	namedWindow(WINDOW_NAME, 1);
+	setMouseCallback(WINDOW_NAME, onMouse, &data);
+	imshow(WINDOW_NAME, data.image);
+	waitKey(0);
 
 	Bezier* Binit = new Bezier(10);
 	Color* Cinit = new Color(10);
@@ -22,18 +26,16 @@ VectorizationData initialisation(const Mat& I) {
 
 void onMouse(int event, int x, int y, int flags, void* p){
 
-	VectorPoints* userdata = (VectorPoints*)p;
+	VectorPoints* data = (VectorPoints*)p;
 
 	if (event == EVENT_LBUTTONDOWN)
 	{
-		raise(SIGINT); //for later
 		cout << "Left button of the mouse is clicked - position (" << x << ", " << y << ")" << endl;
-		std::cout << userdata->image << std::endl;
-		std::cout << userdata->vector_points << std::endl;
 
 		Point m1(x, y);
-		userdata->vector_points.push_back(m1);
-		circle(userdata->image, m1, 2, Scalar(255, 0, 0), 2);
-		imshow(WINDOW_NAME, userdata->image);
+		cout << m1 << endl;
+		data->vector_points.push_back(m1);
+		circle(data->image, m1, 2, Scalar(255, 0, 0), 2);
+		imshow(WINDOW_NAME, data->image);
 	}
 }
