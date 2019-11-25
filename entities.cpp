@@ -63,19 +63,27 @@ std::array<std::vector<double>,2> Bezier::get_tangents(int j){
 		std::cout<<"The index is too high. The point doesn't exist"<<std::endl;
 		return tangents;
 	}
+	if (j==0){
+		//Make a loop 
+		left_tangent={get_ptx(j,0)-get_ptx(Nb_bezigons-2,2),get_pty(j,0)-get_pty(Nb_bezigons-2,2)};
+		right_tangent={get_ptx(j,2)-get_ptx(j,0),get_pty(j,2)-get_pty(j,0)};
+
+	}
 	else
 	{
 		left_tangent={get_ptx(j,0)-get_ptx(j-1,2),get_pty(j,0)-get_pty(j-1,2)};
 		right_tangent={get_ptx(j,2)-get_ptx(j,0),get_pty(j,2)-get_pty(j,0)};
-		return {left_tangent, right_tangent};
 	}
-}
+	return {left_tangent, right_tangent};
+	}
 
 
 float Bezier::arclength() {
 	//Returns the arclegth of the Bezigon
 	return 0.0;
 };
+
+int Bezier::nb_points(){return Nb_bezigons-1;}
 
 MatrixXd Bezier::intersection() {
 	//Returns points that intersect // Maybe directly in Energy?

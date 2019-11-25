@@ -30,6 +30,7 @@ public:
 	Bezier(const std::vector<cv::Point>& vector_points);
 	std::array<std::vector<double>,2> get_tangents(int j);
 	float arclength();
+	int nb_points();
 	Eigen::MatrixXd intersection();
 	void set_point_x(int i, int j, double coord_x);
 	void set_point_y(int i, int j, double coord_y);
