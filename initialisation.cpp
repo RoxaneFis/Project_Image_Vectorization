@@ -27,6 +27,7 @@ VectorizationData initialisation(Image<cv::Vec3b> I) {
 void onMouse(int event, int x, int y, int flags, void* p){
 
 	VectorPoints* data = (VectorPoints*)p;
+	cout << data->vector_points << endl;
 
 	if (event == EVENT_LBUTTONDOWN)
 	{
