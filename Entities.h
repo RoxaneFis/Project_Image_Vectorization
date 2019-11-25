@@ -10,31 +10,33 @@
 #include <igl/readPLY.h>
 #include <opencv2/highgui/highgui.hpp>
 #include <opencv2/imgproc/imgproc.hpp>
+#include <math.h>
 
 #include "Image.h"
 
 class Bezier
 {
 private:
-	int Nb_bezigons;
-	const int plot_resolution = 500;
+	const int plot_resolution = 50;
 	const int dim = 2;
-	Eigen::MatrixXi* Bx;
-	Eigen::MatrixXi* By;
+	Eigen::MatrixXd* Bx;
+	Eigen::MatrixXd* By;
 
 public:
+	int Nb_bezigons;
 	Bezier(int N);
-	Bezier(const Eigen::MatrixXi& B_x, const Eigen::MatrixXi& B_y);
+	Bezier(const Eigen::MatrixXd& B_x, const Eigen::MatrixXd& B_y);
 	Bezier(const std::vector<cv::Point>& vector_points);
+	std::array<std::vector<double>,2> get_tangents(int j);
 	float arclength();
-	Eigen::MatrixXi intersection();
-	void set_point_x(int i, int j, int coord_x);
-	void set_point_y(int i, int j, int coord_y);
-	int get_ptx(int i, int j);
-	int get_pty(int i, int j);
+	Eigen::MatrixXd intersection();
+	void set_point_x(int i, int j, double coord_x);
+	void set_point_y(int i, int j, double coord_y);
+	double get_ptx(int i, int j);
+	double get_pty(int i, int j);
 	void print_Bx();
 	void print_By();
-	int cubic_bezier(double t,int x0,int x1,int x2,int x3);
+	double cubic_bezier(double t,int x0,int x1,int x2,int x3);
 	Eigen::MatrixXi cubic_interpolation(double t);
 	Eigen::MatrixXi plot_curve(Image<cv::Vec3b> I);
 };

@@ -17,9 +17,12 @@ VectorizationData initialisation(Image<cv::Vec3b> I) {
 	setMouseCallback(WINDOW_NAME, onMouse, &data);
 	imshow(WINDOW_NAME, data.image);
 	waitKey(0);
+	std::cout << vector_points->size()<<" points ont été rentré" << std::endl;
 
 	Bezier* Binit = new Bezier(*vector_points);
-  Binit->plot_curve(I);
+  	Binit->plot_curve(I);
+
+	std::array<std::vector<double>,2> tange = Binit->get_tangents(1);
 	Color* Cinit = new Color(10);
 	VectorizationData initData(Binit, Cinit, I);
 
