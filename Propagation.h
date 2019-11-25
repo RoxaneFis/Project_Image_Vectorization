@@ -18,6 +18,8 @@ class Propagation {
 private:
 	VectorizationData* vd;
 public:
+	VectorizationData* vd;
+	Energy energy;
 	Propagation(VectorizationData _vd);
 	void propagate();
 };
