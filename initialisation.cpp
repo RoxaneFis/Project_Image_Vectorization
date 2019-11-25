@@ -18,7 +18,10 @@ VectorizationData initialisation(Image<cv::Vec3b> I) {
 	imshow(WINDOW_NAME, data.image);
 	waitKey(0);
 	std::cout << vector_points->size()<<" points ont été rentré" << std::endl;
+	std::cout << std::endl;
 
+	//Add the first point at the end to loop
+	vector_points->push_back((*vector_points)[0]);
 	Bezier* Binit = new Bezier(*vector_points);
   	Binit->plot_curve(I);
 

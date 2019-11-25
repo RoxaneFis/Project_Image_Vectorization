@@ -13,6 +13,7 @@
 #include <math.h>
 
 #include "Image.h"
+#include "Utils.h"
 
 class Bezier
 {
