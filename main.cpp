@@ -12,14 +12,15 @@ int main(int argc, char* argv[]) {
 	std::cout << "Initializing vectorization ..." << std::endl;
 	VectorizationData vd = initialisation(B);
 	
-	test_compute_angles(vd);
-	test_compute_energy_angles(vd);
 
 	std::cout << "Optimizing bezigons..." << std::endl;
 	Propagation P(vd);
 	P.propagate();
 
 
+	test_compute_angles(vd);
+	test_compute_energy_angles(vd);
+	test_compute_bezier_handles(vd);
 
 	waitKey();
 	return 0;

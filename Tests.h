@@ -12,10 +12,11 @@
 #include <opencv2/imgproc/imgproc.hpp>
 
 #include "Entities.h"
+#include "Energy.h"
 
 void test_compute_angles(VectorizationData vd);
 void test_compute_energy_angles(VectorizationData vd);
-
+void test_compute_bezier_handles(VectorizationData vd);
 
 #endif
 

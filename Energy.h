@@ -17,7 +17,11 @@
 class Energy {
 public:
 	Energy();
+	double energy_angles(Bezier B, int point);
 	double energy_angles(Bezier B);
+	double energy_bezier_handles(Bezier B, int point);
+	double energy_bezier_handles(Bezier B);
+
 };
 
 
