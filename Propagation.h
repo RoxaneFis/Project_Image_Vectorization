@@ -15,8 +15,6 @@
 #include "Energy.h"
 
 class Propagation {
-private:
-	VectorizationData* vd;
 public:
 	VectorizationData* vd;
 	Energy energy;
