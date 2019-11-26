@@ -1,7 +1,7 @@
 #pragma once
 
-#ifndef PROPAGATION_H_INCLUDED
-#define PROPAGATION_H_INCLUDED
+#ifndef TESTS_H_INCLUDED
+#define TESTS_H_INCLUDED
 
 #include <iostream>
 #include <ostream>
@@ -14,12 +14,14 @@
 #include "Entities.h"
 #include "Energy.h"
 
-class Propagation {
-public:
-	VectorizationData* vd;
-	Energy energy;
-	Propagation(VectorizationData _vd);
-	void propagate();
-};
+void test_compute_angles(VectorizationData vd);
+void test_compute_energy_angles(VectorizationData vd);
+void test_compute_bezier_handles(VectorizationData vd);
 
 #endif
+
+
+
+
+
+

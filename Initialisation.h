@@ -17,7 +17,7 @@
 #include "Image.h"
 
 struct VectorPoints {
-	std::vector<cv::Point> vector_points;
+	std::vector<cv::Point>* vector_points;
 	Image<cv::Vec3b> image;
 };
 

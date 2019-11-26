@@ -12,10 +12,18 @@
 #include <opencv2/imgproc/imgproc.hpp>
 
 #include "RMS.h"
+#include "Entities.h"
 
 class Energy {
 public:
-	void energy();
+	Energy();
+	double energy_angles(Bezier B, int point);
+	double energy_angles(Bezier B);
+	double energy_bezier_handles(Bezier B, int point);
+	double energy_bezier_handles(Bezier B);
+
 };
+
+
 
 #endif
