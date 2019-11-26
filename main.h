@@ -16,6 +16,7 @@
 #include "Initialisation.h"
 #include "Propagation.h"
 #include "Entities.h"
+#include "RMS.h"
 
 int main(int argc, char* argv[]);
 
