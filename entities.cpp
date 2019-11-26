@@ -23,54 +23,67 @@ Bezier::Bezier(const MatrixXd& B_x, const MatrixXd& B_y) {
 	*Bx = B_x;
 	*By = B_y;
 };
+
+
 Bezier::Bezier(const std::vector<cv::Point>& vector_points){
 	//Initialise Bezier matrices from a Vector of points. If the number of points
 	//differs from 3*n, we add the last one several times.
 	int jj=0;
-	int nb_points = vector_points.size();
-	Nb_bezigons = ceil((double(nb_points)/3.0));
-	int remaining_points=Nb_bezigons*3-nb_points;
+	Nb_bezigons = vector_points.size();
 	By = new MatrixXd(Nb_bezigons, 3);
 	Bx = new MatrixXd(Nb_bezigons, 3);
-	for(int ii=0; ii<nb_points;ii++){
-			Bx->row(int(ii/3))[jj]=double(vector_points[ii].x);
-			By->row(int(ii/3))[jj]=double(vector_points[ii].y);
-			jj=int((jj+1)%3);
-			
+	std::array<cv::Point,2> tangent_points;
+	for(int ii=0;ii<Nb_bezigons;ii++){
+		if(ii==Nb_bezigons-1){ // We loop so: end point = first point
+			tangent_points = barycenters(0.3, vector_points[0], vector_points[1]);
 		}
-	//Add the last point several times
-	for (int ii=0;ii<remaining_points;ii++){
-			Bx->row(Nb_bezigons-1)[jj]=double(vector_points[nb_points-1].x);
-			By->row(Nb_bezigons-1)[jj]=double(vector_points[nb_points-1].y);
-			jj=int((jj+1)%3);}
+		else{
+			tangent_points = barycenters(0.3, vector_points[ii], vector_points[ii+1]);}
+		
+		Bx->row(int(ii))[0]=double(vector_points[ii].x);
+		Bx->row(int(ii))[1]=tangent_points[0].x;
+		Bx->row(int(ii))[2]=tangent_points[1].x;
+		
+		By->row(int(ii))[0]=double(vector_points[ii].y);
+		By->row(int(ii))[1]=tangent_points[0].y;
+		By->row(int(ii))[2]=tangent_points[1].y;
+	}
 }
+
+
+
+
 std::array<std::vector<double>,2> Bezier::get_tangents(int j){
 	//Returns left et right tangents of a point
 	//FIXME : doesnt take first and last true points into account
 	std::array<std::vector<double>,2> tangents;
 	vector<double> left_tangent(2) ;
 	vector<double> right_tangent(2) ;
-	if (j==0){
-		std::cout<<"Error :Point at the beginning of the curve"<<std::endl;
-		return tangents;
-	}
 	if (j>=Nb_bezigons){
 		std::cout<<"The index is too high. The point doesn't exist"<<std::endl;
 		return tangents;
+	}
+	if (j==0){
+		//Make a loop 
+		left_tangent={get_ptx(j,0)-get_ptx(Nb_bezigons-2,2),get_pty(j,0)-get_pty(Nb_bezigons-2,2)};
+		right_tangent={get_ptx(j,2)-get_ptx(j,0),get_pty(j,2)-get_pty(j,0)};
+
 	}
 	else
 	{
 		left_tangent={get_ptx(j,0)-get_ptx(j-1,2),get_pty(j,0)-get_pty(j-1,2)};
 		right_tangent={get_ptx(j,2)-get_ptx(j,0),get_pty(j,2)-get_pty(j,0)};
-		return {left_tangent, right_tangent};
 	}
-}
+	return {left_tangent, right_tangent};
+	}
 
 
 float Bezier::arclength() {
 	//Returns the arclegth of the Bezigon
 	return 0.0;
 };
+
+int Bezier::nb_points(){return Nb_bezigons-1;}
 
 MatrixXd Bezier::intersection() {
 	//Returns points that intersect // Maybe directly in Energy?

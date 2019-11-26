@@ -1,0 +1,27 @@
+#pragma once
+
+#ifndef TESTS_H_INCLUDED
+#define TESTS_H_INCLUDED
+
+#include <iostream>
+#include <ostream>
+
+#include <igl/opengl/glfw/Viewer.h>
+#include <igl/readPLY.h>
+#include <opencv2/highgui/highgui.hpp>
+#include <opencv2/imgproc/imgproc.hpp>
+
+#include "Entities.h"
+#include "Energy.h"
+
+void test_compute_angles(VectorizationData vd);
+void test_compute_energy_angles(VectorizationData vd);
+void test_compute_bezier_handles(VectorizationData vd);
+
+#endif
+
+
+
+
+
+
