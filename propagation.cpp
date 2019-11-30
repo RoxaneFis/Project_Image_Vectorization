@@ -7,5 +7,4 @@ Propagation::Propagation(VectorizationData _vd) {
 
 void Propagation::propagate() {
 	double energyAngles = energy.energy_angles(*(vd->B));
-	std::cout << "Prop" << std::endl;
 }

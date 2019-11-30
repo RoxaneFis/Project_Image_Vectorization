@@ -18,8 +18,6 @@ option(LIBIGL_WITH_OPENGL_GLFW       "Use GLFW"           ON)
 find_package(LIBIGL REQUIRED QUIET)
 
 
-INCLUDE_DIRECTORIES(${OpenCV_INCLUDE_DIRS})
-
 file(GLOB SRCFILES *.cpp)
 file(GLOB HEADERFILES *.h)
 add_executable(image_vect ${SRCFILES} ${HEADERFILES})

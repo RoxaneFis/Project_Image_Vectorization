@@ -5,8 +5,7 @@ using namespace std;
 using namespace Eigen;
 
 VectorizationData initialisation(Image<cv::Vec3b> I) {
-	std::cout << "Enter initialisation : Make sur you enter 3*n points" << std::endl;
-	
+
 	VectorPoints data;
 	data.image = I;
 	vector<Point> *vector_points = new vector<Point>;
@@ -17,13 +16,12 @@ VectorizationData initialisation(Image<cv::Vec3b> I) {
 	setMouseCallback(WINDOW_NAME, onMouse, &data);
 	imshow(WINDOW_NAME, data.image);
 	waitKey(0);
-	std::cout << vector_points->size()<<" points ont été rentré" << std::endl;
+	std::cout << vector_points->size()<<" points have been entered" << std::endl;
 	std::cout << std::endl;
 
 	//Add the first point at the end to loop
-	vector_points->push_back((*vector_points)[0]);
+	//vector_points->push_back((*vector_points)[0]);
 	Bezier* Binit = new Bezier(*vector_points);
-  	Binit->plot_curve(I);
 
 	std::array<std::vector<double>,2> tange = Binit->get_tangents(1);
 	Color* Cinit = new Color(10);
@@ -41,9 +39,8 @@ void onMouse(int event, int x, int y, int flags, void* p){
 		cout << "Left button of the mouse is clicked - position (" << x << ", " << y << ")" << endl;
 
 		Point m1(x, y);
-		cout << m1 << endl;
 		data->vector_points->push_back(m1);
-		circle(data->image, m1, 2, Scalar(255, 0, 0), 2);
+		circle(data->image, m1, 1, Scalar(255, 0, 0), 2);
 		imshow(WINDOW_NAME, data->image);
 	}
 }

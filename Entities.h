@@ -28,19 +28,25 @@ public:
 	Bezier(int N);
 	Bezier(const Eigen::MatrixXd& B_x, const Eigen::MatrixXd& B_y);
 	Bezier(const std::vector<cv::Point>& vector_points);
-	std::array<std::vector<double>,2> get_tangents(int j);
+	std::array<std::vector<double>, 2> get_tangents(int j);
 	float arclength();
 	int nb_points();
 	Eigen::MatrixXd intersection();
+
 	void set_point_x(int i, int j, double coord_x);
 	void set_point_y(int i, int j, double coord_y);
 	double get_ptx(int i, int j);
 	double get_pty(int i, int j);
+	Eigen::MatrixXd get_Bx();
+	Eigen::MatrixXd get_By();
+
 	void print_Bx();
 	void print_By();
-	double cubic_bezier(double t,int x0,int x1,int x2,int x3);
+
+	double cubic_bezier(double t, int x0, int x1, int x2, int x3);
 	Eigen::MatrixXi cubic_interpolation(double t);
-	Eigen::MatrixXi plot_curve(Image<cv::Vec3b> I);
+	Eigen::MatrixXi get_sample_points();
+	void plot_curve(Image<cv::Vec3b> I);
 };
 
 class Color
