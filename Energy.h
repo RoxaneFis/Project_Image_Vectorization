@@ -10,8 +10,6 @@
 #include <igl/readPLY.h>
 #include <opencv2/highgui/highgui.hpp>
 #include <opencv2/imgproc/imgproc.hpp>
-#include <dlib/global_optimization.h>
-
 
 #include "RMS.h"
 #include "Entities.h"
@@ -31,7 +29,7 @@ public:
 
 
 	double energy_tot(VectorizationData vd, int j );
-	double energy_to_minimize(VectorizationData vd, int j, dlib::matrix<double,10,1>x );
+
 
 };
 

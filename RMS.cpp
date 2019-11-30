@@ -51,31 +51,52 @@ bool is_interior(Point p, MatrixXi curve) {
 			count++;
 		};
 	}
-	if ((curve.row(nb_points - 1)[1] - p.y) * (curve.row(0)[1] - p.y) <= 0 && (curve.row(0)[1] - p.y) != 0 && curve.row(0)[0] < p.x && curve.row(nb_points - 1)[0] < p.x) {
+	if ((curve.row(nb_points - 1)[1] - p.y) * (curve.row(0)[1] - p.y) <= 0
+		&& (curve.row(0)[1] - p.y) != 0
+		&& curve.row(0)[0] < p.x
+		&& curve.row(nb_points - 1)[0] < p.x) {
 		count++;
 	};
 	return count % 2 == 1;
 };
 
 
-Image<cv::Vec3b> get_rasterized(VectorizationData vd){
-	Vec3b blanc = {255,255,255};
-	Vec3b couleur = {0,0,255};
+Image<Vec3b> get_rasterized(VectorizationData vd) {
+	Vec3b white = { 255,255,255 };
+	Vec3b black = { 0,0,0 };
 
-	Image<cv::Vec3b> I_int(vd.I.rows, vd.I.cols);
+	Vec3f aux_color = { 0,0,0 };
+	Vec3b color = { 0,0,255 };
+
+	Image<Vec3b> I_int(vd.I.width(), vd.I.height());
 	MatrixXi curve = vd.B->get_sample_points();
-	//cout << curve << endl;
-	//cout << vd.B->get_Bx() << endl;
-	for (size_t ii = 0; ii < vd.I.rows; ii++) {
-		for (size_t jj = 0; jj < vd.I.cols; jj++) {
-			I_int(ii, jj) = is_interior(Point(ii, jj), curve) ? couleur:blanc; ;
+	int count_int = 0;
+	for (size_t xx = 0; xx < vd.I.width(); xx++) {
+		for (size_t yy = 0; yy < vd.I.height(); yy++) {
+			if (is_interior(Point(xx, yy), curve)) {
+				I_int(xx, yy) = black;
+				count_int++;
+				aux_color += vd.I(xx, yy);
+			}
+			else {
+				I_int(xx, yy) = white;
+			}
 		}
 	};
+	color = aux_color / count_int;
+	for (size_t xx = 0; xx < vd.I.width(); xx++) {
+		for (size_t yy = 0; yy < vd.I.height(); yy++) {
+			if (I_int(xx, yy) == black) {
+				I_int(xx, yy) = color;
+			}
+		}
+	};
+
 	return I_int;
 
 }
 void show_interior(VectorizationData vd) {
-	Image<cv::Vec3b> I_int = get_rasterized(vd);
+	Image<Vec3b> I_int = get_rasterized(vd);
 	imshow("Rasterized Image", I_int);
 }
 

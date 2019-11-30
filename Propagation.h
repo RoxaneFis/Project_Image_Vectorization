@@ -10,12 +10,9 @@
 #include <igl/readPLY.h>
 #include <opencv2/highgui/highgui.hpp>
 #include <opencv2/imgproc/imgproc.hpp>
-#include <dlib/global_optimization.h>
 
 #include "Entities.h"
 #include "Energy.h"
-
-using namespace dlib;
 
 class Propagation {
 public:

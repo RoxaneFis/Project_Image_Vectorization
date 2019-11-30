@@ -96,30 +96,6 @@ MatrixXd Bezier::get_Bx() {
 MatrixXd Bezier::get_By() {
 	return *By;
 };
-void Bezier::print_Bx() {
-	std::cout <<"Print Bx "<< endl;
-	cout<<*Bx << std::endl;
-};
-void Bezier::print_By() {
-	std::cout <<"Print By"<< endl;
-	cout<<*By << std::endl;
-};
-
-void Bezier::update(dlib::matrix<double,10,1>x, int j){
-	if(j<Nb_bezigons-1){
-		set_point_x(j,1,x(0));
-		set_point_x(j,2,x(1));
-		set_point_x(j+1,0,x(2));
-		set_point_x(j+1,1,x(3));
-		set_point_x(j+1,2,x(4));
-
-		set_point_y(j,1,x(5));
-		set_point_y(j,2,x(6));
-		set_point_y(j+1,0,x(7));
-		set_point_y(j+1,1,x(8));
-		set_point_y(j+1,2,x(9));
-	}
-};
 
 double Bezier::cubic_bezier(double t, int x0, int x1, int x2, int x3) {
 	double s = 1 - t;
@@ -192,7 +168,7 @@ void Color::print_Matrix() {
 // VectorizationData entity:
 //
 
-VectorizationData::VectorizationData(Bezier* _B, Color* _C, cv::Mat _I) {
+VectorizationData::VectorizationData(Bezier* _B, Color* _C, Image<Vec3b> _I) {
 	B = _B;
 	C = _C;
 	I = _I;

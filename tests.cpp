@@ -33,11 +33,10 @@ void test_compute_energy_angles(VectorizationData vd) {
 };
 
 
-void test_compute_energy_data(VectorizationData vd){
+void test_compute_energy_data(VectorizationData vd) {
 	Energy* E = new Energy();
 	std::cout << "TEST The Energy data is " << E->energy_data(vd) << std::endl;
 	std::cout << std::endl;
-
 }
 
 void test_compute_bezier_handles(VectorizationData vd) {

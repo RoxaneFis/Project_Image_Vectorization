@@ -11,7 +11,6 @@
 #include <opencv2/highgui/highgui.hpp>
 #include <opencv2/imgproc/imgproc.hpp>
 #include <math.h>
-#include <dlib/global_optimization.h>
 
 #include "Image.h"
 #include "Utils.h"
@@ -39,9 +38,6 @@ public:
 	double get_pty(int i, int j);
 	Eigen::MatrixXd get_Bx();
 	Eigen::MatrixXd get_By();
-	void update(dlib::matrix<double,10,1> x, int j);
-	void print_Bx();
-	void print_By();
 
 	double cubic_bezier(double t, int x0, int x1, int x2, int x3);
 	Eigen::MatrixXi cubic_interpolation(double t);
@@ -68,8 +64,8 @@ struct VectorizationData
 {
 	Bezier* B;
 	Color* C;
-	cv::Mat I;
-	VectorizationData(Bezier* _B, Color* _C, cv::Mat _I);
+	Image<Vec3b> I;
+	VectorizationData(Bezier* _B, Color* _C, Image<Vec3b> _I);
 };
 
 #endif
