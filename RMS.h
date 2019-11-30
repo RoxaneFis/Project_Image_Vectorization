@@ -12,7 +12,7 @@
 #include <opencv2/imgproc/imgproc.hpp>
 
 #include "Entities.h"
-#include "image.h"
+#include "Image.h"
 
 void rms();
 int phi(double t);

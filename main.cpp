@@ -14,7 +14,7 @@ int main(int argc, char* argv[]) {
 
 	cout << ">>> Optimizing bezigons..." << endl << endl;
 	Propagation P(vd);
-	P.propagate();
+	P.propagate(3);
 
 	//test_compute_angles(vd);
 	//test_compute_energy_angles(vd);

@@ -11,6 +11,7 @@
 #include <opencv2/highgui/highgui.hpp>
 #include <opencv2/imgproc/imgproc.hpp>
 #include <math.h>
+#include <dlib/global_optimization.h>
 
 #include "Image.h"
 #include "Utils.h"
@@ -32,14 +33,13 @@ public:
 	float arclength();
 	int nb_points();
 	Eigen::MatrixXd intersection();
-
 	void set_point_x(int i, int j, double coord_x);
 	void set_point_y(int i, int j, double coord_y);
 	double get_ptx(int i, int j);
 	double get_pty(int i, int j);
 	Eigen::MatrixXd get_Bx();
 	Eigen::MatrixXd get_By();
-
+	void update(dlib::matrix<double,10,1> x, int j);
 	void print_Bx();
 	void print_By();
 

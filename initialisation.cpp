@@ -36,10 +36,20 @@ void onMouse(int event, int x, int y, int flags, void* p){
 
 	if (event == EVENT_LBUTTONDOWN)
 	{
-		cout << "Left button of the mouse is clicked - position (" << x << ", " << y << ")" << endl;
-
 		Point m1(x, y);
-		data->vector_points->push_back(m1);
+		Point end;
+
+		if(data->vector_points->size()==0){
+			cout << "Left button of the mouse is clicked - position (" << x << ", " << y << ")" << endl;
+			data->vector_points->push_back(m1);
+		}
+		else{
+			end = (*(data->vector_points)).back();
+			if(end!=m1){
+				cout << "Left button of the mouse is clicked - position (" << x << ", " << y << ")" << endl;
+				data->vector_points->push_back(m1);}
+			else{cout<<"Please enter another point"<<endl;}
+			}
 		circle(data->image, m1, 1, Scalar(255, 0, 0), 2);
 		imshow(WINDOW_NAME, data->image);
 	}

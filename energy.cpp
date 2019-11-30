@@ -52,3 +52,16 @@ double Energy::energy_bezier_handles(Bezier B){
 	}
 	
 
+
+double Energy::energy_tot(Bezier B, int j){
+
+	double energy= lambda_angles*energy_angles(B,j)+lambda_handles*energy_bezier_handles(B,j);
+	return energy;
+	
+};
+
+double Energy::energy_to_minimize(Bezier B, int j, dlib::matrix<double,10,1>x){
+	B.update(x,j);
+	return energy_tot(B,j);
+}
+	
