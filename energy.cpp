@@ -49,19 +49,34 @@ double Energy::energy_bezier_handles(Bezier B){
 			energy = energy+energy_bezier_handles(B,j);
 		}
 		return energy;
-	}
+};
+
+double Energy::energy_data(VectorizationData vd){
+	double lo = 100000.0*100000.0;
+	double energy = 0.0;
+	Image<float> rasterized = get_rasterized(vd);
+	for (size_t ii = 0; ii < vd.I.rows; ii++) {
+		for (size_t jj = 0; jj < vd.I.cols; jj++) {
+			Vec3b ras = rasterized.at<Vec3b>(ii, jj);
+			Vec3b im = vd.I.at<Vec3b>(ii, jj);
+			energy += pow(norm((ras)-(im)),2);
+		}
+	};
+	return energy/lo;
+};
 	
 
 
-double Energy::energy_tot(Bezier B, int j){
+double Energy::energy_tot(VectorizationData vd, int j){
 
-	double energy= lambda_angles*energy_angles(B,j)+lambda_handles*energy_bezier_handles(B,j);
-	return energy;
+	double energy_prior= lambda_angles*energy_angles(*(vd.B),j)+lambda_handles*energy_bezier_handles(*(vd.B),j);
+	double energy =energy_data(vd);
+	return energy+energy_prior;
 	
 };
 
-double Energy::energy_to_minimize(Bezier B, int j, dlib::matrix<double,10,1>x){
-	B.update(x,j);
-	return energy_tot(B,j);
+double Energy::energy_to_minimize(VectorizationData vd, int j, dlib::matrix<double,10,1>x){
+	vd.B->update(x,j);
+	return energy_tot(vd,j);
 }
 	

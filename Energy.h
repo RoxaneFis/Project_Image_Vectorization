@@ -26,8 +26,12 @@ public:
 	double energy_angles(Bezier B);
 	double energy_bezier_handles(Bezier B, int point);
 	double energy_bezier_handles(Bezier B);
-	double energy_tot(Bezier B, int j );
-	double energy_to_minimize(Bezier B, int j, dlib::matrix<double,10,1>x );
+
+	double energy_data(VectorizationData vd);
+
+
+	double energy_tot(VectorizationData vd, int j );
+	double energy_to_minimize(VectorizationData vd, int j, dlib::matrix<double,10,1>x );
 
 };
 

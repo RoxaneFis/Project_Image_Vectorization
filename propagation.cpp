@@ -11,7 +11,7 @@ void Propagation::propagate(int nb_iterations) {
 
 		//By calling energy_unknown, vd->B is updated
 		auto energy_unknown = [this,j](matrix<double,10,1>x) 
-		{return energy->energy_to_minimize(*(this->vd->B),j,x); };
+		{return energy->energy_to_minimize(*(this->vd),j,x); };
 
 		// auto result =find_min_global(energy_unknown,{0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1}, {2.1,2.1,2.1,2.1,2.1,2.1,2.1,2.1,2.1,2.1},max_function_calls(100),0);
 	    // auto rosen = [](const matrix<double,0,1>& x) { return -1*( 100*std::pow(x(1) - x(0)*x(0),2.0) + std::pow(1 - x(0),2)); };

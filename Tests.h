@@ -17,6 +17,7 @@
 
 void test_compute_angles(VectorizationData vd);
 void test_compute_energy_angles(VectorizationData vd);
+void test_compute_energy_data(VectorizationData vd);
 void test_compute_bezier_handles(VectorizationData vd);
 void test_show_rms(VectorizationData vd);
 

@@ -57,16 +57,25 @@ bool is_interior(Point p, MatrixXi curve) {
 	return count % 2 == 1;
 };
 
-void show_interior(VectorizationData vd) {
-	Image<float> I_int(vd.I.rows, vd.I.cols);
+
+Image<cv::Vec3b> get_rasterized(VectorizationData vd){
+	Vec3b blanc = {255,255,255};
+	Vec3b couleur = {0,0,255};
+
+	Image<cv::Vec3b> I_int(vd.I.rows, vd.I.cols);
 	MatrixXi curve = vd.B->get_sample_points();
 	//cout << curve << endl;
 	//cout << vd.B->get_Bx() << endl;
 	for (size_t ii = 0; ii < vd.I.rows; ii++) {
 		for (size_t jj = 0; jj < vd.I.cols; jj++) {
-			I_int(ii, jj) = is_interior(Point(ii, jj), curve) ? 0 : 1;
+			I_int(ii, jj) = is_interior(Point(ii, jj), curve) ? couleur:blanc; ;
 		}
 	};
+	return I_int;
+
+}
+void show_interior(VectorizationData vd) {
+	Image<cv::Vec3b> I_int = get_rasterized(vd);
 	imshow("Rasterized Image", I_int);
 }
 

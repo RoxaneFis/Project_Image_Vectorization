@@ -19,7 +19,7 @@
 class Bezier
 {
 private:
-	const int plot_resolution = 50;
+	const int plot_resolution = 5;
 	const int dim = 2;
 	Eigen::MatrixXd* Bx;
 	Eigen::MatrixXd* By;

@@ -19,6 +19,7 @@ int main(int argc, char* argv[]) {
 	//test_compute_angles(vd);
 	//test_compute_energy_angles(vd);
 	//test_compute_bezier_handles(vd);
+	test_compute_energy_data(vd);
 	test_show_rms(vd);
 
 	waitKey();
