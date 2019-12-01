@@ -62,16 +62,20 @@ double Energy::energy_data(VectorizationData vd) {
 			energy += pow(norm((ras)-(im)), 2);
 		}
 	};
-	return energy / lo;
+	return energy / (lo*10000000);
 };
 
 
 
 double Energy::energy_tot(VectorizationData vd, int j) {
-
 	double energy_prior = lambda_angles * energy_angles(*(vd.B), j) + lambda_handles * energy_bezier_handles(*(vd.B), j);
 	double energy = energy_data(vd);
 	return energy + energy_prior;
 
 };
+
+
+double Energy::energy_to_minimize(VectorizationData vd, int j, const arma::vec& vals_inp){
+	return energy_tot(vd,j);
+}
 

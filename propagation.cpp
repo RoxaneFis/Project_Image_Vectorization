@@ -7,36 +7,34 @@ Propagation::Propagation(VectorizationData _vd) {
 
 
 
-double ackley_fn(const arma::vec& vals_inp, arma::vec* grad_out, void* opt_data)
-{
-    const double x = vals_inp(0);
-    const double y = vals_inp(1);
-    const double pi = arma::datum::pi;
+// double cost_function(const arma::vec& vals_inp, arma::vec* grad_out, void* opt_data)
+// {
+// 	Energy* energy = new Energy();
+// 	return energy->energy_to_minimize()
 
-    double obj_val = -20*std::exp( -0.2*std::sqrt(0.5*(x*x + y*y)) ) - std::exp( 0.5*(std::cos(2*pi*x) + std::cos(2*pi*y)) ) + 22.718282L;
-
-    //
-
-    return obj_val;
-}
+// }
 
 void Propagation::propagate(int nb_iterations) {
 	std::cout << ">>>Enter Propragation" << std::endl;
-    // initial values:
-    arma::vec x = arma::ones(2,1) + 1.0; // (2,2)
+	for (int jj=0; jj<vd->B->Nb_bezigons; jj++){
+		//Call to energy_to_minimize : B is updated
+		auto energy_unknown = [this,jj](const arma::vec& vals_inp, arma::vec* grad_out, void* opt_data) 
+		{ 	this->vd->B->update(vals_inp,jj);
+			return energy->energy_tot(*vd,jj);};
 
-    //
-    std::chrono::time_point<std::chrono::system_clock> start = std::chrono::system_clock::now();
-    bool success = optim::de(x,ackley_fn,nullptr);
-    std::chrono::time_point<std::chrono::system_clock> end = std::chrono::system_clock::now();
-    std::chrono::duration<double> elapsed_seconds = end-start;
-    if (success) {
-        std::cout << "de: Ackley test completed successfully.\n"
-                  << "elapsed time: " << elapsed_seconds.count() << "s\n";
-    } else {
-        std::cout << "de: Ackley test completed unsuccessfully." << std::endl;
-    }
-    arma::cout << "\nde: solution to Ackley test:\n" << x << arma::endl;
+		// arma::vec* grad_out;
+		// void* opt_data;
+    	
+		// vd->B->print_Bx();
+		// arma::vec x = vd->B->input_propagation(jj); 
+		// arma::cout << "x_in" << x << arma::endl;
+		// arma::cout << "erngy" << energy->energy_tot(*vd,jj) << arma::endl;
+		// arma::cout << "erngy_U" << energy_unknown(x,grad_out,opt_data) << arma::endl;
+
+    	// //bool success = optim::de(x,energy_unknown,nullptr);
+		// bool success = optim::gd(x,energy_unknown,nullptr);
+		// arma::cout << "\nde: solution to Ackley test:\n" << x << arma::endl;
+	}
 
 }
 

@@ -8,6 +8,7 @@ using namespace Eigen;
 // Bezier entity:
 //
 
+//CONSTRUCTORS
 Bezier::Bezier(int N) {
 	Nb_bezigons = N;
 	By = new Eigen::MatrixXd(N, 3);
@@ -29,7 +30,6 @@ Bezier::Bezier(const MatrixXd& B_x, const MatrixXd& B_y) {
 
 };
 
-
 Bezier::Bezier(const std::vector<cv::Point>& vector_points) {
 	int jj = 0;
 	Nb_bezigons = vector_points.size();
@@ -48,6 +48,45 @@ Bezier::Bezier(const std::vector<cv::Point>& vector_points) {
 	lo = get_arclength();
 
 }
+
+//SET 
+void Bezier::set_point_x(int i, int j, double coord_x) {
+	Bx->row(i)[j] = coord_x;
+};
+void Bezier::set_point_y(int i, int j, double coord_y) {
+	By->row(i)[j] = coord_y;
+};
+
+//GET
+int Bezier::nb_points() { return Nb_bezigons - 1; }
+double Bezier::get_ptx(int i, int j) {
+	return Bx->row(i)[j];
+};
+double Bezier::get_pty(int i, int j) {
+	return By->row(i)[j];
+};
+MatrixXd Bezier::get_Bx() {
+	return *Bx;
+};
+MatrixXd Bezier::get_By() {
+	return *By;
+};
+
+double Bezier::get_arclength() {
+	//Approimation by sum
+	double t, diff_y,diff_x;
+	double length =0.0;
+	MatrixXi previous_point = curve.row(0);
+	MatrixXi actual_point;
+	for (int ii = 1; ii < plot_resolution*Nb_bezigons; ii++) {
+		actual_point = curve.row(ii);
+		diff_x = (actual_point(0,0)-previous_point(0,0))/double(plot_resolution*Nb_bezigons);
+		diff_y = (actual_point(0,1)-previous_point(0,1))/double(plot_resolution*Nb_bezigons);
+		length += std::sqrt( pow(diff_x,2)+ pow(diff_y,2) );
+		previous_point = actual_point;
+	 }
+	return length;
+};
 
 std::array<std::vector<double>, 2> Bezier::get_tangents(int j) {
 	//Returns left et right tangents of a point
@@ -73,32 +112,33 @@ std::array<std::vector<double>, 2> Bezier::get_tangents(int j) {
 	return { left_tangent, right_tangent };
 }
 
+//PRINT
+void Bezier::print_Bx() {
+	std::cout <<"Print Bx "<< endl;
+	cout<<*Bx << std::endl;
+};
+
+void Bezier::print_By() {
+	std::cout <<"Print By "<< endl;
+	cout<<*By << std::endl;
+};
+
+void Bezier::plot_curve(Image<cv::Vec3b> I) {
+	for (int i = 0; i < curve.rows(); i++) {
+		Point m1 = Point(curve.row(i)[0], curve.row(i)[1]);
+		circle(I, m1, 1, cv::Scalar(0, 255, 0), 2);
+		imshow("Plot bezier", I);
+		waitKey(1);
+	}
+}
 
 
-int Bezier::nb_points() { return Nb_bezigons - 1; }
 
+//FUNCTIONS
 MatrixXd Bezier::intersection() {
 	//Returns points that intersect // Maybe directly in Energy?
 	MatrixXd inter;
 	return inter;
-};
-void Bezier::set_point_x(int i, int j, double coord_x) {
-	Bx->row(i)[j] = coord_x;
-};
-void Bezier::set_point_y(int i, int j, double coord_y) {
-	By->row(i)[j] = coord_y;
-};
-double Bezier::get_ptx(int i, int j) {
-	return Bx->row(i)[j];
-};
-double Bezier::get_pty(int i, int j) {
-	return By->row(i)[j];
-};
-MatrixXd Bezier::get_Bx() {
-	return *Bx;
-};
-MatrixXd Bezier::get_By() {
-	return *By;
 };
 
 double Bezier::cubic_bezier(double t, int x0, int x1, int x2, int x3) {
@@ -131,31 +171,41 @@ MatrixXi Bezier::get_sample_points() {
 	return curve;
 }
 
-double Bezier::get_arclength() {
-	//Approimation by sum
-	double t, diff_y,diff_x;
-	double length =0.0;
-	MatrixXi previous_point = curve.row(0);
-	MatrixXi actual_point;
-	for (int ii = 1; ii < plot_resolution*Nb_bezigons; ii++) {
-		actual_point = curve.row(ii);
-		diff_x = (actual_point(0,0)-previous_point(0,0))/double(plot_resolution*Nb_bezigons);
-		diff_y = (actual_point(0,1)-previous_point(0,1))/double(plot_resolution*Nb_bezigons);
-		length += std::sqrt( pow(diff_x,2)+ pow(diff_y,2) );
-		previous_point = actual_point;
-	 }
-	return length;
-};
 
-
-void Bezier::plot_curve(Image<cv::Vec3b> I) {
-	for (int i = 0; i < curve.rows(); i++) {
-		Point m1 = Point(curve.row(i)[0], curve.row(i)[1]);
-		circle(I, m1, 1, cv::Scalar(0, 255, 0), 2);
-		imshow("Plot bezier", I);
-		waitKey(1);
+//PROPAGATION FUNCTIONS
+void Bezier::update(const arma::vec& vals_inp, int j){
+		if(j<Nb_bezigons-1){
+			set_point_x(j,1,vals_inp(0));
+			set_point_x(j,2,vals_inp(1));
+			set_point_x(j+1,0,vals_inp(2));
+			set_point_x(j+1,1,vals_inp(3));
+			set_point_x(j+1,2,vals_inp(4));
+			set_point_y(j,1,vals_inp(5));
+			set_point_y(j,2,vals_inp(6));
+			set_point_y(j+1,0,vals_inp(7));
+			set_point_y(j+1,1,vals_inp(8));
+			set_point_y(j+1,2,vals_inp(9));
 	}
 }
+
+arma::vec Bezier::input_propagation(int i){
+	arma::vec x = arma::zeros(10,1);
+		if(i<Nb_bezigons-1){
+			x(0)=get_ptx(i,1);
+			x(1)=get_ptx(i,2);
+			x(2)=get_ptx(i+1,0);
+			x(3)=get_ptx(i+1,1);
+			x(4)=get_ptx(i+1,2);
+			x(5)=get_pty(i,1);
+			x(6)=get_pty(i,2);
+			x(7)=get_pty(i+1,0);
+			x(8)=get_pty(i+1,1);
+			x(9)=get_pty(i+1,2);
+	}
+	return x;
+}
+
+
 
 
 
