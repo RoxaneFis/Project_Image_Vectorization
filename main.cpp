@@ -6,7 +6,7 @@ using namespace Eigen;
 
 int main(int argc, char* argv[]) {
 
-	const Image<Vec3b> B = imread("../s.jpg");
+	const Image<Vec3b> B = imread("../data/fruits.jpg");
 
 	cout << ">>> Initializing : CLIK on edge points. PRESS 0" << endl;
 	VectorizationData vd = initialisation(B);
