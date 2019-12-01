@@ -17,6 +17,10 @@ option(LIBIGL_WITH_OPENGL            "Use OpenGL"         ON)
 option(LIBIGL_WITH_OPENGL_GLFW       "Use GLFW"           ON)
 find_package(LIBIGL REQUIRED QUIET)
 
+# Armadillo
+find_package(Armadillo REQUIRED)
+include_directories(${ARMADILLO_INCLUDE_DIRS})
+
 
 file(GLOB SRCFILES *.cpp)
 file(GLOB HEADERFILES *.h)
@@ -24,6 +28,7 @@ add_executable(image_vect ${SRCFILES} ${HEADERFILES})
 
 target_link_libraries(image_vect igl::core igl::opengl_glfw)
 TARGET_LINK_LIBRARIES(image_vect ${OpenCV_LIBS})
+target_link_libraries(image_vect ${ARMADILLO_LIBRARIES})
 
 
 
