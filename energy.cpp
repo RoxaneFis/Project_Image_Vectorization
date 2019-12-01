@@ -52,7 +52,10 @@ double Energy::energy_bezier_handles(Bezier B) {
 };
 
 double Energy::energy_data(VectorizationData vd) {
-	double lo = 100000.0 * 100000.0;
+	double lo = vd.B->lo;
+	cout<<"lo "<<lo<<endl;
+	cout<<endl;
+	vd.B->get_arclength();
 	double energy = 0.0;
 	Image<Vec3b> rasterized = get_rasterized(vd);
 	for (size_t xx = 0; xx < vd.I.width(); xx++) {

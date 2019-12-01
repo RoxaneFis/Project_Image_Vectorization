@@ -14,6 +14,8 @@ Bezier::Bezier(int N) {
 	Bx = new Eigen::MatrixXd(N, 3);
 	By->setZero();
 	Bx->setZero();
+	curve=get_sample_points();
+	lo = get_arclength();
 };
 
 Bezier::Bezier(const MatrixXd& B_x, const MatrixXd& B_y) {
@@ -22,6 +24,9 @@ Bezier::Bezier(const MatrixXd& B_x, const MatrixXd& B_y) {
 	Bx = new MatrixXd(Nb_bezigons, 3);
 	*Bx = B_x;
 	*By = B_y;
+	curve=get_sample_points();
+	lo = get_arclength();
+
 };
 
 
@@ -39,6 +44,8 @@ Bezier::Bezier(const std::vector<cv::Point>& vector_points) {
 	tangent_points = barycenters(0.3, vector_points[Nb_bezigons - 1], vector_points[0]);
 	Bx->row(Nb_bezigons - 1) << double(vector_points[Nb_bezigons - 1].x), tangent_points[0].x, tangent_points[1].x;
 	By->row(Nb_bezigons - 1) << double(vector_points[Nb_bezigons - 1].y), tangent_points[0].y, tangent_points[1].y;
+	curve=get_sample_points();
+	lo = get_arclength();
 
 }
 
@@ -66,10 +73,7 @@ std::array<std::vector<double>, 2> Bezier::get_tangents(int j) {
 	return { left_tangent, right_tangent };
 }
 
-float Bezier::arclength() {
-	//Returns the arclegth of the Bezigon
-	return 0.0;
-};
+
 
 int Bezier::nb_points() { return Nb_bezigons - 1; }
 
@@ -127,8 +131,24 @@ MatrixXi Bezier::get_sample_points() {
 	return curve;
 }
 
+double Bezier::get_arclength() {
+	//Approimation by sum
+	double t, diff_y,diff_x;
+	double length =0.0;
+	MatrixXi previous_point = curve.row(0);
+	MatrixXi actual_point;
+	for (int ii = 1; ii < plot_resolution*Nb_bezigons; ii++) {
+		actual_point = curve.row(ii);
+		diff_x = (actual_point(0,0)-previous_point(0,0))/double(plot_resolution*Nb_bezigons);
+		diff_y = (actual_point(0,1)-previous_point(0,1))/double(plot_resolution*Nb_bezigons);
+		length += std::sqrt( pow(diff_x,2)+ pow(diff_y,2) );
+		previous_point = actual_point;
+	 }
+	return length;
+};
+
+
 void Bezier::plot_curve(Image<cv::Vec3b> I) {
-	MatrixXi curve = get_sample_points();
 	for (int i = 0; i < curve.rows(); i++) {
 		Point m1 = Point(curve.row(i)[0], curve.row(i)[1]);
 		circle(I, m1, 1, cv::Scalar(0, 255, 0), 2);
