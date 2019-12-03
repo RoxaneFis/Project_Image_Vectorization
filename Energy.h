@@ -26,9 +26,8 @@ public:
 	double energy_bezier_handles(Bezier B);
 
 	double energy_data(VectorizationData vd);
-
-
-	double energy_tot(VectorizationData vd, int j );
+	double energy_tot(const VectorizationData vd, int j );
+	double energy_to_minimize(const VectorizationData vd, int j, const array<double, 10>& vals_inp);
 
 
 };
