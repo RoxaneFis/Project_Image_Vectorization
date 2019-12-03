@@ -95,7 +95,7 @@ Image<Vec3b> get_rasterized(VectorizationData vd) {
 	return I_int;
 
 }
-void show_interior(VectorizationData vd) {
+void show_rasterized(VectorizationData vd) {
 	Image<Vec3b> I_int = get_rasterized(vd);
 	imshow("Rasterized Image", I_int);
 }
