@@ -48,5 +48,5 @@ void test_compute_bezier_handles(VectorizationData vd) {
 void test_show_rms(VectorizationData vd) {
 	cout << ">>> Showing rms" << endl;
 	vd.B->plot_curve(vd.I);
-	show_interior(vd);
+	show_rasterized(vd);
 };

@@ -22,6 +22,6 @@ int psi_s_k(double t, int s, int k);
 Eigen::Matrix2i haar(int s, int kx, int ky, double x, double y);
 bool is_interior(cv::Point, Bezier B);
 Image<cv::Vec3b> get_rasterized(VectorizationData vd);
-void show_interior(VectorizationData vd);
+void show_rasterized(VectorizationData vd);
 
 #endif
