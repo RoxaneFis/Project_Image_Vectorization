@@ -10,7 +10,6 @@
 #include <igl/readPLY.h>
 #include <opencv2/highgui/highgui.hpp>
 #include <opencv2/imgproc/imgproc.hpp>
-#include "optim/header_only_version/optim.hpp"
 
 #include "Entities.h"
 #include "Energy.h"

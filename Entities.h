@@ -11,7 +11,6 @@
 #include <opencv2/highgui/highgui.hpp>
 #include <opencv2/imgproc/imgproc.hpp>
 #include <math.h>
-#include <armadillo>
 
 
 #include "Image.h"
@@ -22,17 +21,17 @@ class Bezier
 private:
 	const int plot_resolution = 50;
 	const int dim = 2;
-	Eigen::MatrixXd* Bx;
-	Eigen::MatrixXd* By;
 	Eigen::MatrixXi curve;
 
 public:
+	Eigen::MatrixXd* Bx;
+	Eigen::MatrixXd* By;
 	double lo ;
 	int Nb_bezigons;
 
 	//CONSTRUCTORS
 	Bezier(int N);
-	Bezier(const Eigen::MatrixXd& B_x, const Eigen::MatrixXd& B_y);
+	Bezier(Eigen::MatrixXd& B_x, Eigen::MatrixXd& B_y);
 	Bezier(const std::vector<cv::Point>& vector_points);
 	
 	//SET 
@@ -60,8 +59,9 @@ public:
 	Eigen::MatrixXi get_sample_points();
 
 	//PROPAGATION FUNCTIONS
-	void update(const arma::vec& vals_inp, int j);
-	arma::vec input_propagation(int j);
+	void update(const array<double, 10>& vals_inp, int j);
+	array<double, 10> input_propagation(int i);
+
 };
 
 class Color

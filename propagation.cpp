@@ -15,25 +15,33 @@ Propagation::Propagation(VectorizationData _vd) {
 // }
 
 void Propagation::propagate(int nb_iterations) {
-	std::cout << ">>>Enter Propragation" << std::endl;
+	double eps = 0.1;
+	double energy_prece = 0.0;
+	cout << ">>>Enter Propragation" << std::endl;
 	for (int jj=0; jj<vd->B->Nb_bezigons; jj++){
-		//Call to energy_to_minimize : B is updated
-		auto energy_unknown = [this,jj](const arma::vec& vals_inp, arma::vec* grad_out, void* opt_data) 
-		{ 	this->vd->B->update(vals_inp,jj);
-			return energy->energy_tot(*vd,jj);};
+		array<double,10> vals_inp = vd->B->input_propagation(jj); 
+		array<double,10> vals_copy =vals_inp ;
+		array<double,10> vals_out; 
+		double engy = 0.0;	
+		double engy_min=-1;	
+		double trans_ind;	
+		for(int var_index=0; var_index<10; var_index++){
+			trans_ind=-5;
+			for(int  trans= -5; trans<6; trans++ ){	
+				//just change one value by eps*trans
+				vals_copy[var_index]=vals_inp[var_index]+eps*trans;
+				engy =energy->energy_to_minimize(*vd,jj,vals_copy);
+				if(engy<=engy_min){
+					engy_min = engy;
+					trans_ind = trans;
+				}
+			}
+			vals_out[var_index]=vals_inp[var_index]+eps*trans_ind;
+		}
+		vd->B->update(vals_out,jj);
 
-		// arma::vec* grad_out;
-		// void* opt_data;
-    	
-		// vd->B->print_Bx();
-		// arma::vec x = vd->B->input_propagation(jj); 
-		// arma::cout << "x_in" << x << arma::endl;
-		// arma::cout << "erngy" << energy->energy_tot(*vd,jj) << arma::endl;
-		// arma::cout << "erngy_U" << energy_unknown(x,grad_out,opt_data) << arma::endl;
 
-    	// //bool success = optim::de(x,energy_unknown,nullptr);
-		// bool success = optim::gd(x,energy_unknown,nullptr);
-		// arma::cout << "\nde: solution to Ackley test:\n" << x << arma::endl;
+
 	}
 
 }

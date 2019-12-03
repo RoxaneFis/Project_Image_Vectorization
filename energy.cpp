@@ -1,6 +1,7 @@
 #include "Energy.h"
 
 using namespace cv;
+using namespace std;
 
 Energy::Energy() {};
 
@@ -67,15 +68,25 @@ double Energy::energy_data(VectorizationData vd) {
 
 
 
-double Energy::energy_tot(VectorizationData vd, int j) {
+double Energy::energy_tot(const VectorizationData vd, int j) {
 	double energy_prior = lambda_angles * energy_angles(*(vd.B), j) + lambda_handles * energy_bezier_handles(*(vd.B), j);
 	double energy = energy_data(vd);
+	// cout << "E_bezier_handles"<<energy_bezier_handles(*(vd.B), j)<<endl;
+	// cout << "E_angles"<<energy_angles(*(vd.B), j)<<endl;
+	// cout << "E_data"<<energy<<endl;
+
 	return energy + energy_prior;
 
 };
 
 
-double Energy::energy_to_minimize(VectorizationData vd, int j, const arma::vec& vals_inp){
-	return energy_tot(vd,j);
+double Energy::energy_to_minimize(const VectorizationData vd, int j, const array<double, 10>& vals_inp){
+	Eigen::MatrixXd Bx_prime = *(vd.B->Bx);
+	Eigen::MatrixXd By_prime = *(vd.B->Bx);
+	Bezier * B_prime = new Bezier(Bx_prime,By_prime);
+	VectorizationData vd_prime(B_prime,vd.C,vd.I);
+	B_prime->update(vals_inp,j);
+	vd_prime.B->print_Bx();
+	return energy_tot(vd_prime,j);
 }
 

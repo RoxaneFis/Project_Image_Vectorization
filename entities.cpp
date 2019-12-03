@@ -19,7 +19,7 @@ Bezier::Bezier(int N) {
 	lo = get_arclength();
 };
 
-Bezier::Bezier(const MatrixXd& B_x, const MatrixXd& B_y) {
+Bezier::Bezier(MatrixXd& B_x, MatrixXd& B_y) {
 	Nb_bezigons = B_x.rows();
 	By = new MatrixXd(Nb_bezigons, 3);
 	Bx = new MatrixXd(Nb_bezigons, 3);
@@ -173,34 +173,34 @@ MatrixXi Bezier::get_sample_points() {
 
 
 //PROPAGATION FUNCTIONS
-void Bezier::update(const arma::vec& vals_inp, int j){
+void Bezier::update(const array<double, 10>& vals_inp, int j){
 		if(j<Nb_bezigons-1){
-			set_point_x(j,1,vals_inp(0));
-			set_point_x(j,2,vals_inp(1));
-			set_point_x(j+1,0,vals_inp(2));
-			set_point_x(j+1,1,vals_inp(3));
-			set_point_x(j+1,2,vals_inp(4));
-			set_point_y(j,1,vals_inp(5));
-			set_point_y(j,2,vals_inp(6));
-			set_point_y(j+1,0,vals_inp(7));
-			set_point_y(j+1,1,vals_inp(8));
-			set_point_y(j+1,2,vals_inp(9));
+			set_point_x(j,1,vals_inp[0]);
+			set_point_x(j,2,vals_inp[1]);
+			set_point_x(j+1,0,vals_inp[2]);
+			set_point_x(j+1,1,vals_inp[3]);
+			set_point_x(j+1,2,vals_inp[4]);
+			set_point_y(j,1,vals_inp[5]);
+			set_point_y(j,2,vals_inp[6]);
+			set_point_y(j+1,0,vals_inp[7]);
+			set_point_y(j+1,1,vals_inp[8]);
+			set_point_y(j+1,2,vals_inp[9]);
 	}
 }
 
-arma::vec Bezier::input_propagation(int i){
-	arma::vec x = arma::zeros(10,1);
+array<double, 10> Bezier::input_propagation(int i){
+	array<double, 10> x{{0,0,0,0,0,0,0,0,0,0}} ;
 		if(i<Nb_bezigons-1){
-			x(0)=get_ptx(i,1);
-			x(1)=get_ptx(i,2);
-			x(2)=get_ptx(i+1,0);
-			x(3)=get_ptx(i+1,1);
-			x(4)=get_ptx(i+1,2);
-			x(5)=get_pty(i,1);
-			x(6)=get_pty(i,2);
-			x(7)=get_pty(i+1,0);
-			x(8)=get_pty(i+1,1);
-			x(9)=get_pty(i+1,2);
+			x[0]=get_ptx(i,1);
+			x[1]=get_ptx(i,2);
+			x[2]=get_ptx(i+1,0);
+			x[3]=get_ptx(i+1,1);
+			x[4]=get_ptx(i+1,2);
+			x[5]=get_pty(i,1);
+			x[6]=get_pty(i,2);
+			x[7]=get_pty(i+1,0);
+			x[8]=get_pty(i+1,1);
+			x[9]=get_pty(i+1,2);
 	}
 	return x;
 }

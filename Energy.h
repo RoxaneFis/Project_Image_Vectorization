@@ -10,7 +10,6 @@
 #include <igl/readPLY.h>
 #include <opencv2/highgui/highgui.hpp>
 #include <opencv2/imgproc/imgproc.hpp>
-#include <armadillo>
 
 #include "RMS.h"
 #include "Entities.h"
@@ -27,8 +26,8 @@ public:
 	double energy_bezier_handles(Bezier B);
 
 	double energy_data(VectorizationData vd);
-	double energy_tot(VectorizationData vd, int j );
-	double energy_to_minimize(VectorizationData vd, int j, const arma::vec& vals_inp);
+	double energy_tot(const VectorizationData vd, int j );
+	double energy_to_minimize(const VectorizationData vd, int j, const array<double, 10>& vals_inp);
 
 
 };
