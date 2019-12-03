@@ -224,13 +224,13 @@ Color::Color(const MatrixXd& _C) {
 	*C = _C;
 
 };
-int Color::getColorImage(int x, int y) {
+int Color::get_color_image(int x, int y) {
 	return 0;
 };
-void Color::setColor(int index, int RGB, int color) {
+void Color::set_color(int index, int RGB, int color) {
 	C->row(index)[RGB] = color;
 };
-void Color::print_Matrix() {
+void Color::print_matrix() {
 	std::cout << *C << std::endl;
 };
 

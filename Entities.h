@@ -73,9 +73,9 @@ private:
 public:
 	Color(int _dim);
 	Color(const Eigen::MatrixXd& _C);
-	int getColorImage(int x, int y);
-	void setColor(int index, int RGB, int color);
-	void print_Matrix();
+	int get_color_image(int x, int y);
+	void set_color(int index, int RGB, int color);
+	void print_matrix();
 };
 
 

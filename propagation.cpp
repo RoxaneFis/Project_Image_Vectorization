@@ -36,12 +36,10 @@ void Propagation::propagate(int nb_iterations) {
 					trans_ind = trans;
 				}
 			}
+			cout << engy << endl;
 			vals_out[var_index]=vals_inp[var_index]+eps*trans_ind;
 		}
 		vd->B->update(vals_out,jj);
-
-
-
 	}
 
 }
