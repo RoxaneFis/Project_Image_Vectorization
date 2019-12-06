@@ -14,7 +14,6 @@
 #include <opencv2/imgproc/imgproc.hpp>
 
 #include "Initialisation.h"
-#include "Propagation.h"
 #include "Entities.h"
 #include "Tests.h"
 

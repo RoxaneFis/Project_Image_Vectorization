@@ -4,242 +4,153 @@ using namespace cv;
 using namespace std;
 using namespace Eigen;
 
-//
-// Bezier entity:
-//
-
-//CONSTRUCTORS
-Bezier::Bezier(int N) {
-	Nb_bezigons = N;
-	By = new Eigen::MatrixXd(N, 3);
-	Bx = new Eigen::MatrixXd(N, 3);
-	By->setZero();
-	Bx->setZero();
-	curve=get_sample_points();
-	lo = get_arclength();
+Bezier::Bezier() {
 };
 
-Bezier::Bezier(MatrixXd& B_x, MatrixXd& B_y) {
-	Nb_bezigons = B_x.rows();
-	By = new MatrixXd(Nb_bezigons, 3);
-	Bx = new MatrixXd(Nb_bezigons, 3);
-	*Bx = B_x;
-	*By = B_y;
-	curve=get_sample_points();
-	lo = get_arclength();
-
+Bezier::Bezier(Point2f p0, Point2f p1, Point2f p2, Point2f p3) {
+	control_points[0] = p0;	control_points[1] = p1;
+	control_points[2] = p2;	control_points[3] = p3;
 };
 
-Bezier::Bezier(const std::vector<cv::Point>& vector_points) {
-	int jj = 0;
-	Nb_bezigons = vector_points.size();
-	By = new MatrixXd(Nb_bezigons, 3);
-	Bx = new MatrixXd(Nb_bezigons, 3);
-	std::array<cv::Point, 2> tangent_points;
-	for (int ii = 0; ii < Nb_bezigons - 1; ii++) {
-		tangent_points = barycenters(0.3, vector_points[ii], vector_points[ii + 1]);
-		Bx->row(ii) << double(vector_points[ii].x), tangent_points[0].x, tangent_points[1].x;
-		By->row(ii) << double(vector_points[ii].y), tangent_points[0].y, tangent_points[1].y;
-	}
-	tangent_points = barycenters(0.3, vector_points[Nb_bezigons - 1], vector_points[0]);
-	Bx->row(Nb_bezigons - 1) << double(vector_points[Nb_bezigons - 1].x), tangent_points[0].x, tangent_points[1].x;
-	By->row(Nb_bezigons - 1) << double(vector_points[Nb_bezigons - 1].y), tangent_points[0].y, tangent_points[1].y;
-	curve=get_sample_points();
-	lo = get_arclength();
-
+array<Bezier, 2> Bezier::subdivide(double t0) {
+	Point2f p0 = control_points[0];
+	Point2f p1 = barycenter(t0, p0, control_points[1]);
+	Point2f paux = barycenter(t0, control_points[1], control_points[2]);
+	Point2f p6 = control_points[3];
+	Point2f p5 = barycenter(t0, control_points[2], p6);
+	Point2f p2 = barycenter(t0, p1, paux);
+	Point2f p4 = barycenter(t0, paux, p5);
+	Point2f p3 = barycenter(t0, p2, p4);
+	return { Bezier(p0,p1,p2,p3), Bezier(p3,p4,p5,p6) };
 }
 
-//SET 
-void Bezier::set_point_x(int i, int j, double coord_x) {
-	Bx->row(i)[j] = coord_x;
-};
-void Bezier::set_point_y(int i, int j, double coord_y) {
-	By->row(i)[j] = coord_y;
+Point2f Bezier::cubic_interpolation(double t) {
+	double s = 1 - t;
+	return  s * s * s * control_points[0] + 3 * s * s * t * control_points[1] + 3 * s * t * t * control_points[2] + t * t * t * control_points[3];
+}
+
+Bezigon::Bezigon() {
+}
+
+Bezigon::Bezigon(MatrixXd _Bx, MatrixXd _By) {
+	Bx = _Bx;
+	By = _By;
+	C = Vec3b(255, 255, 255);
 };
 
-//GET
-int Bezier::nb_points() { return Nb_bezigons - 1; }
-double Bezier::get_ptx(int i, int j) {
-	return Bx->row(i)[j];
-};
-double Bezier::get_pty(int i, int j) {
-	return By->row(i)[j];
-};
-MatrixXd Bezier::get_Bx() {
-	return *Bx;
-};
-MatrixXd Bezier::get_By() {
-	return *By;
+Bezigon::Bezigon(vector<Point> vector_points) {
+	int nb_bezier = vector_points.size();
+	Bx = MatrixXd(nb_bezier, 3);
+	By = MatrixXd(nb_bezier, 3);
+	C = Vec3b(255, 255, 255);
+	Point2f tangent1, tangent2;
+	for (int jj = 0; jj < nb_bezier - 1; jj++) {
+		tangent1 = barycenter(0.33, vector_points[jj], vector_points[jj + 1]);
+		tangent2 = barycenter(0.66, vector_points[jj], vector_points[jj + 1]);
+		Bx.row(jj) << double(vector_points[jj].x), tangent1.x, tangent2.x;
+		By.row(jj) << double(vector_points[jj].y), tangent1.y, tangent2.y;
+	}
+	tangent1 = barycenter(0.33, vector_points[nb_bezier - 1], vector_points[0]);
+	tangent2 = barycenter(0.66, vector_points[nb_bezier - 1], vector_points[0]);
+	Bx.row(nb_bezier - 1) << double(vector_points[nb_bezier - 1].x), tangent1.x, tangent2.x;
+	By.row(nb_bezier - 1) << double(vector_points[nb_bezier - 1].y), tangent1.y, tangent2.y;
+}
+
+void Bezigon::set_point_x(int j, int i, double coord_x) {
+	Bx.row(j)[i] = coord_x;
 };
 
-double Bezier::get_arclength() {
-	//Approimation by sum
-	double t, diff_y,diff_x;
-	double length =0.0;
-	MatrixXi previous_point = curve.row(0);
-	MatrixXi actual_point;
-	for (int ii = 1; ii < plot_resolution*Nb_bezigons; ii++) {
-		actual_point = curve.row(ii);
-		diff_x = (actual_point(0,0)-previous_point(0,0))/double(plot_resolution*Nb_bezigons);
-		diff_y = (actual_point(0,1)-previous_point(0,1))/double(plot_resolution*Nb_bezigons);
-		length += std::sqrt( pow(diff_x,2)+ pow(diff_y,2) );
+void Bezigon::set_point_y(int j, int i, double coord_y) {
+	Bx.row(j)[i] = coord_y;
+};
+
+Bezier Bezigon::get_bezier(int j) {
+	Point2f p0 = Point2f(Bx.row(j)[0], By.row(j)[0]);
+	Point2f p1 = Point2f(Bx.row(j)[1], By.row(j)[1]);
+	Point2f p2 = Point2f(Bx.row(j)[2], By.row(j)[2]);
+	Point2f p3 = (j != Bx.rows() - 1) ?
+		Point2f(Bx.row(j + 1)[0], By.row(j + 1)[0]) : Point2f(Bx.row(0)[0], By.row(0)[0]);
+	return Bezier(p0, p1, p2, p3);
+};
+
+Point2f Bezigon::get_pt(int j, int i = 0) {
+	Point2f p0 = Point2f(Bx.row(j)[i], By.row(j)[i]);
+	return Point2f(Bx.row(j)[i], By.row(j)[i]);
+
+};
+
+double Bezigon::get_arclength(int j) {
+	Bezier bezier_j = get_bezier(j);
+	double length = 0.0;
+	Point2f previous_point = get_pt(j);
+	Point2f actual_point;
+	for (double t = 0.2; t <= 1.0; t += 0.2) {
+		actual_point = bezier_j.cubic_interpolation(t);
+		length += distance(actual_point, previous_point);
 		previous_point = actual_point;
-	 }
+	}
 	return length;
 };
 
-std::array<std::vector<double>, 2> Bezier::get_tangents(int j) {
-	//Returns left et right tangents of a point
-	//FIXME : doesnt take first and last true points into account
-	std::array<std::vector<double>, 2> tangents;
-	vector<double> left_tangent(2);
-	vector<double> right_tangent(2);
-	if (j >= Nb_bezigons) {
-		std::cout << "The index is too high. The point doesn't exist" << std::endl;
-		return tangents;
+double Bezigon::get_arclength() {
+	double length = 0.0;
+	for (int jj = 0; jj < Bx.rows(); jj++) {
+		length += get_arclength(jj);
 	}
-	if (j == 0) {
-		//Make a loop 
-		left_tangent = { get_ptx(j,0) - get_ptx(Nb_bezigons - 2,2),get_pty(j,0) - get_pty(Nb_bezigons - 2,2) };
-		right_tangent = { get_ptx(j,2) - get_ptx(j,0),get_pty(j,2) - get_pty(j,0) };
-
-	}
-	else
-	{
-		left_tangent = { get_ptx(j,0) - get_ptx(j - 1,2),get_pty(j,0) - get_pty(j - 1,2) };
-		right_tangent = { get_ptx(j,2) - get_ptx(j,0),get_pty(j,2) - get_pty(j,0) };
-	}
-	return { left_tangent, right_tangent };
-}
-
-//PRINT
-void Bezier::print_Bx() {
-	std::cout <<"Print Bx "<< endl;
-	cout<<*Bx << std::endl;
+	return length;
 };
 
-void Bezier::print_By() {
-	std::cout <<"Print By "<< endl;
-	cout<<*By << std::endl;
-};
-
-void Bezier::plot_curve(Image<cv::Vec3b> I) {
-	for (int i = 0; i < curve.rows(); i++) {
-		Point m1 = Point(curve.row(i)[0], curve.row(i)[1]);
-		circle(I, m1, 1, cv::Scalar(0, 255, 0), 2);
-		imshow("Plot bezier", I);
-		waitKey(1);
-	}
-}
-
-
-
-//FUNCTIONS
-MatrixXd Bezier::intersection() {
-	//Returns points that intersect // Maybe directly in Energy?
-	MatrixXd inter;
-	return inter;
-};
-
-double Bezier::cubic_bezier(double t, int x0, int x1, int x2, int x3) {
-	double s = 1 - t;
-	return  s * s * s * x0 + 3 * s * s * t * x1 + 3 * s * t * t * x2 + t * t * t * x3;
-}
-MatrixXi Bezier::cubic_interpolation(double t) {
-	int index = floor(t / (double)plot_resolution);
-	double t_rescaled = t - index * plot_resolution;
-	MatrixXi interpo(1, dim);
-	if (index != Nb_bezigons - 1) {
-		interpo(0, 0) = int(cubic_bezier(t_rescaled, get_ptx(index, 0), get_ptx(index, 1), get_ptx(index, 2), get_ptx(index + 1, 0)));
-		interpo(0, 1) = int(cubic_bezier(t_rescaled, get_pty(index, 0), get_pty(index, 1), get_pty(index, 2), get_pty(index + 1, 0)));
+void Bezigon::update(array<double, 10> vals_inp, int j) {
+	if (j < Bx.rows() - 1) {
+		set_point_x(j, 1, vals_inp[0]);
+		set_point_x(j, 2, vals_inp[1]);
+		set_point_x(j + 1, 0, vals_inp[2]);
+		set_point_x(j + 1, 1, vals_inp[3]);
+		set_point_x(j + 1, 2, vals_inp[4]);
+		set_point_y(j, 1, vals_inp[5]);
+		set_point_y(j, 2, vals_inp[6]);
+		set_point_y(j + 1, 0, vals_inp[7]);
+		set_point_y(j + 1, 1, vals_inp[8]);
+		set_point_y(j + 1, 2, vals_inp[9]);
 	}
 	else {
-		interpo(0, 0) = int(cubic_bezier(t_rescaled, get_ptx(index, 0), get_ptx(index, 1), get_ptx(index, 2), get_ptx(0, 0)));
-		interpo(0, 1) = int(cubic_bezier(t_rescaled, get_pty(index, 0), get_pty(index, 1), get_pty(index, 2), get_pty(0, 0)));
-	}
-	return interpo;
-}
-
-MatrixXi Bezier::get_sample_points() {
-	double dt = 1. / plot_resolution;
-	MatrixXi curve(Nb_bezigons * plot_resolution, dim);
-	for (size_t ii = 0; ii < Nb_bezigons; ii++) {
-		for (size_t jj = 0; jj < plot_resolution; jj++) {
-			curve.row(ii * plot_resolution + jj) = cubic_interpolation(ii * plot_resolution + jj * dt);
-		}
-	}
-	return curve;
-}
-
-
-//PROPAGATION FUNCTIONS
-void Bezier::update(const array<double, 10>& vals_inp, int j){
-		if(j<Nb_bezigons-1){
-			set_point_x(j,1,vals_inp[0]);
-			set_point_x(j,2,vals_inp[1]);
-			set_point_x(j+1,0,vals_inp[2]);
-			set_point_x(j+1,1,vals_inp[3]);
-			set_point_x(j+1,2,vals_inp[4]);
-			set_point_y(j,1,vals_inp[5]);
-			set_point_y(j,2,vals_inp[6]);
-			set_point_y(j+1,0,vals_inp[7]);
-			set_point_y(j+1,1,vals_inp[8]);
-			set_point_y(j+1,2,vals_inp[9]);
+		set_point_x(Bx.rows() - 1, 1, vals_inp[0]);
+		set_point_x(Bx.rows() - 1, 2, vals_inp[1]);
+		set_point_x(0, 0, vals_inp[2]);
+		set_point_x(0, 1, vals_inp[3]);
+		set_point_x(0, 2, vals_inp[4]);
+		set_point_y(Bx.rows() - 1, 1, vals_inp[5]);
+		set_point_y(Bx.rows() - 1, 2, vals_inp[6]);
+		set_point_y(0, 0, vals_inp[7]);
+		set_point_y(0, 1, vals_inp[8]);
+		set_point_y(0, 2, vals_inp[9]);
 	}
 }
 
-array<double, 10> Bezier::input_propagation(int i){
-	array<double, 10> x{{0,0,0,0,0,0,0,0,0,0}} ;
-		if(i<Nb_bezigons-1){
-			x[0]=get_ptx(i,1);
-			x[1]=get_ptx(i,2);
-			x[2]=get_ptx(i+1,0);
-			x[3]=get_ptx(i+1,1);
-			x[4]=get_ptx(i+1,2);
-			x[5]=get_pty(i,1);
-			x[6]=get_pty(i,2);
-			x[7]=get_pty(i+1,0);
-			x[8]=get_pty(i+1,1);
-			x[9]=get_pty(i+1,2);
-	}
+array<double, 10> Bezigon::input_propagation(int j) {
+	Point p1 = get_pt(j, 1);
+	Point p2 = get_pt(j, 2);
+	Point p3 = (j != Bx.rows() - 1) ? get_pt(j, 0) : get_pt(0, 0);
+	Point p4 = (j != Bx.rows() - 1) ? get_pt(j, 1) : get_pt(0, 1);
+	Point p5 = (j != Bx.rows() - 1) ? get_pt(j, 2) : get_pt(0, 2);
+	array<double, 10> x = { p1.x,p2.x,p3.x,p4.x,p5.x, p1.y,p2.y,p3.y,p4.y,p5.y };
 	return x;
 }
 
+void Bezigon::plot_curve(Image<Vec3b> I) {
+	Bezier bezier_j;
+	for (int jj = 0; jj < Bx.rows(); jj++) {
+		bezier_j = get_bezier(jj);
+		for (double t = 0.0; t <= 1.0; t += 0.05) {
+			Point2f m1 = bezier_j.cubic_interpolation(t);
+			circle(I, m1, 1, Scalar(0, 255, 0), 2);
+			imshow("Plot bezier", I);
+			waitKey(1);
+		}
+	}
+}
 
-
-
-
-//
-// Color entity:
-//
-
-Color::Color(int _dim) {
-	dim = _dim;
-	C = new MatrixXd(_dim, 3);
-	C->setZero();
-};
-Color::Color(const MatrixXd& _C) {
-	dim = _C.rows();
-	C = new MatrixXd(dim, 3);
-	*C = _C;
-
-};
-int Color::get_color_image(int x, int y) {
-	return 0;
-};
-void Color::set_color(int index, int RGB, int color) {
-	C->row(index)[RGB] = color;
-};
-void Color::print_matrix() {
-	std::cout << *C << std::endl;
-};
-
-//
-// VectorizationData entity:
-//
-
-VectorizationData::VectorizationData(Bezier* _B, Color* _C, Image<Vec3b> _I) {
+VectorizationData::VectorizationData(Bezigon _B, Image<Vec3b> _I) {
 	B = _B;
-	C = _C;
 	I = _I;
 }

@@ -18,11 +18,11 @@
 
 struct VectorPoints {
 	std::vector<cv::Point>* vector_points;
-	Image<cv::Vec3b> image;
+	Image<Vec3b> image;
 };
 
 const std::string WINDOW_NAME = "Init";
-VectorizationData initialisation(Image<cv::Vec3b> I);
+VectorizationData initialisation(Image<Vec3b> I);
 void onMouse(int event, int x, int y, int flags, void* p);
 
 #endif
