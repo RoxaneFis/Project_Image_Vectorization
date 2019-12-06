@@ -10,16 +10,11 @@ int main(int argc, char* argv[]) {
 
 	cout << ">>> Initializing : CLIK on edge points. PRESS 0" << endl;
 	VectorizationData vd = initialisation(B);
+	cout << "Bx" << endl;
+	cout << vd.B.Bx << endl;
+	cout << endl;
 
-	cout << ">>> Optimizing bezigons..." << endl << endl;
-	Propagation P(vd);
-	P.propagate(3);
-
-	//test_compute_angles(vd);
-	test_compute_energy_angles(vd);
-	test_compute_bezier_handles(vd);
-	test_compute_energy_data(vd);
-	//test_show_rms(vd);
+	test_rms(vd);
 
 	waitKey();
 	return 0;
