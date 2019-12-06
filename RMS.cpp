@@ -224,7 +224,8 @@ void rms_wavelet(VectorizationData vd) {
 }
 
 bool is_interior(Point p, Bezigon B) {
-	int count = 0;
+	int count_left = 0;
+	int count_right = 0;
 	Bezier bez;
 	double c0, c1, c2, c3;
 	for (size_t jj = 0; jj < B.Bx.rows(); jj++) {
@@ -236,10 +237,13 @@ bool is_interior(Point p, Bezigon B) {
 		vector<double> roots = get_roots(c3, c2, c1, c0 - p.y);
 		unique(roots.begin(), roots.end());
 		for (double root : roots) {
-			if (root < 1.0 && root >= 0.0 && bez.cubic_interpolation(root).x < p.x) count++;
+			if (root < 1 && root >= 0) {
+				if (bez.cubic_interpolation(root).x < p.x)  count_left++;
+				else count_right++;
+			}
 		}
 	}
-	return count % 2 == 1;
+	return count_left % 2 == 1 && count_right % 2 == 1;
 };
 
 Image<cv::Vec3b> get_rasterized(VectorizationData vd) {
@@ -265,12 +269,16 @@ Image<cv::Vec3b> get_rasterized(VectorizationData vd) {
 	};
 	color = aux_color / count_int;
 	for (size_t xx = 0; xx < vd.I.width(); xx++) {
-		for (size_t yy = 0; yy < vd.I.height(); yy++) {
+		for (size_t yy = 1; yy < vd.I.height() - 1; yy++) {
 			if (I_int(xx, yy) == black) {
+				I_int(xx, yy) = color;
+			}
+			else if (I_int(xx, yy - 1) == color && I_int(xx, yy + 1) == black) {
 				I_int(xx, yy) = color;
 			}
 		}
 	};
+	blur(I_int, I_int, Size(2, 2));
 	return I_int;
 }
 
