@@ -6,8 +6,6 @@
 #include <iostream>
 #include <ostream>
 
-#include <igl/opengl/glfw/Viewer.h>
-#include <igl/readPLY.h>
 #include <opencv2/highgui/highgui.hpp>
 #include <opencv2/imgproc/imgproc.hpp>
 
@@ -19,7 +17,7 @@ public:
 	VectorizationData* vd;
 	Energy *energy;
 	Propagation(VectorizationData _vd);
-	void propagate(int nb_iterations);
+	void propagate(int nb_iterations, double alpha);
 };
 
 #endif

@@ -33,6 +33,7 @@ public:
 	Eigen::MatrixXd Bx;
 	Eigen::MatrixXd By;
 	Vec3b C;
+	double lo;
 	Bezigon();
 	Bezigon(Eigen::MatrixXd _Bx, Eigen::MatrixXd _By);
 	Bezigon(std::vector<cv::Point> vector_points);
@@ -44,7 +45,7 @@ public:
 	//GET
 	Bezier get_bezier(int j);
 	cv::Point2f get_pt(int j, int i);
-
+	array<vector<double>, 2> get_tangent(int point);
 	//COMPUTE
 	double get_arclength(int j);
 	double get_arclength();
@@ -54,7 +55,7 @@ public:
 	std::array<double, 10> input_propagation(int j);
 
 	//PLOT
-	void plot_curve(Image<Vec3b> I);
+	void plot_curve(Image<Vec3b> I,std::string nom);
 };
 
 struct VectorizationData

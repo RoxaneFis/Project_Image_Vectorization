@@ -15,6 +15,7 @@
 
 #include "Initialisation.h"
 #include "Entities.h"
+#include "Propagation.h"
 #include "Tests.h"
 
 int main(int argc, char* argv[]);
