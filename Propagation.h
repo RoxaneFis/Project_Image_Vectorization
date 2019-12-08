@@ -17,7 +17,7 @@ public:
 	VectorizationData* vd;
 	Energy *energy;
 	Propagation(VectorizationData _vd);
-	void propagate(int nb_iterations, double alpha, int numero_test);
+	void propagate(int nb_iterations, double alpha, double eps, string name);
 };
 
 #endif

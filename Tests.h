@@ -14,13 +14,16 @@
 #include "Entities.h"
 #include "Energy.h"
 #include "RMS.h"
+#include "Propagation.h"
 
 void test_compute_angles(VectorizationData vd);
 void test_compute_energy_angles(VectorizationData vd);
 void test_compute_energy_data(VectorizationData vd);
 void test_compute_bezier_handles(VectorizationData vd);
 void test_rms(VectorizationData vd);
-void test_propagate(VectorizationData vd);
+void test_espilon(VectorizationData vd);
+void test_alpha(VectorizationData vd);
+
 
 #endif
 

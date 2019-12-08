@@ -283,9 +283,9 @@ Image<cv::Vec3b> get_rasterized(VectorizationData vd) {
 }
 
 
-void rms(VectorizationData vd) {
+void rms(VectorizationData vd, string name) {
 	Image<Vec3b> I_int = get_rasterized(vd);
-	imshow("Rasterized Image", I_int);
+	imshow(name, I_int);
 }
 
 

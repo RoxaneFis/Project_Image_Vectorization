@@ -1,0 +1,178 @@
+Hyperparameters : 
+Epsilon : 0.1
+Alpha : 0.1
+Lambda_data: 0.0004
+
+PROPAGATION : 0
+
+Bezier Nb: 0
+Total_Energy : 230.665
+Patial_Energy : 230.665
+Grad: 1.99732
+Grad: 1.44079
+Grad: 1.13296
+Grad: 0
+Grad: 0
+Grad: 1.14912
+Grad: 25.6225
+Grad: -1.63115
+Grad: -1.9171
+Grad: -1.91827
+
+Bezier Nb: 1
+Total_Energy : 227.79
+Patial_Energy : 227.79
+Grad: 0
+Grad: 0
+Grad: -2.29652
+Grad: -3.06571
+Grad: -1.51058
+Grad: -2.29909
+Grad: -1.1485
+Grad: 1.01866
+Grad: 5.80209
+Grad: -4.26825
+
+Bezier Nb: 2
+Total_Energy : 225.497
+Patial_Energy : 225.497
+Grad: -1.53254
+Grad: -1.5317
+Grad: -1.13123
+Grad: 0
+Grad: 0
+Grad: 0.763601
+Grad: -4.26904
+Grad: 1.39812
+Grad: 0.48316
+Grad: 0
+
+Bezier Nb: 3
+Total_Energy : 223.86
+Patial_Energy : 223.86
+Grad: 0
+Grad: 0
+Grad: 2.29533
+Grad: 1.60652
+Grad: 1.13174
+Grad: -0.37307
+Grad: 0.482931
+Grad: 1.13262
+Grad: 0.765924
+Grad: 0
+
+PROPAGATION : 1
+
+Bezier Nb: 0
+Total_Energy : 222.737
+Patial_Energy : 222.737
+Grad: 2.20237
+Grad: 0.381934
+Grad: 0.450532
+Grad: 0
+Grad: 0
+Grad: 1.53012
+Grad: 0.764888
+Grad: -1.14591
+Grad: 0
+Grad: 0
+
+Bezier Nb: 1
+Total_Energy : 213.774
+Patial_Energy : 213.774
+Grad: 0
+Grad: 0
+Grad: -2.20747
+Grad: -0.343202
+Grad: -1.54036
+Grad: 0
+Grad: 0
+Grad: 0.381497
+Grad: 0.762078
+Grad: 0
+
+Bezier Nb: 2
+Total_Energy : 204.613
+Patial_Energy : 204.613
+Grad: -0.378871
+Grad: -0.666627
+Grad: -0.851085
+Grad: 0
+Grad: 0
+Grad: 0.37926
+Grad: 0.57465
+Grad: 1.18076
+Grad: -0.549305
+Grad: 0.101759
+
+Bezier Nb: 3
+Total_Energy : 201.352
+Patial_Energy : 201.352
+Grad: 0
+Grad: 0
+Grad: 2.24916
+Grad: 1.24746
+Grad: 0.732545
+Grad: 0.1013
+Grad: 0.399734
+Grad: 1.77367
+Grad: 0.663694
+Grad: -0.281288
+
+PROPAGATION : 2
+
+Bezier Nb: 0
+Total_Energy : 192.801
+Patial_Energy : 192.801
+Grad: 0.0233088
+Grad: 0.00769287
+Grad: 0
+Grad: 0
+Grad: 0
+Grad: 0.0110327
+Grad: 0.00374642
+Grad: 0
+Grad: 0
+Grad: 0
+
+Bezier Nb: 1
+Total_Energy : 188.99
+Patial_Energy : 188.99
+Grad: 0
+Grad: 0
+Grad: -0.0150028
+Grad: -0.0271872
+Grad: -0.0167299
+Grad: 0
+Grad: 0
+Grad: 0
+Grad: 0.0195279
+Grad: 0
+
+Bezier Nb: 2
+Total_Energy : 177.974
+Patial_Energy : 177.974
+Grad: -0.0223848
+Grad: 0.00370885
+Grad: -0.0314014
+Grad: -0.0102971
+Grad: 0
+Grad: 0
+Grad: 0
+Grad: 0.020637
+Grad: 0
+Grad: 0
+
+Bezier Nb: 3
+Total_Energy : 174.788
+Patial_Energy : 174.788
+Grad: 0
+Grad: 0
+Grad: 0.0254114
+Grad: 0.0102271
+Grad: 0
+Grad: 0
+Grad: 0
+Grad: 0.0073998
+Grad: 0.00673405
+Grad: 0

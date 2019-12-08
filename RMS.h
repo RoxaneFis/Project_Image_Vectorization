@@ -33,6 +33,6 @@ void rms_wavelet(VectorizationData vd);
 
 bool is_interior(cv::Point, Bezigon B);
 Image<cv::Vec3b> get_rasterized(VectorizationData vd);
-void rms(VectorizationData vd);
+void rms(VectorizationData vd, string name);
 
 #endif

@@ -1,0 +1,60 @@
+Hyperparameters : 
+Epsilon : 0.001
+Alpha : 0.1
+Lambda_data: 0.002
+
+Bezier Nb: 0
+Total_Energy : 281.794
+Patial_Energy : 281.794
+Grad: 336.449
+Grad: 0
+Grad: 0
+Grad: 0
+Grad: 0
+Grad: 0
+Grad: -53541.3
+Grad: 336.449
+Grad: 0
+Grad: 0
+
+Bezier Nb: 1
+Total_Energy : 780.466
+Patial_Energy : 780.466
+Grad: 702069
+Grad: 0
+Grad: 0
+Grad: 0
+Grad: 0
+Grad: 0
+Grad: 0
+Grad: 0
+Grad: 0
+Grad: 0
+
+Bezier Nb: 2
+Total_Energy : 852.986
+Patial_Energy : 852.986
+Grad: -0.276117
+Grad: 0
+Grad: 0
+Grad: 0
+Grad: 0
+Grad: 0
+Grad: 66.8467
+Grad: 0
+Grad: 0
+Grad: 0
+
+Bezier Nb: 3
+Total_Energy : 843.798
+Patial_Energy : 843.798
+Grad: 837272
+Grad: 0
+Grad: 2.1423
+Grad: 0
+Grad: 0
+Grad: 0
+Grad: 0
+Grad: 0
+Grad: 0
+Grad: 0
