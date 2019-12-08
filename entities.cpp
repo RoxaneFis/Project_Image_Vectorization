@@ -155,15 +155,14 @@ array<double, 10> Bezigon::input_propagation(int j) {
 
 void Bezigon::plot_curve(Image<Vec3b> I, std::string nom) {
 	Bezier bezier_j;
-	int v1  = rand() % 255;
-	int v2  = rand() % 255;
-	int v3  = rand() % 255;
+	Image<Vec3b> I_copy ;
+	I.copyTo(I_copy);
 	for (int jj = 0; jj < Bx.rows(); jj++) {
 		bezier_j = get_bezier(jj);
 		for (double t = 0.0; t <= 1.0; t += 0.05) {
 			Point2f m1 = bezier_j.cubic_interpolation(t);
-			circle(I, m1, 1, Scalar(v1, v2, v3), 2);
-			imshow(nom, I);
+			circle(I_copy, m1, 1, Scalar(0, 255, 0), 2);
+			imshow(nom, I_copy);
 			waitKey(1);
 		}
 	}

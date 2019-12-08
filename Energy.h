@@ -15,9 +15,6 @@
 #include "Entities.h"
 
 class Energy {
-private:
-	const double lambda_angles = (1.0/40.0)*1000;
-	const double lambda_handles = (1.0/2.0)*1000;
 public:
 	Energy();
 	double energy_angles(Bezigon B, int point) ;
@@ -26,9 +23,12 @@ public:
 	double energy_bezier_handles(Bezigon B);
 
 	double energy_data(VectorizationData vd);
-	double energy_tot(VectorizationData vd, int j );
+	double energy_partial(VectorizationData vd, int j );
 	double energy_to_minimize(VectorizationData vd, int j, array<double, 10> vals_inp);
 
+	const double lambda_angles = (1.0/40.0)*10000;
+	const double lambda_handles = (1.0/2.0)*10000;
+	const double lambda_data = (1.0/500.0);
 
 };
 

@@ -6,33 +6,31 @@ Propagation::Propagation(VectorizationData _vd) {
 };
 
 
-#include <cstdio>
-#include <string>
-#include <cassert>
 
-template< typename... Args >
-std::string string_sprintf( const char* format, Args... args ) {
-  int length = std::snprintf( nullptr, 0, format, args... );
-  assert( length >= 0 );
-
-  char* buf = new char[length + 1];
-  std::snprintf( buf, length + 1, format, args... );
-
-  std::string str( buf );
-  delete[] buf;
-  return str;
-}
-
-
-
-void Propagation::propagate(int nb_iterations, double alpha) {
-	double eps = 0.001;
+void Propagation::propagate(int nb_iterations, double alpha, int numero_test) {
 	cout << ">>>Enter Propragation" << std::endl;
+	double eps = 0.001;
+	alpha = 0.0001;
+	
+	//WRITE
+	string filename = "test_Energy_data_" + to_string(numero_test);
+	fstream out;
+    out.open(filename, fstream::out);
+	out << "Hyperparameters : \n"<<"Epsilon : "<<eps<<"\nAlpha : "<<alpha<<"\nLambda_data: "<<energy->lambda_data<<endl;
+
+	
+	//ITERATIONS OVER ALL BEZIERS
 	for (int jj=0; jj<vd->B.Bx.rows(); jj++){
 		array<double,10> vals_inp = vd->B.input_propagation(jj); 
 		array<double,10> vals_copy =vals_inp ;
-		array<double,10> vals_out; 
-	    double engy_prece=energy->energy_tot(*vd,jj);
+		array<double,10> vals_out;
+
+	    double engy_prece=energy->energy_partial(*vd,jj);
+		double total_energy = energy->energy_data(*(vd));
+
+		out <<"\nBezier Nb: "<<jj<<"\nTotal_Energy : "<<total_energy<<"\nPatial_Energy : "<<engy_prece<<endl;
+
+        //cout << jj<<" E_bezier =  "<<total_energy << endl;
 		double engy_to_min = 0.0;	
 
 		for(int var_index=0; var_index<10; var_index++){
@@ -46,16 +44,20 @@ void Propagation::propagate(int nb_iterations, double alpha) {
 						engy_prece = engy_to_min;
 						}
 				}
+			vals_copy[var_index]=vals_inp[var_index];
 			}
-            vals_copy[var_index]=vals_inp[var_index]-alpha*grad;
+			out << "Grad: "<<grad<<endl;
+
+			// cout << "Grad "<< grad<<endl;
+			// cout << "index "<< vals_copy[var_index]<<endl;
+			// cout<<endl;
+            vals_out[var_index]=vals_inp[var_index]-alpha*grad;
 		};
-		
-		vd->B.update(vals_copy,jj);
+		vd->B.update(vals_out,jj);
 		vd->B.plot_curve(vd->I,to_string(jj));
-
 	}
+	out.close();
 }
-
 
 
 
