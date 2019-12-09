@@ -35,4 +35,7 @@ bool is_interior(cv::Point, Bezigon B);
 Image<cv::Vec3b> get_rasterized(VectorizationData vd);
 void rms(VectorizationData vd, string name);
 
+bool is_interior(Point p, std::map<int, std::vector<double>> map_intersect);
+Image<cv::Vec3b> get_rasterized_fast(VectorizationData vd);
+
 #endif

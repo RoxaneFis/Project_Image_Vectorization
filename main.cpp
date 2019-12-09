@@ -6,12 +6,12 @@ using namespace Eigen;
 
 int main(int argc, char* argv[]) {
 
-	const Image<Vec3b> B = imread("../data/coeur.jpg");
+	const Image<Vec3b> B = imread("../data/red.jpg");
 
 	cout << ">>> Initializing : CLIK on edge points. PRESS 0" << endl;
 	VectorizationData vd = initialisation(B);
 	Propagation * p = new Propagation(vd);
-	p->propagate(20, 10000, 1, " coeur_3");
+	p->propagate(20, 10000, 1, " red_3");
 	cout << endl;
 
 	//test_alpha(vd);

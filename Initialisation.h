@@ -1,4 +1,5 @@
 #pragma once
+#pragma once
 
 #ifndef INITIALISATION_H_INCLUDED
 #define INITIALISATION_H_INCLUDED

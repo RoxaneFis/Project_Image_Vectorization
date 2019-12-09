@@ -239,7 +239,7 @@ bool is_interior(Point p, Bezigon B) {
 		for (double root : roots) {
 			if (root < 1 && root >= 0) {
 				if (bez.cubic_interpolation(root).x < p.x)  count_left++;
-				else count_right++;
+				else if (bez.cubic_interpolation(root).x > p.x)  count_right++;
 			}
 		}
 	}
@@ -271,87 +271,77 @@ Image<cv::Vec3b> get_rasterized(VectorizationData vd) {
 	for (size_t xx = 0; xx < vd.I.width(); xx++) {
 		for (size_t yy = 1; yy < vd.I.height() - 1; yy++) {
 			if (I_int(xx, yy) == black) {
-				I_int(xx, yy) = color;
+				I_int(xx, yy) = vd.B.C;
 			}
-			else if (I_int(xx, yy - 1) == color && I_int(xx, yy + 1) == black) {
-				I_int(xx, yy) = color;
+			else if (I_int(xx, yy - 1) == vd.B.C && I_int(xx, yy + 1) == black) {
+				I_int(xx, yy) = vd.B.C;
 			}
 		}
 	};
-	blur(I_int, I_int, Size(2, 2));
+	cv::blur(I_int, I_int, Size(2, 2));
 	return I_int;
 }
 
+bool is_interior(Point p, map<int, vector<double>> map_intersect) {
+	int count_left = 0;
+	int count_right = 0;
+	for (double x : map_intersect[p.y]) {
+		if (x < p.x) count_left++;
+		if (x > p.x) count_right++;
+	}
+	return (count_left % 2 == 1) && (count_right % 2 == 1);
+};
 
-void rms(VectorizationData vd, string name) {
-	Image<Vec3b> I_int = get_rasterized(vd);
-	imshow(name, I_int);
+Image<Vec3b> get_rasterized_fast(VectorizationData vd) {
+	Vec3b white = { 255,255,255 };
+	Vec3b color = vd.B.C;
+	Image<Vec3b> I_int(vd.I.width(), vd.I.height());
+
+	map<int, vector<double>> map_intersect;
+	Bezier bez;
+	Bezier bez_previous;
+	double c3, c2, c1, c0;
+	vector<double> roots;
+	Point2f interpolated;
+	double y0, y1;
+	for (int jj = 0; jj < vd.B.Bx.rows(); jj++) {
+		bez = vd.B.get_bezier(jj);
+		c3 = -bez.control_points[0].y + 3 * bez.control_points[1].y - 3 * bez.control_points[2].y + bez.control_points[3].y;
+		c2 = 3 * bez.control_points[0].y - 6 * bez.control_points[1].y + 3 * bez.control_points[2].y;
+		c1 = -3 * bez.control_points[0].y + 3 * bez.control_points[1].y;
+		c0 = bez.control_points[0].y;
+		for (size_t yy = 0; yy < vd.I.height(); yy++) {
+			roots = get_roots(c3, c2, c1, c0 - yy);
+			for (double root : roots) {
+				if (root <= 1 - 1e-8 && root >= -1e-08) {
+					bez_previous = (jj != 0) ? vd.B.get_bezier(jj - 1) : vd.B.get_bezier(vd.B.Bx.rows() - 1);
+					y0 = (root < 0.01) ? bez_previous.cubic_interpolation(1 - 0.01).y : bez.cubic_interpolation(root - 0.01).y;
+					y1 = bez.cubic_interpolation(root + 0.01).y;
+					interpolated = bez.cubic_interpolation(root);
+					if ((y1 - interpolated.y) * (y0 - interpolated.y) < 0) map_intersect[yy].push_back(bez.cubic_interpolation(root).x);
+				}
+			}
+		}
+	}
+
+	for (size_t xx = 0; xx < vd.I.width(); xx++) {
+		for (size_t yy = 0; yy < vd.I.height(); yy++) {
+			if (is_interior(Point(xx, yy), map_intersect)) {
+				I_int(xx, yy) = color;
+			}
+			else {
+				I_int(xx, yy) = white;
+			}
+		}
+	}
+	cv::blur(I_int, I_int, Size(2, 2));
+	return I_int;
 }
 
-
-//
-//bool is_interior(Point p, MatrixXi curve) {
-//	// first method to tell if a point is inside a curve (supposing the last point of the matrix is linked to the first one)
-//	int count = 0;
-//	int nb_points = curve.rows();
-//	int min_y = curve.colwise().minCoeff()[1];
-//	int max_y = curve.colwise().maxCoeff()[1];
-//	if (min_y == p.y || max_y == p.y) return false; // to get rid of the corners and not count on the line
-//	for (size_t ii = 0; ii < nb_points - 1; ii++) {
-//		if ((curve.row(ii)[1] - p.y) * (curve.row(ii + 1)[1] - p.y) <= 0
-//			&& (curve.row(ii + 1)[1] - p.y) != 0
-//			&& curve.row(ii + 1)[0] < p.x
-//			&& curve.row(ii)[0] < p.x) {
-//			count++;
-//		};
-//	}
-//	if ((curve.row(nb_points - 1)[1] - p.y) * (curve.row(0)[1] - p.y) <= 0
-//		&& (curve.row(0)[1] - p.y) != 0
-//		&& curve.row(0)[0] < p.x
-//		&& curve.row(nb_points - 1)[0] < p.x) {
-//		count++;
-//	};
-//	return count % 2 == 1;
-//};
-//
-//
-//Image<Vec3b> get_rasterized(VectorizationData vd) {
-//	Vec3b white = { 255,255,255 };
-//	Vec3b black = { 0,0,0 };
-//
-//	Vec3f aux_color = { 0,0,0 };
-//	Vec3b color = { 0,0,255 };
-//
-//	Image<Vec3b> I_int(vd.I.width(), vd.I.height());
-//	MatrixXi curve = vd.B->get_sample_points();
-//	int count_int = 0;
-//	for (size_t xx = 0; xx < vd.I.width(); xx++) {
-//		for (size_t yy = 0; yy < vd.I.height(); yy++) {
-//			if (is_interior(Point(xx, yy), curve)) {
-//				I_int(xx, yy) = black;
-//				count_int++;
-//				aux_color += vd.I(xx, yy);
-//			}
-//			else {
-//				I_int(xx, yy) = white;
-//			}
-//		}
-//	};
-//	color = aux_color / count_int;
-//	for (size_t xx = 0; xx < vd.I.width(); xx++) {
-//		for (size_t yy = 0; yy < vd.I.height(); yy++) {
-//			if (I_int(xx, yy) == black) {
-//				I_int(xx, yy) = color;
-//			}
-//		}
-//	};
-//
-//	return I_int;
-//
-//}
-//void show_rasterized(VectorizationData vd) {
-//	Image<Vec3b> I_int = get_rasterized(vd);
-//	imshow("Rasterized Image", I_int);
-//}
-
-
+void rms(VectorizationData vd, string name) {
+	//Image<Vec3b> I_int = get_rasterized(vd);
+	Image<Vec3b> I_int = get_rasterized_fast(vd);
+	namedWindow(name, WINDOW_NORMAL);
+	resizeWindow(name, 600, 600);
+	imshow(name, I_int);
+}
