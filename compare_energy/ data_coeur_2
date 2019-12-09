@@ -1,0 +1,352 @@
+Hyperparameters : 
+Epsilon : 1
+Alpha : 1000
+Lambda_data: 0.0004
+
+PROPAGATION : 0
+
+Bezier Nb: 0
+Total_Energy : 881.771
+Patial_Energy : 881.771
+Grad: -0.000518548
+Grad: -0.000486507
+Grad: 0.00191122
+Grad: 0.00304788
+Grad: 0.0028159
+Grad: 0.00123676
+Grad: 0.00138676
+Grad: 0.000591718
+Grad: -0.00139404
+Grad: -0.00165302
+
+Bezier Nb: 1
+Total_Energy : 853.964
+Patial_Energy : 853.964
+Grad: 0.00260947
+Grad: 0.00264174
+Grad: -0.000760527
+Grad: -0.00173901
+Grad: -0.00267189
+Grad: -0.00119188
+Grad: -0.00148188
+Grad: -0.00264065
+Grad: -0.00135379
+Grad: -0.00144935
+
+Bezier Nb: 2
+Total_Energy : 812.257
+Patial_Energy : 812.257
+Grad: -0.00246046
+Grad: -0.00268264
+Grad: -0.00208251
+Grad: 0.000415433
+Grad: 0.000479596
+Grad: -0.00127854
+Grad: -0.00146935
+Grad: 0.000464885
+Grad: 0.00146399
+Grad: 0.00143683
+
+Bezier Nb: 3
+Total_Energy : 783.536
+Patial_Energy : 783.536
+Grad: 0.00060232
+Grad: 0.000444163
+Grad: 0.000702722
+Grad: -0.00050742
+Grad: -0.000412216
+Grad: 0.00136194
+Grad: 0.00149242
+Grad: 0.00261853
+Grad: 0.0011743
+Grad: 0.0013268
+
+PROPAGATION : 1
+
+Bezier Nb: 0
+Total_Energy : 768.195
+Patial_Energy : 768.195
+Grad: -4.45664e-05
+Grad: -3.8199e-05
+Grad: 0.000254662
+Grad: 0.000292943
+Grad: 0.000257587
+Grad: 0.000124171
+Grad: 0.000142378
+Grad: 3.29596e-05
+Grad: -0.000127284
+Grad: -0.000159171
+
+Bezier Nb: 1
+Total_Energy : 738.875
+Patial_Energy : 738.875
+Grad: 0.000284382
+Grad: 0.000264276
+Grad: 3.27048e-05
+Grad: -0.000252835
+Grad: -0.000261241
+Grad: -0.000139133
+Grad: -0.000123259
+Grad: -3.22915e-05
+Grad: -0.000158001
+Grad: -0.000126424
+
+Bezier Nb: 2
+Total_Energy : 700.531
+Patial_Energy : 700.531
+Grad: -0.000249231
+Grad: -0.000271207
+Grad: -0.000256043
+Grad: 4.41756e-05
+Grad: 4.23172e-05
+Grad: -0.000160827
+Grad: -0.00012298
+Grad: 9.27777e-05
+Grad: 0.000160253
+Grad: 0.000136894
+
+Bezier Nb: 3
+Total_Energy : 671.346
+Patial_Energy : 671.346
+Grad: 4.06368e-05
+Grad: 4.06367e-05
+Grad: -9.00017e-05
+Grad: -4.69157e-05
+Grad: -4.38239e-05
+Grad: 0.000139964
+Grad: 0.000131805
+Grad: 0.000221398
+Grad: 0.000131375
+Grad: 0.000143237
+
+PROPAGATION : 2
+
+Bezier Nb: 0
+Total_Energy : 657.423
+Patial_Energy : 657.423
+Grad: -4.70358e-07
+Grad: -4.70347e-07
+Grad: 2.40128e-06
+Grad: 2.94135e-06
+Grad: 2.50095e-06
+Grad: 1.28527e-06
+Grad: 1.42881e-06
+Grad: 3.37318e-07
+Grad: -1.31662e-06
+Grad: -1.4209e-06
+
+Bezier Nb: 1
+Total_Energy : 627.986
+Patial_Energy : 627.986
+Grad: 2.89335e-06
+Grad: 2.53676e-06
+Grad: 1.5669e-06
+Grad: -2.88675e-06
+Grad: -2.67688e-06
+Grad: -1.36828e-06
+Grad: -1.29756e-06
+Grad: -2.94728e-06
+Grad: -1.56025e-06
+Grad: -1.15042e-06
+
+Bezier Nb: 2
+Total_Energy : 581.218
+Patial_Energy : 581.218
+Grad: -2.5336e-06
+Grad: -2.97005e-06
+Grad: -2.46046e-06
+Grad: 4.25014e-07
+Grad: 4.92704e-07
+Grad: -1.46927e-06
+Grad: -1.38128e-06
+Grad: 3.17432e-07
+Grad: 1.47021e-06
+Grad: 1.44274e-06
+
+Bezier Nb: 3
+Total_Energy : 550.94
+Patial_Energy : 550.94
+Grad: 4.10929e-07
+Grad: 5.80397e-07
+Grad: -1.40251e-06
+Grad: -4.27876e-07
+Grad: -3.97382e-07
+Grad: 1.47408e-06
+Grad: 1.32804e-06
+Grad: 2.08818e-06
+Grad: 1.27822e-06
+Grad: 1.36754e-06
+
+PROPAGATION : 3
+
+Bezier Nb: 0
+Total_Energy : 537.444
+Patial_Energy : 537.444
+Grad: -4.90126e-10
+Grad: -3.36896e-10
+Grad: 2.28601e-09
+Grad: 2.56335e-09
+Grad: 2.28758e-09
+Grad: 1.23139e-09
+Grad: 1.37073e-09
+Grad: 4.79684e-10
+Grad: -1.13317e-09
+Grad: -1.62783e-09
+
+Bezier Nb: 1
+Total_Energy : 510.26
+Patial_Energy : 510.26
+Grad: 2.80481e-09
+Grad: 2.39918e-09
+Grad: -2.51475e-09
+Grad: -2.39958e-09
+Grad: -2.62722e-09
+Grad: -1.39753e-09
+Grad: -1.36742e-09
+Grad: -2.22197e-09
+Grad: -1.42886e-09
+Grad: -1.22187e-09
+
+Bezier Nb: 2
+Total_Energy : 468.625
+Patial_Energy : 468.625
+Grad: -2.18781e-09
+Grad: -2.68929e-09
+Grad: -2.09122e-09
+Grad: 4.05325e-10
+Grad: 4.77293e-10
+Grad: -1.25259e-09
+Grad: -1.11511e-09
+Grad: 3.90495e-10
+Grad: 1.45836e-09
+Grad: 1.32194e-09
+
+Bezier Nb: 3
+Total_Energy : 442.239
+Patial_Energy : 442.239
+Grad: 3.29406e-10
+Grad: 3.59101e-10
+Grad: -5.14382e-10
+Grad: -4.49128e-10
+Grad: -4.42811e-10
+Grad: 1.42986e-09
+Grad: 1.34211e-09
+Grad: 1.73608e-09
+Grad: 1.22569e-09
+Grad: 1.35196e-09
+
+PROPAGATION : 4
+
+Bezier Nb: 0
+Total_Energy : 430.637
+Patial_Energy : 430.637
+Grad: -2.20616e-13
+Grad: -3.29301e-14
+Grad: 2.1568e-13
+Grad: 2.62289e-13
+Grad: 2.47133e-13
+Grad: 1.26261e-13
+Grad: 1.43922e-13
+Grad: 4.19471e-14
+Grad: -1.19859e-13
+Grad: -1.57789e-13
+
+Bezier Nb: 1
+Total_Energy : 402.55
+Patial_Energy : 402.55
+Grad: 2.70209e-13
+Grad: 2.35217e-13
+Grad: -2.36791e-13
+Grad: -2.27624e-13
+Grad: -2.73538e-13
+Grad: -1.21937e-13
+Grad: -1.36876e-13
+Grad: -1.71102e-13
+Grad: -1.20122e-13
+Grad: -1.24886e-13
+
+Bezier Nb: 2
+Total_Energy : 365.034
+Patial_Energy : 365.034
+Grad: -2.14532e-13
+Grad: -2.70413e-13
+Grad: -2.00814e-13
+Grad: 2.65878e-13
+Grad: 4.13232e-14
+Grad: -1.21263e-13
+Grad: -1.0918e-13
+Grad: 5.004e-14
+Grad: 1.42406e-13
+Grad: 1.2663e-13
+
+Bezier Nb: 3
+Total_Energy : 339.143
+Patial_Energy : 339.143
+Grad: 2.93221e-13
+Grad: 2.97625e-13
+Grad: 1.0374e-13
+Grad: -3.81151e-14
+Grad: -3.22518e-14
+Grad: 1.58286e-13
+Grad: 1.2191e-13
+Grad: 1.33451e-13
+Grad: 1.25933e-13
+Grad: 1.45303e-13
+
+PROPAGATION : 5
+
+Bezier Nb: 0
+Total_Energy : 326.597
+Patial_Energy : 326.597
+Grad: -4.47699e-19
+Grad: -3.22233e-19
+Grad: 2.21592e-18
+Grad: 2.65851e-18
+Grad: 2.17799e-18
+Grad: 1.20655e-18
+Grad: 1.52912e-18
+Grad: 4.09002e-19
+Grad: -1.05081e-18
+Grad: -1.28405e-18
+
+Bezier Nb: 1
+Total_Energy : 301.085
+Patial_Energy : 301.085
+Grad: 2.64668e-18
+Grad: 2.20851e-18
+Grad: 1.45004e-18
+Grad: -2.02882e-18
+Grad: -2.54989e-18
+Grad: -1.13839e-18
+Grad: -1.36613e-18
+Grad: -1.13435e-18
+Grad: -1.07311e-18
+Grad: -1.1074e-18
+
+Bezier Nb: 2
+Total_Energy : 269.033
+Patial_Energy : 269.033
+Grad: -1.9841e-18
+Grad: -2.57956e-18
+Grad: -2.06914e-18
+Grad: 2.45909e-18
+Grad: 4.19486e-19
+Grad: -1.08944e-18
+Grad: -1.15259e-18
+Grad: 4.24871e-19
+Grad: 1.33945e-18
+Grad: 1.19256e-18
+
+Bezier Nb: 3
+Total_Energy : 245.144
+Patial_Energy : 245.144
+Grad: 2.00925e-18
+Grad: 3.99915e-19
+Grad: 3.87708e-19
+Grad: -3.87799e-19
+Grad: -2.58379e-18
+Grad: 1.32085e-18
+Grad: 1.06388e-18
+Grad: 1.18988e-18
+Grad: 1.06438e-18
+Grad: 1.3019e-18
