@@ -15,7 +15,7 @@ double Energy::energy_angles_ctrl_pt(Bezigon B, int point) {
 	double angle = acos(scalar_multiplication / (norm(a_j) * norm(b_j)));
 	//In case we are dealing with the same point			
 	if (angle != 0 && !isnan(angle)) {
-		return lambda_angles*(1 / (angle));
+		return lambda_angles*((angle));
 	}
 	else { return 0.0; }
 
@@ -82,9 +82,9 @@ double Energy::energy_partial(VectorizationData vd, int j) {
 	//cout << "hangles "<<lambda_handles * energy_bezier_handles(vd.B, j)<<endl;
 	//cout << "data"<<energy<<endl;
 	//return energy + energy_prior;
-	//return energy+energy_bezier_handles(vd.B,j);
-	//return  energy_angles(vd.B, j)
-	return energy ;
+	//return energy_bezier_handles(vd.B,j);
+	return  energy_angles(vd.B, j);
+	//return energy ;
 
 };
 

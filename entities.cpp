@@ -39,22 +39,48 @@ Bezigon::Bezigon(MatrixXd _Bx, MatrixXd _By) {
 	C = Vec3b(255, 255, 255);
 };
 
-Bezigon::Bezigon(vector<Point> vector_points) {
-	int nb_bezier = vector_points.size();
+Bezigon::Bezigon(vector<Point> vp) {
+	int nb_bezier = vp.size();
 	Bx = MatrixXd(nb_bezier, 3);
 	By = MatrixXd(nb_bezier, 3);
 	C = Vec3b(255, 255, 255);
+<<<<<<< HEAD
 	Point2d tangent1, tangent2;
 	for (int jj = 0; jj < nb_bezier - 1; jj++) {
 		tangent1 = barycenter(0.33, vector_points[jj], vector_points[jj + 1]);
 		tangent2 = barycenter(0.66, vector_points[jj], vector_points[jj + 1]);
 		Bx.row(jj) << double(vector_points[jj].x), tangent1.x, tangent2.x;
 		By.row(jj) << double(vector_points[jj].y), tangent1.y, tangent2.y;
+=======
+	Point2f tangent_next, tangent_prev;
+	for (int jj = 1; jj < nb_bezier - 1; jj++) {
+		tangent_next = vp[jj] + 0.33 * norm(vp[jj + 1] - vp[jj]) * (vp[jj + 1] - vp[jj - 1]) / norm(vp[jj + 1] - vp[jj - 1]);
+		tangent_prev = vp[jj] + 0.33 * norm(vp[jj - 1] - vp[jj]) * (vp[jj - 1] - vp[jj + 1]) / norm(vp[jj - 1] - vp[jj + 1]);
+		Bx.row(jj - 1)[2] = tangent_prev.x;
+		Bx.row(jj)[0] = double(vp[jj].x);
+		Bx.row(jj)[1] = tangent_next.x;
+		By.row(jj - 1)[2] = tangent_prev.y;
+		By.row(jj)[0] = double(vp[jj].y);
+		By.row(jj)[1] = tangent_next.y;
+>>>>>>> "RMS not fast and main different input"
 	}
-	tangent1 = barycenter(0.33, vector_points[nb_bezier - 1], vector_points[0]);
-	tangent2 = barycenter(0.66, vector_points[nb_bezier - 1], vector_points[0]);
-	Bx.row(nb_bezier - 1) << double(vector_points[nb_bezier - 1].x), tangent1.x, tangent2.x;
-	By.row(nb_bezier - 1) << double(vector_points[nb_bezier - 1].y), tangent1.y, tangent2.y;
+	tangent_next = vp[0] + 0.33 * norm(vp[1] - vp[0]) * (vp[1] - vp[nb_bezier - 1]) / norm(vp[1] - vp[nb_bezier - 1]);
+	tangent_prev = vp[0] + 0.33 * norm(vp[nb_bezier - 1] - vp[0]) * (vp[nb_bezier - 1] - vp[1]) / norm(vp[1] - vp[nb_bezier - 1]);
+	Bx.row(nb_bezier - 1)[2] = tangent_prev.x;
+	Bx.row(0)[0] = double(vp[0].x);
+	Bx.row(0)[1] = tangent_next.x;
+	By.row(nb_bezier - 1)[2] = tangent_prev.y;
+	By.row(0)[0] = double(vp[0].y);
+	By.row(0)[1] = tangent_next.y;
+
+	tangent_next = vp[nb_bezier - 1] + 0.33 * norm(vp[nb_bezier - 1] - vp[0]) * (vp[0] - vp[nb_bezier - 2]) / norm(vp[0] - vp[nb_bezier - 2]);
+	tangent_prev = vp[nb_bezier - 1] + 0.33 * norm(vp[nb_bezier - 1] - vp[nb_bezier - 2]) * (vp[nb_bezier - 2] - vp[0]) / norm(vp[0] - vp[nb_bezier - 2]);
+	Bx.row(nb_bezier - 2)[2] = tangent_prev.x;
+	Bx.row(nb_bezier - 1)[0] = double(vp[nb_bezier - 1].x);
+	Bx.row(nb_bezier - 1)[1] = tangent_next.x;
+	By.row(nb_bezier - 2)[2] = tangent_prev.y;
+	By.row(nb_bezier - 1)[0] = double(vp[nb_bezier - 1].y);
+	By.row(nb_bezier - 1)[1] = tangent_next.y;
 	lo = get_arclength();
 }
 
@@ -76,7 +102,7 @@ Bezier Bezigon::get_bezier(int j) {
 };
 
 Point2d Bezigon::get_pt(int j, int i = 0) {
-	j=j%Bx.rows();
+	j = (j > 0) ? j % Bx.rows() : (-j) % (-Bx.rows());
 	Point2d p0 = Point2d(Bx.row(j)[i], By.row(j)[i]);
 	return Point2d(Bx.row(j)[i], By.row(j)[i]);
 
@@ -163,6 +189,8 @@ void Bezigon::plot_curve(Image<Vec3b> I, std::string nom) {
 		for (double t = 0.0; t <= 1.0; t += 0.05) {
 			Point2d m1 = bezier_j.cubic_interpolation(t);
 			circle(I_copy, m1, 1, Scalar(0, 255, 0), 2);
+			namedWindow(nom,WINDOW_NORMAL);
+			resizeWindow(nom, 200, 200);
 			imshow(nom, I_copy);
 			waitKey(1);
 		}

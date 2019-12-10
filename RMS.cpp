@@ -344,6 +344,6 @@ void rms(VectorizationData vd, string name) {
 	Image<Vec3b> I_int = get_rasterized(vd);
 	//Image<Vec3b> I_int = get_rasterized_fast(vd);
 	namedWindow(name, WINDOW_NORMAL);
-	resizeWindow(name, 600, 600);
+	resizeWindow(name, 200, 200);
 	imshow(name, I_int);
 }
