@@ -21,7 +21,6 @@ void Propagation::propagate(int nb_iterations, double alpha, double eps, string 
 
 	//NB OF PROPAGATIONS
 	for (int iter=0; iter<nb_iterations; iter++){
-		alpha = alpha*pow(10,iter);
 		out <<"\nPROPAGATION : "<<iter<<"\nAlpha_updated :"<<alpha<<endl;;
 
 		//ITERATIONS OVER ALL BEZIERS
@@ -44,9 +43,11 @@ void Propagation::propagate(int nb_iterations, double alpha, double eps, string 
 				double engy_moins = energy->energy_to_minimize(*vd,jj,vals_copy_moins);
 				grad = (engy_plus-engy_moins)/(2*eps);
 				out << "Grad: "<<grad<<endl;
-				while(norm(alpha*grad)>10)	{
-					grad=grad/10;
-				}	
+				int width = vd->I.width();
+				int height = vd->I.height();
+				// while(norm(alpha*grad)>min(width,height)/15)	{
+				// 	grad=grad/10;
+				// }	
 				cout << "energy_plus: "<<engy_plus<<endl;	
 				cout << "energy_moins: "<<engy_moins<<endl;	
 				cout << endl;	
