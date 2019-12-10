@@ -20,9 +20,9 @@ class Bezier
 {
 public:
 	Bezier();
-	Bezier(cv::Point2f p0, cv::Point2f p1, cv::Point2f p2, cv::Point2f p3);
-	cv::Point2f control_points[4];
-	cv::Point2f cubic_interpolation(double t);
+	Bezier(cv::Point2d p0, cv::Point2d p1, cv::Point2d p2, cv::Point2d p3);
+	cv::Point2d control_points[4];
+	cv::Point2d cubic_interpolation(double t);
 	std::array<Bezier, 2> subdivide(double t0);
 	Bezier subdivide(double t0, double t1);
 };
@@ -44,7 +44,7 @@ public:
 
 	//GET
 	Bezier get_bezier(int j);
-	cv::Point2f get_pt(int j, int i);
+	cv::Point2d get_pt(int j, int i);
 	array<vector<double>, 2> get_tangent(int point);
 	//COMPUTE
 	double get_arclength(int j);

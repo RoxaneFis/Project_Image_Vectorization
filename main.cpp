@@ -5,13 +5,17 @@ using namespace std;
 using namespace Eigen;
 
 int main(int argc, char* argv[]) {
-
-	const Image<Vec3b> B = imread("../data/red.jpg");
-
+	int nb_etapes = atoi(argv[1]);
+	float alpha = atof(argv[2]);
+	float epsilon = atof(argv[3]);
+	string nom = string(argv[4]);
+	string path = string(argv[5]);
+	
+	const Image<Vec3b> B = imread(path);
 	cout << ">>> Initializing : CLIK on edge points. PRESS 0" << endl;
 	VectorizationData vd = initialisation(B);
 	Propagation * p = new Propagation(vd);
-	p->propagate(20, 10000, 1, " red_3");
+	p->propagate(nb_etapes, alpha, epsilon, nom);
 	cout << endl;
 
 	//test_alpha(vd);

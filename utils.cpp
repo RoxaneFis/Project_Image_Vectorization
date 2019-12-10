@@ -3,23 +3,23 @@
 using namespace cv;
 using namespace std;
 
-Point2f barycenter(double t, Point2f A, Point2f B) {
-	Point2f p;
+Point2d barycenter(double t, Point2d A, Point2d B) {
+	Point2d p;
 	p.x = (1 - t) * (float)A.x + t * (float)B.x;
 	p.y = (1 - t) * (float)A.y + t * (float)B.y;
 	return p;
 };
 
-double distance(Point2f A, Point2f B) {
+double distance(Point2d A, Point2d B) {
 	return norm(Mat(A), Mat(B));
 }
 
-double angle(Point2f A, Point2f B, Point2f C) {
+double angle(Point2d A, Point2d B, Point2d C) {
 	if (A == B || B == C) return 0;
 	return acos((C - B).dot(A - B) / (distance(A, B) * distance(C, B)));
 };
 
-double det(Point2f A, Point2f B) {
+double det(Point2d A, Point2d B) {
 	return A.x * B.y - A.x * B.y;
 }
 

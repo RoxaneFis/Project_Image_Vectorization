@@ -32,22 +32,22 @@ Matrix2i haar(int s, int kx, int ky, double x, double y) {
 	return m;
 };
 
-Point2f normalize(Point2f p, int wh) {
-	return Point2f(p.x / (float)wh, p.y / (float)wh);
+Point2d normalize(Point2d p, int wh) {
+	return Point2d(p.x / (float)wh, p.y / (float)wh);
 }
 
 Bezigon normalize(Bezigon B, int wh) {
 	Eigen::MatrixXd Bx = B.Bx;
 	Eigen::MatrixXd By = B.By;
-	Point2f new_point;
+	Point2d new_point;
 	for (int jj = 0; jj < Bx.rows(); jj++) {
-		new_point = normalize(Point2f(Bx.row(jj)[0], By.row(jj)[0]), wh);
+		new_point = normalize(Point2d(Bx.row(jj)[0], By.row(jj)[0]), wh);
 		Bx.row(jj)[0] = new_point.x;
 		By.row(jj)[0] = new_point.y;
-		new_point = normalize(Point2f(Bx.row(jj)[1], By.row(jj)[1]), wh);
+		new_point = normalize(Point2d(Bx.row(jj)[1], By.row(jj)[1]), wh);
 		Bx.row(jj)[1] = new_point.x;
 		By.row(jj)[1] = new_point.y;
-		new_point = normalize(Point2f(Bx.row(jj)[2], By.row(jj)[2]), wh);
+		new_point = normalize(Point2d(Bx.row(jj)[2], By.row(jj)[2]), wh);
 		Bx.row(jj)[2] = new_point.x;
 		By.row(jj)[2] = new_point.y;
 	}
@@ -55,10 +55,10 @@ Bezigon normalize(Bezigon B, int wh) {
 }
 
 vector<Bezier> clip(Bezier bez, int left, int right, int bottom, int top) {
-	Point2f A = -bez.control_points[0] + 3 * bez.control_points[1] - 3 * bez.control_points[2] + bez.control_points[3];
-	Point2f B = 3 * bez.control_points[0] - 6 * bez.control_points[1] + 3 * bez.control_points[2];
-	Point2f C = -3 * bez.control_points[0] + 3 * bez.control_points[1];
-	Point2f D = bez.control_points[0];
+	Point2d A = -bez.control_points[0] + 3 * bez.control_points[1] - 3 * bez.control_points[2] + bez.control_points[3];
+	Point2d B = 3 * bez.control_points[0] - 6 * bez.control_points[1] + 3 * bez.control_points[2];
+	Point2d C = -3 * bez.control_points[0] + 3 * bez.control_points[1];
+	Point2d D = bez.control_points[0];
 
 	vector<double> ts;
 	ts.push_back(0.);
@@ -81,7 +81,7 @@ vector<Bezier> clip(Bezier bez, int left, int right, int bottom, int top) {
 
 	vector<Bezier> boundary_bez;
 	for (int ii = 1; ii < ts.size(); ii++) {
-		Point2f middle = bez.cubic_interpolation(0.5 * (ts[ii - 1] + ts[ii]));
+		Point2d middle = bez.cubic_interpolation(0.5 * (ts[ii - 1] + ts[ii]));
 		if (left <= middle.x && middle.x <= right && top <= middle.y && middle.y <= bottom) {
 			boundary_bez.push_back(bez.subdivide(ts[ii - 1])[1].subdivide(ts[ii])[0]);
 		}
@@ -90,14 +90,14 @@ vector<Bezier> clip(Bezier bez, int left, int right, int bottom, int top) {
 	return boundary_bez;
 }
 
-array<Point2f, 2> get_KL(Bezier bez) {
+array<Point2d, 2> get_KL(Bezier bez) {
 	double Kx = 0, Ky = 0, Lx = 0, Ly = 0;
 	vector<Bezier> boundary_bez = clip(bez, 0, 1, 1, 0);
 	for (Bezier bbez : boundary_bez) {
-		Point2f p3 = bbez.control_points[0];
-		Point2f p2 = bbez.control_points[1];
-		Point2f p1 = bbez.control_points[2];
-		Point2f p0 = bbez.control_points[3];
+		Point2d p3 = bbez.control_points[0];
+		Point2d p2 = bbez.control_points[1];
+		Point2d p1 = bbez.control_points[2];
+		Point2d p0 = bbez.control_points[3];
 		Kx += 1. / 4 * (p0.y - p3.y);
 		Ky += 1. / 4 * (p3.x - p0.x);
 		Lx += 1. / 80 * (6 * p2.y * p3.x + 3 * p1.y * (p2.x + p3.x)
@@ -111,20 +111,20 @@ array<Point2f, 2> get_KL(Bezier bez) {
 			+ 10 * p3.x * p3.y
 			- p0.x * (10 * p0.y + 6 * p1.y + 3 * p2.y + p3.y));
 	}
-	return { Point2f(Kx,Ky),Point2f(Lx,Ly) };
+	return { Point2d(Kx,Ky),Point2d(Lx,Ly) };
 }
 
 Bezier transform(Bezier bez, Point Q, int ss, int kx, int ky) {
-	Point2f p0 = bez.control_points[0];
+	Point2d p0 = bez.control_points[0];
 	p0.x = pow(2, ss + 1) * p0.x - kx * 2 - Q.x;
 	p0.x = pow(2, ss + 1) * p0.y - ky * 2 - Q.y;
-	Point2f p1 = bez.control_points[1];
+	Point2d p1 = bez.control_points[1];
 	p1.x = pow(2, ss + 1) * p1.x - kx * 2 - Q.x;
 	p1.x = pow(2, ss + 1) * p1.y - ky * 2 - Q.y;
-	Point2f p2 = bez.control_points[2];
+	Point2d p2 = bez.control_points[2];
 	p2.x = pow(2, ss + 1) * p2.x - kx * 2 - Q.x;
 	p2.x = pow(2, ss + 1) * p2.y - ky * 2 - Q.y;
-	Point2f p3 = bez.control_points[3];
+	Point2d p3 = bez.control_points[3];
 	p3.x = pow(2, ss + 1) * p3.x - kx * 2 - Q.x;
 	p3.x = pow(2, ss + 1) * p3.y - ky * 2 - Q.y;
 	return Bezier(p0, p1, p2, p3);
@@ -134,10 +134,10 @@ array<double, 3> get_coef(Bezigon B, int jj, int ss, int kx, int ky) {
 	Point Q_00 = Point(0, 0);	Point Q_01 = Point(0, 1);
 	Point Q_10 = Point(1, 0);	Point Q_11 = Point(1, 1);
 	double c10 = 0, c01 = 0, c11 = 0;
-	array < Point2f, 2 > KL_Q_00 = get_KL(transform(B.get_bezier(jj), Q_00, ss, kx, ky));
-	array < Point2f, 2 > KL_Q_01 = get_KL(transform(B.get_bezier(jj), Q_01, ss, kx, ky));
-	array < Point2f, 2 > KL_Q_10 = get_KL(transform(B.get_bezier(jj), Q_10, ss, kx, ky));
-	array < Point2f, 2 > KL_Q_11 = get_KL(transform(B.get_bezier(jj), Q_11, ss, kx, ky));
+	array < Point2d, 2 > KL_Q_00 = get_KL(transform(B.get_bezier(jj), Q_00, ss, kx, ky));
+	array < Point2d, 2 > KL_Q_01 = get_KL(transform(B.get_bezier(jj), Q_01, ss, kx, ky));
+	array < Point2d, 2 > KL_Q_10 = get_KL(transform(B.get_bezier(jj), Q_10, ss, kx, ky));
+	array < Point2d, 2 > KL_Q_11 = get_KL(transform(B.get_bezier(jj), Q_11, ss, kx, ky));
 	c10 += KL_Q_00[1].x + KL_Q_01[1].x + KL_Q_10[0].x
 		- KL_Q_10[1].x + KL_Q_11[0].x - KL_Q_11[1].x;
 	c01 += KL_Q_00[1].y + KL_Q_10[1].y + KL_Q_01[0].y
@@ -148,14 +148,14 @@ array<double, 3> get_coef(Bezigon B, int jj, int ss, int kx, int ky) {
 }
 
 double c_00(Bezier bez) {
-	Point2f p0 = bez.control_points[0];
-	Point2f p1 = bez.control_points[1];
-	Point2f p2 = bez.control_points[2];
-	Point2f p3 = bez.control_points[3];
+	Point2d p0 = bez.control_points[0];
+	Point2d p1 = bez.control_points[1];
+	Point2d p2 = bez.control_points[2];
+	Point2d p3 = bez.control_points[3];
 	return 3.0 / 10.0 * det(p0, p1) + 3.0 / 20.0 * det(p1, p2) + 3.0 / 10.0 * det(p2, p3) + 3.0 / 20.0 * det(p0, p2) + 3.0 / 20.0 * det(p1, p3) + 1.0 / 20.0 * det(p0, p3);
 }
 
-double color(Bezigon B, int d, int N, map<array<int, 4>, array<double, 3>> coef_map, Point2f p) {
+double color(Bezigon B, int d, int N, map<array<int, 4>, array<double, 3>> coef_map, Point2d p) {
 	double s = 0;
 	for (int jj = 0; jj < N; jj++) {
 		s += c_00(B.get_bezier(jj));
@@ -188,7 +188,7 @@ Image<Vec3b> get_rasterized_wavelet(VectorizationData vd, int d, int N, map<arra
 
 	for (size_t xx = 0; xx < vd.I.width(); xx++) {
 		for (size_t yy = 0; yy < vd.I.height(); yy++) {
-			Point2f p = normalize(Point(xx, yy), wh);
+			Point2d p = normalize(Point(xx, yy), wh);
 			I_raster(xx, yy) = color(vd.B, d, N, coef_map, p) * raster_color;
 			cout << endl;
 			cout << I_raster(xx, yy) << endl;
@@ -239,7 +239,7 @@ bool is_interior(Point p, Bezigon B) {
 		for (double root : roots) {
 			if (root < 1 && root >= 0) {
 				if (bez.cubic_interpolation(root).x < p.x)  count_left++;
-				else if (bez.cubic_interpolation(root).x > p.x)  count_right++;
+				else count_right++;
 			}
 		}
 	}
@@ -271,16 +271,18 @@ Image<cv::Vec3b> get_rasterized(VectorizationData vd) {
 	for (size_t xx = 0; xx < vd.I.width(); xx++) {
 		for (size_t yy = 1; yy < vd.I.height() - 1; yy++) {
 			if (I_int(xx, yy) == black) {
-				I_int(xx, yy) = vd.B.C;
+				I_int(xx, yy) = color;
 			}
-			else if (I_int(xx, yy - 1) == vd.B.C && I_int(xx, yy + 1) == black) {
-				I_int(xx, yy) = vd.B.C;
+			else if (I_int(xx, yy - 1) == color && I_int(xx, yy + 1) == black) {
+				I_int(xx, yy) = color;
 			}
 		}
 	};
-	cv::blur(I_int, I_int, Size(2, 2));
+	blur(I_int, I_int, Size(2, 2));
 	return I_int;
 }
+
+
 
 bool is_interior(Point p, map<int, vector<double>> map_intersect) {
 	int count_left = 0;
@@ -302,7 +304,7 @@ Image<Vec3b> get_rasterized_fast(VectorizationData vd) {
 	Bezier bez_previous;
 	double c3, c2, c1, c0;
 	vector<double> roots;
-	Point2f interpolated;
+	Point2d interpolated;
 	double y0, y1;
 	for (int jj = 0; jj < vd.B.Bx.rows(); jj++) {
 		bez = vd.B.get_bezier(jj);
@@ -339,8 +341,8 @@ Image<Vec3b> get_rasterized_fast(VectorizationData vd) {
 }
 
 void rms(VectorizationData vd, string name) {
-	//Image<Vec3b> I_int = get_rasterized(vd);
-	Image<Vec3b> I_int = get_rasterized_fast(vd);
+	Image<Vec3b> I_int = get_rasterized(vd);
+	//Image<Vec3b> I_int = get_rasterized_fast(vd);
 	namedWindow(name, WINDOW_NORMAL);
 	resizeWindow(name, 600, 600);
 	imshow(name, I_int);

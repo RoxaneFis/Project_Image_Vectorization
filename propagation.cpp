@@ -13,12 +13,16 @@ void Propagation::propagate(int nb_iterations, double alpha, double eps, string 
 	//WRITE
 	fstream out;
     out.open(name, fstream::out);
-	out << "Hyperparameters : \n"<<"Epsilon : "<<eps<<"\nAlpha : "<<alpha<<"\nLambda_data: "<<energy->lambda_data<<endl;
+	out << "Hyperparameters : \n"<<"Epsilon : "<<eps<<"\nAlpha : "<<alpha;
+	out<<"\nLambda_data :"<<energy->lambda_data<<"\nLambda_handles: "<<energy->lambda_handles<<"\nLamda_angles :"<<energy->lambda_angles<<endl;;
+	out<<"\nEnergies intialization:";
+	out<<"\nE_data :"<<energy->energy_data(*vd)<<"\nE_handes :"<<energy->energy_bezier_handles(vd->B)<<"\nE_angles :"<<energy->energy_angles(vd->B)<<endl;;
+
 
 	//NB OF PROPAGATIONS
 	for (int iter=0; iter<nb_iterations; iter++){
-		out <<"\nPROPAGATION : "<<iter<<endl;
 		alpha = alpha*pow(10,iter);
+		out <<"\nPROPAGATION : "<<iter<<"\nAlpha_updated :"<<alpha<<endl;;
 
 		//ITERATIONS OVER ALL BEZIERS
 		for (int jj=0; jj<vd->B.Bx.rows(); jj++){
@@ -30,8 +34,7 @@ void Propagation::propagate(int nb_iterations, double alpha, double eps, string 
 			array<double,10> vals_out;
 
 			double engy_prece=energy->energy_partial(*vd,jj);
-			double total_energy = energy->energy_data(*(vd));
-			out <<"\nBezier Nb: "<<jj<<"\nTotal_Energy : "<<total_energy<<"\nPatial_Energy : "<<engy_prece<<endl;
+			out <<"\nBezier Nb: "<<jj<<"\nPatial_Energy : "<<engy_prece<<endl;
 
 			for(int var_index=0; var_index<10; var_index++){
 				double grad=0.0;
@@ -40,13 +43,13 @@ void Propagation::propagate(int nb_iterations, double alpha, double eps, string 
 				double engy_plus = energy->energy_to_minimize(*vd,jj,vals_copy_plus);
 				double engy_moins = energy->energy_to_minimize(*vd,jj,vals_copy_moins);
 				grad = (engy_plus-engy_moins)/(2*eps);
+				out << "Grad: "<<grad<<endl;
 				while(norm(alpha*grad)>10)	{
 					grad=grad/10;
 				}	
-				out << "Grad: "<<grad<<endl;
-				// cout << "energy_plus: "<<engy_plus<<endl;	
-				// cout << "energy_moins: "<<engy_moins<<endl;	
-				// cout << endl;	
+				cout << "energy_plus: "<<engy_plus<<endl;	
+				cout << "energy_moins: "<<engy_moins<<endl;	
+				cout << endl;	
 				
 				// cout << endl;
 				vals_copy_plus[var_index]=vals_inp[var_index]-alpha*grad;
@@ -55,9 +58,9 @@ void Propagation::propagate(int nb_iterations, double alpha, double eps, string 
 			};
 			vd->B.update(vals_out,jj);
 		}
-		vd->B.plot_curve(vd->I,"Iter :"+to_string(iter)+name);
+		vd->B.plot_curve(vd->I," Iter :"+to_string(iter)+name);
+		rms(*vd, to_string(iter)+" RMS "+name);
 	}
-	rms(*vd, "RMS"+name);
 	out.close();
 }
 

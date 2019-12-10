@@ -6,7 +6,7 @@ using namespace std;
 Energy::Energy() {};
 
 
-double Energy::energy_angles(Bezigon B, int point) {
+double Energy::energy_angles_ctrl_pt(Bezigon B, int point) {
 	//Compute the prior Energy for angle variations
 	array<vector<double>, 2> tangents_j = B.get_tangent(point);
 	vector<double> a_j = tangents_j[0];
@@ -21,32 +21,40 @@ double Energy::energy_angles(Bezigon B, int point) {
 
 }
 
-// double Energy::energy_angles(Bezigon B) {
-// 	double energy = 0.0;
-// 	for (int j = 0; j < B.nb_points(); j++) {
-// 		energy = energy + energy_angles(B, j);
+double Energy::energy_angles(Bezigon B, int point) {
+// 3 control points are influenced when we optimize 5 points.
+	return energy_angles_ctrl_pt(B, point)+energy_angles_ctrl_pt(B, point+1)+energy_angles_ctrl_pt(B, point+2);
+};
 
-// 	}
-// 	return energy;
-// }
+double Energy::energy_angles(Bezigon B) {
+	double energy = 0.0;
+	for (int j = 0; j < B.Bx.rows(); j++) {
+		energy = energy + energy_angles_ctrl_pt(B, j);
+	}
+	return energy;
+}
 
-double Energy::energy_bezier_handles(Bezigon B, int point) {
+double Energy::energy_bezier_handles_ctrl_pt(Bezigon B, int point) {
 	array<vector<double>, 2> tangents_j = B.get_tangent(point);
 	vector<double> a_j = tangents_j[0];
 	vector<double> b_j = tangents_j[1];
-
 	//In case we are dealing with the same point
 	if ((norm(a_j) > 0 && norm(b_j) > 0)) {
-		return lambda_handles*(1 / norm(a_j) + 1 / norm(b_j));
+		return lambda_handles*  (1 / norm(a_j) + 1 / norm(b_j));
 	}
 	else { return 0.0; };
 
 }
 
+double Energy::energy_bezier_handles(Bezigon B, int point) {
+	// 3 control points are influenced when we optimize 5 points.
+	return energy_bezier_handles_ctrl_pt(B, point)+energy_bezier_handles_ctrl_pt(B, point+1)+energy_bezier_handles_ctrl_pt(B, point+2);
+};
+
 double Energy::energy_bezier_handles(Bezigon B) {
 	double energy = 0.0;
 	for (int j = 0; j < B.Bx.rows(); j++) {
-		energy = energy + energy_bezier_handles(B, j);
+		energy = energy + energy_bezier_handles_ctrl_pt(B, j);
 	}
 	return energy;
 };
@@ -74,7 +82,7 @@ double Energy::energy_partial(VectorizationData vd, int j) {
 	//cout << "hangles "<<lambda_handles * energy_bezier_handles(vd.B, j)<<endl;
 	//cout << "data"<<energy<<endl;
 	//return energy + energy_prior;
-	//return energy_bezier_handles(vd.B,j);
+	//return energy+energy_bezier_handles(vd.B,j);
 	//return  energy_angles(vd.B, j)
 	return energy ;
 

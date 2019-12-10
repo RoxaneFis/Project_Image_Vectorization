@@ -17,8 +17,11 @@
 class Energy {
 public:
 	Energy();
-	double energy_angles(Bezigon B, int point) ;
+	double energy_angles_ctrl_pt(Bezigon B, int point) ;
+	double energy_angles(Bezigon B, int point); 
 	double energy_angles(Bezigon B);
+
+	double energy_bezier_handles_ctrl_pt(Bezigon B, int point);
 	double energy_bezier_handles(Bezigon B, int point);
 	double energy_bezier_handles(Bezigon B);
 
@@ -27,8 +30,8 @@ public:
 	double energy_to_minimize(VectorizationData vd, int j, array<double, 10> vals_inp);
 
 	const double lambda_angles = (1.0/40.0)*10000;
-	const double lambda_handles = (1.0/2.0)*10000;
-	const double lambda_data = (1.0/2500.0);
+	const double lambda_handles = (1.0/2.0)*1000;
+	const double lambda_data = (1.0/2500.0)*1000;
 
 };
 

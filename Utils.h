@@ -14,10 +14,10 @@
 #include <math.h>
 #define EQN_EPS 1e-9
 
-cv::Point2f barycenter(double t, cv::Point2f A, cv::Point2f B);
-double distance(cv::Point2f A, cv::Point2f B);
-double angle(cv::Point2f A, cv::Point2f B, cv::Point2f C);
-double det(cv::Point2f A, cv::Point2f B);
+cv::Point2d barycenter(double t, cv::Point2d A, cv::Point2d B);
+double distance(cv::Point2d A, cv::Point2d B);
+double angle(cv::Point2d A, cv::Point2d B, cv::Point2d C);
+double det(cv::Point2d A, cv::Point2d B);
 
 static int isZero(double x);
 int solveLinear(double c1, double c0, double& s0);
