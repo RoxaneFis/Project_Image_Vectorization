@@ -18,10 +18,10 @@ int main(int argc, char* argv[]) {
 	p->propagate(nb_etapes, alpha, epsilon, nom);
 	
 	
-	VectorizationData vd_2 = initialisation(B);
-	Propagation * p_2 = new Propagation(vd_2);
-	p->propagate(nb_etapes, alpha, epsilon, nom+to_string(2));
-	cout << endl;
+	// VectorizationData vd_2 = initialisation(B);
+	// Propagation * p_2 = new Propagation(vd_2);
+	// p->propagate(nb_etapes, alpha, epsilon, nom+to_string(2));
+	// cout << endl;
 
 	//test_alpha(vd);
 	//test_espilon(vd);

@@ -83,16 +83,16 @@ double Energy::energy_data(VectorizationData vd) {
 
 
 double Energy::energy_partial(VectorizationData vd, int j) {
-	//double energy_prior = energy_angles(vd.B, j) + energy_bezier_handles(vd.B, j)+energy_curve_length(vd.B,j);
+	double energy_prior = energy_angles(vd.B, j) + energy_bezier_handles(vd.B, j)+energy_curve_length(vd.B,j);
 	//double energy = energy_data(vd);
 	//cout << "angles"<<lambda_angles * energy_angles(vd.B, j)<<endl;
 	//cout << "hangles "<<lambda_handles * energy_bezier_handles(vd.B, j)<<endl;
 	//cout << "data"<<energy<<endl;
-	return energy_curve_length(vd.B,j);
+	//return energy_curve_length(vd.B,j);
 	//return energy + energy_prior;
 	//return energy_bezier_handles(vd.B,j);
 	//return  energy_angles(vd.B, j);
-	//return energy ;
+	return energy_prior ;
 
 };
 

@@ -44,14 +44,6 @@ Bezigon::Bezigon(vector<Point> vp) {
 	Bx = MatrixXd(nb_bezier, 3);
 	By = MatrixXd(nb_bezier, 3);
 	C = Vec3b(255, 255, 255);
-<<<<<<< HEAD
-	Point2d tangent1, tangent2;
-	for (int jj = 0; jj < nb_bezier - 1; jj++) {
-		tangent1 = barycenter(0.33, vector_points[jj], vector_points[jj + 1]);
-		tangent2 = barycenter(0.66, vector_points[jj], vector_points[jj + 1]);
-		Bx.row(jj) << double(vector_points[jj].x), tangent1.x, tangent2.x;
-		By.row(jj) << double(vector_points[jj].y), tangent1.y, tangent2.y;
-=======
 	Point2f tangent_next, tangent_prev;
 	for (int jj = 1; jj < nb_bezier - 1; jj++) {
 		tangent_next = vp[jj] + 0.33 * norm(vp[jj + 1] - vp[jj]) * (vp[jj + 1] - vp[jj - 1]) / norm(vp[jj + 1] - vp[jj - 1]);
@@ -62,7 +54,6 @@ Bezigon::Bezigon(vector<Point> vp) {
 		By.row(jj - 1)[2] = tangent_prev.y;
 		By.row(jj)[0] = double(vp[jj].y);
 		By.row(jj)[1] = tangent_next.y;
->>>>>>> "RMS not fast and main different input"
 	}
 	tangent_next = vp[0] + 0.33 * norm(vp[1] - vp[0]) * (vp[1] - vp[nb_bezier - 1]) / norm(vp[1] - vp[nb_bezier - 1]);
 	tangent_prev = vp[0] + 0.33 * norm(vp[nb_bezier - 1] - vp[0]) * (vp[nb_bezier - 1] - vp[1]) / norm(vp[1] - vp[nb_bezier - 1]);

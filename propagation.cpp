@@ -62,8 +62,11 @@ void Propagation::propagate(int nb_iterations, double alpha, double eps, string 
 			};
 			vd->B.update(vals_out,jj);
 		}
-		vd->B.plot_curve(vd->I," Iter :"+to_string(iter)+" "+name);
-		rms(*vd, to_string(iter)+" RMS "+name);
+		if(iter%3==0){
+
+			vd->B.plot_curve(vd->I," Iter :"+to_string(iter)+" "+name);
+			rms(*vd, to_string(iter)+" RMS "+name);
+		}
 	}
 	clock_t end = clock();
   	double elapsed_secs = double(end - begin) / CLOCKS_PER_SEC;
