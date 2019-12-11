@@ -55,7 +55,7 @@ public:
 	std::array<double, 10> input_propagation(int j);
 
 	//PLOT
-	void plot_curve(Image<Vec3b> I,std::string nom);
+	void plot_curve(Image<Vec3b> I, std::string nom);
 };
 
 struct VectorizationData

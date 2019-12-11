@@ -12,6 +12,7 @@
 #include <opencv2/imgproc/imgproc.hpp>
 
 #include <math.h>
+#include "Entities.h"
 #define EQN_EPS 1e-9
 
 cv::Point2d barycenter(double t, cv::Point2d A, cv::Point2d B);
@@ -24,5 +25,7 @@ int solveLinear(double c1, double c0, double& s0);
 int solveQuadric(double c2, double c1, double c0, double& s0, double& s1);
 int solveCubic(double c3, double c2, double c1, double c0, double& s0, double& s1, double& s2);
 std::vector<double> get_roots(double c3, double c2, double c1, double c0);
+
+//string convertToString(char* a);
 
 #endif

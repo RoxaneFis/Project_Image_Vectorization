@@ -17,7 +17,9 @@
 #include "Entities.h"
 #include "Propagation.h"
 #include "Tests.h"
+#include "Utils.h"
 
 int main(int argc, char* argv[]);
+bool to_svg(std::vector<VectorizationData> vector_vd, string name);
 
 #endif

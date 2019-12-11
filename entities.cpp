@@ -36,14 +36,14 @@ Bezigon::Bezigon(MatrixXd _Bx, MatrixXd _By) {
 	Bx = _Bx;
 	By = _By;
 	lo = get_arclength();
-	C = Vec3b(255, 255, 255);
+	C = Vec3b(0, 0, 0);
 };
 
 Bezigon::Bezigon(vector<Point> vp) {
 	int nb_bezier = vp.size();
 	Bx = MatrixXd(nb_bezier, 3);
 	By = MatrixXd(nb_bezier, 3);
-	C = Vec3b(255, 255, 255);
+	C = Vec3b(0, 0, 0);
 	Point2f tangent_next, tangent_prev;
 	for (int jj = 1; jj < nb_bezier - 1; jj++) {
 		tangent_next = vp[jj] + 0.33 * norm(vp[jj + 1] - vp[jj]) * (vp[jj + 1] - vp[jj - 1]) / norm(vp[jj + 1] - vp[jj - 1]);
@@ -99,15 +99,15 @@ Point2d Bezigon::get_pt(int j, int i = 0) {
 
 };
 
-array< vector<double>, 2 > Bezigon::get_tangent(int point){
-    Point2d p_precedent = (point != 0) ? get_pt(point-1, 2) : get_pt(Bx.rows()-1, 2);
+array< vector<double>, 2 > Bezigon::get_tangent(int point) {
+	Point2d p_precedent = (point != 0) ? get_pt(point - 1, 2) : get_pt(Bx.rows() - 1, 2);
 	Point2d p_1 = (point != Bx.rows() - 1) ? get_pt(point, 0) : get_pt(0, 0);
 	Point2d p_2 = (point != Bx.rows() - 1) ? get_pt(point, 1) : get_pt(0, 1);
-	vector<double> a_j = {(p_1 - p_precedent).x, (p_1 - p_precedent).y};
-	vector<double> b_j = { (p_2- p_1).x,(p_2- p_1).y };
-	return {{a_j,b_j}};
-	
-	}
+	vector<double> a_j = { (p_1 - p_precedent).x, (p_1 - p_precedent).y };
+	vector<double> b_j = { (p_2 - p_1).x,(p_2 - p_1).y };
+	return { {a_j,b_j} };
+
+}
 
 
 
@@ -164,23 +164,23 @@ void Bezigon::update(array<double, 10> vals_inp, int j) {
 array<double, 10> Bezigon::input_propagation(int j) {
 	Point2d p1 = get_pt(j, 1);
 	Point2d p2 = get_pt(j, 2);
-	Point2d p3 = (j != Bx.rows() - 1) ? get_pt(j+1, 0) : get_pt(0, 0);
-	Point2d p4 = (j != Bx.rows() - 1) ? get_pt(j+1, 1) : get_pt(0, 1);
-	Point2d p5 = (j != Bx.rows() - 1) ? get_pt(j+1, 2) : get_pt(0, 2);
+	Point2d p3 = (j != Bx.rows() - 1) ? get_pt(j + 1, 0) : get_pt(0, 0);
+	Point2d p4 = (j != Bx.rows() - 1) ? get_pt(j + 1, 1) : get_pt(0, 1);
+	Point2d p5 = (j != Bx.rows() - 1) ? get_pt(j + 1, 2) : get_pt(0, 2);
 	array<double, 10> x = { double(p1.x),double(p2.x),double(p3.x),double(p4.x),double(p5.x), double(p1.y),double(p2.y),double(p3.y),double(p4.y),double(p5.y) };
 	return x;
 }
 
 void Bezigon::plot_curve(Image<Vec3b> I, std::string nom) {
 	Bezier bezier_j;
-	Image<Vec3b> I_copy ;
+	Image<Vec3b> I_copy;
 	I.copyTo(I_copy);
 	for (int jj = 0; jj < Bx.rows(); jj++) {
 		bezier_j = get_bezier(jj);
 		for (double t = 0.0; t <= 1.0; t += 0.05) {
 			Point2d m1 = bezier_j.cubic_interpolation(t);
 			circle(I_copy, m1, 1, Scalar(0, 255, 0), 2);
-			namedWindow(nom,WINDOW_NORMAL);
+			namedWindow(nom, WINDOW_NORMAL);
 			resizeWindow(nom, 200, 200);
 			imshow(nom, I_copy);
 			waitKey(1);

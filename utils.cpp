@@ -163,3 +163,8 @@ vector<double> get_roots(double c3, double c2, double c1, double c0) {
 	return roots;
 }
 
+//string convertToString(uchar* a)
+//{
+//	string s(a);
+//	return s;
+//}
