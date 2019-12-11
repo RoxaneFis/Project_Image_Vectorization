@@ -1,4 +1,5 @@
 #include "Propagation.h"
+#include <ctime>
 
 Propagation::Propagation(VectorizationData _vd) {
 	energy = new Energy();
@@ -9,19 +10,21 @@ Propagation::Propagation(VectorizationData _vd) {
 
 void Propagation::propagate(int nb_iterations, double alpha, double eps, string name) {
 	cout << ">>>Enter Propragation" << std::endl;
+	clock_t begin = clock();
 
 	//WRITE
 	fstream out;
     out.open(name, fstream::out);
-	out << "Hyperparameters : \n"<<"Epsilon : "<<eps<<"\nAlpha : "<<alpha;
-	out<<"\nLambda_data :"<<energy->lambda_data<<"\nLambda_handles: "<<energy->lambda_handles<<"\nLamda_angles :"<<energy->lambda_angles<<endl;;
+	out << "Hyperparameters : \n"<<"Epsilon : "<<eps<<"\nAlpha : "<<alpha <<"\nTaille Image "<<vd->I.width() <<"x" <<vd->I.height();
+	out<<"\nLambda_data :"<<energy->lambda_data<<"\nLambda_handles: "<<energy->lambda_handles<<"\nLamda_angles :"<<energy->lambda_angles<<"\nLamda_legnth :"<<energy->lambda_length<<endl;
 	out<<"\nEnergies intialization:";
-	out<<"\nE_data :"<<energy->energy_data(*vd)<<"\nE_handes :"<<energy->energy_bezier_handles(vd->B)<<"\nE_angles :"<<energy->energy_angles(vd->B)<<endl;;
+	out<<"\nE_data :"<<energy->energy_data(*vd)<<"\nE_handes :"<<energy->energy_bezier_handles(vd->B)<<"\nE_angles :"<<energy->energy_angles(vd->B)<<"\nE_length :"<<energy->energy_curve_length(vd->B)<<endl;;
 
 
 	//NB OF PROPAGATIONS
 	for (int iter=0; iter<nb_iterations; iter++){
-		out <<"\nPROPAGATION : "<<iter<<"\nAlpha_updated :"<<alpha<<endl;;
+		out <<"\nPROPAGATION : "<<iter<<endl;;
+		//out<<"\nAlpha_updated :"<<alpha<<endl;;
 
 		//ITERATIONS OVER ALL BEZIERS
 		for (int jj=0; jj<vd->B.Bx.rows(); jj++){
@@ -33,7 +36,7 @@ void Propagation::propagate(int nb_iterations, double alpha, double eps, string 
 			array<double,10> vals_out;
 
 			double engy_prece=energy->energy_partial(*vd,jj);
-			out <<"\nBezier Nb: "<<jj<<"\nPatial_Energy : "<<engy_prece<<endl;
+			out <<"\nBezier Nb: "<<jj<<"\nPartial_Energy : "<<engy_prece<<endl;
 
 			for(int var_index=0; var_index<10; var_index++){
 				double grad=0.0;
@@ -59,9 +62,12 @@ void Propagation::propagate(int nb_iterations, double alpha, double eps, string 
 			};
 			vd->B.update(vals_out,jj);
 		}
-		vd->B.plot_curve(vd->I," Iter :"+to_string(iter)+name);
+		vd->B.plot_curve(vd->I," Iter :"+to_string(iter)+" "+name);
 		rms(*vd, to_string(iter)+" RMS "+name);
 	}
+	clock_t end = clock();
+  	double elapsed_secs = double(end - begin) / CLOCKS_PER_SEC;
+	out<<"Propagation time : "<<elapsed_secs/60.0<<" minutes"<<endl;
 	out.close();
 }
 

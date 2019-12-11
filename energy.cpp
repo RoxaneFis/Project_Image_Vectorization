@@ -59,6 +59,13 @@ double Energy::energy_bezier_handles(Bezigon B) {
 	return energy;
 };
 
+double Energy::energy_curve_length(Bezigon B, int point){
+	return lambda_length*B.get_arclength(point);
+}
+double Energy::energy_curve_length(Bezigon B){
+	return lambda_length*B.get_arclength();
+}
+
 double Energy::energy_data(VectorizationData vd) {
 	double lo = vd.B.lo;
 	double energy = 0.0;
@@ -76,12 +83,13 @@ double Energy::energy_data(VectorizationData vd) {
 
 
 double Energy::energy_partial(VectorizationData vd, int j) {
-	double energy_prior = energy_angles(vd.B, j) + energy_bezier_handles(vd.B, j);
-	double energy = energy_data(vd);
+	//double energy_prior = energy_angles(vd.B, j) + energy_bezier_handles(vd.B, j)+energy_curve_length(vd.B,j);
+	//double energy = energy_data(vd);
 	//cout << "angles"<<lambda_angles * energy_angles(vd.B, j)<<endl;
 	//cout << "hangles "<<lambda_handles * energy_bezier_handles(vd.B, j)<<endl;
 	//cout << "data"<<energy<<endl;
-	return energy + energy_prior;
+	return energy_curve_length(vd.B,j);
+	//return energy + energy_prior;
 	//return energy_bezier_handles(vd.B,j);
 	//return  energy_angles(vd.B, j);
 	//return energy ;

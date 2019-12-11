@@ -16,6 +16,11 @@ int main(int argc, char* argv[]) {
 	VectorizationData vd = initialisation(B);
 	Propagation * p = new Propagation(vd);
 	p->propagate(nb_etapes, alpha, epsilon, nom);
+	
+	
+	VectorizationData vd_2 = initialisation(B);
+	Propagation * p_2 = new Propagation(vd_2);
+	p->propagate(nb_etapes, alpha, epsilon, nom+to_string(2));
 	cout << endl;
 
 	//test_alpha(vd);
