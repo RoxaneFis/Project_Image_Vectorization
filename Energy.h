@@ -31,11 +31,12 @@ public:
 	double energy_data(VectorizationData vd);
 	double energy_partial(VectorizationData vd, int j );
 	double energy_to_minimize(VectorizationData vd, int j, array<double, 10> vals_inp);
+	double energy_to_minimize_prior(VectorizationData vd, int j, array<double, 10> vals_inp);
 
-	const double lambda_angles = (1.0/20.0)*1000;
-	const double lambda_handles = (1.0/2.0)*1000;
-	const double lambda_length = (1.0/2.0)*10000;
-	const double lambda_data = (1.0/2500.0)*100000;
+	const double lambda_angles = 1000;
+	const double lambda_handles = 3000;
+	const double lambda_length = 150;
+	const double lambda_data =  40;
 
 };
 

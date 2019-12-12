@@ -16,8 +16,10 @@ class Propagation {
 public:
 	VectorizationData* vd;
 	Energy *energy;
+	int scale_img;
 	Propagation(VectorizationData _vd);
 	void propagate(int nb_iterations, double alpha, double eps, string name);
+	const double max_update =  0.1;
 };
 
 #endif

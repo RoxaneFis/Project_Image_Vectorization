@@ -1,0 +1,1455 @@
+Hyperparameters : 
+Epsilon : 1
+Alpha : 0.0001
+Taille Image 55x55
+Lambda_data :40
+Lambda_handles: 3000
+Lamda_angles :1000
+Lamda_legnth :150
+
+Energies intialization:
+E_data :2.46647e+06
+E_handes :34757.9
+E_angles :2195.68
+E_length :37431.5
+
+PROPAGATION : 0
+
+Bezier Nb: 0
+Partial_Energy : 2.47184e+06
+SHIFT : 
+data= 0.00927527 prior= -7.18084e-05 data/prior -129.167
+data= 0.00939024 prior= -8.29011e-05 data/prior -113.27
+data= 0.00744327 prior= -0.000268428 data/prior -27.7291
+data= 0 prior= 0.000636473 data/prior 0
+data= 0 prior= -0.0011134 data/prior -0
+data= 0.0143541 prior= -9.60773e-05 data/prior -149.401
+data= -0.0171414 prior= -0.000431759 data/prior 39.7014
+data= -0.00444769 prior= -0.00150972 data/prior 2.94604
+data= -0.323256 prior= 0.000925816 data/prior -349.157
+data= 0.0330425 prior= -0.000635408 data/prior -52.002
+
+Bezier Nb: 1
+Partial_Energy : 2.4732e+06
+SHIFT : 
+data= 0 prior= 0.000632395 data/prior 0
+data= 0 prior= -0.0011361 data/prior -0
+data= -0.0144427 prior= 0.000268663 data/prior -53.7579
+data= -0.0238424 prior= 5.64484e-05 data/prior -422.375
+data= -0.0307269 prior= 0.000576314 data/prior -53.3163
+data= -0.326866 prior= 0.00159561 data/prior -204.854
+data= 0.0342326 prior= -0.00148103 data/prior -23.114
+data= 0.0347033 prior= 0.00136175 data/prior 25.4843
+data= 0.00664603 prior= 0.00110118 data/prior 6.03538
+data= 0 prior= -0.00148127 data/prior -0
+
+Bezier Nb: 2
+Partial_Energy : 2.82927e+06
+SHIFT : 
+data= -0.0208095 prior= -9.10632e-05 data/prior 228.517
+data= -0.0401244 prior= 0.000512987 data/prior -78.2173
+data= -0.0285203 prior= -0.000735141 data/prior 38.7956
+data= 0.00271267 prior= -0.00100615 data/prior -2.69609
+data= 0.00271267 prior= 0.000754497 data/prior 3.59533
+data= -0.35467 prior= 0.00128589 data/prior -275.816
+data= 0.348694 prior= -0.00117677 data/prior -296.315
+data= -0.685521 prior= -0.0015505 data/prior 442.128
+data= 0.370209 prior= 3.10585e-06 data/prior 119197
+data= -0.370796 prior= -0.00097632 data/prior 379.79
+
+Bezier Nb: 3
+Partial_Energy : 2.82824e+06
+SHIFT : 
+data= 0.0027136 prior= -0.000681285 data/prior -3.98306
+data= 0.0027136 prior= 0.000751898 data/prior 3.609
+data= -0.00394211 prior= -0.000122484 data/prior 32.1848
+data= -0.0131062 prior= -0.000390396 data/prior 33.5715
+data= -0.0155219 prior= 0.000319894 data/prior -48.5221
+data= -0.00563419 prior= 0.000295795 data/prior -19.0476
+data= -0.00563419 prior= -0.000627235 data/prior 8.98258
+data= -0.665941 prior= 4.62602e-05 data/prior -14395.6
+data= 0.0155575 prior= 5.4841e-07 data/prior 28368.4
+data= 0.000267669 prior= -0.000323323 data/prior -0.827871
+
+Bezier Nb: 4
+Partial_Energy : 3.19704e+06
+SHIFT : 
+data= -0.0193312 prior= -7.99417e-05 data/prior 241.816
+data= -0.000159645 prior= 0.000268604 data/prior -0.594352
+data= -0.0413447 prior= -5.85152e-05 data/prior 706.564
+data= -0.00632792 prior= -0.000665692 data/prior 9.50579
+data= 0.000633769 prior= 0.000287435 data/prior 2.20492
+data= -0.0171954 prior= 0.000491132 data/prior -35.0119
+data= 0.013289 prior= -0.000393209 data/prior -33.7963
+data= 6.28017 prior= 0.000112863 data/prior 55644.1
+data= -0.0419862 prior= -1.38392e-08 data/prior 3.03385e+06
+data= -0.0170679 prior= 0.000156054 data/prior -109.372
+
+Bezier Nb: 5
+Partial_Energy : 3.19804e+06
+SHIFT : 
+data= -0.00299816 prior= -0.000313938 data/prior 9.55017
+data= 0.000619897 prior= 0.000285837 data/prior 2.1687
+data= 0.0424712 prior= 0.00122064 data/prior 34.7943
+data= 0.0213966 prior= -0.00017912 data/prior -119.454
+data= 0.0301875 prior= -0.000576314 data/prior -52.3802
+data= -0.00552615 prior= 3.12475e-05 data/prior -176.851
+data= 0.000613628 prior= 5.40622e-05 data/prior 11.3504
+data= 0.0147252 prior= 0.00053765 data/prior 27.388
+data= 0 prior= -0.000439777 data/prior -0
+data= 0 prior= 0.00144314 data/prior 0
+
+Bezier Nb: 6
+Partial_Energy : 3.12628e+06
+SHIFT : 
+data= 0.00886055 prior= -0.000165448 data/prior -53.5547
+data= 0.00773528 prior= -0.000929196 data/prior -8.3247
+data= 0.0178437 prior= -0.000536675 data/prior -33.2485
+data= 0 prior= 0.000883995 data/prior 0
+data= 0 prior= -0.0019291 data/prior -0
+data= -0.0368455 prior= -0.000399827 data/prior 92.1535
+data= -0.00704004 prior= 0.00139967 data/prior -5.02976
+data= 0.0343821 prior= 0.0261808 data/prior 1.31325
+data= 0.0192446 prior= -0.000297013 data/prior -64.7936
+data= 0.0679006 prior= 0.00173162 data/prior 39.2121
+
+Bezier Nb: 7
+Partial_Energy : 3.11259e+06
+SHIFT : 
+data= 0 prior= 0.00119987 data/prior 0
+data= 0 prior= -0.000907817 data/prior -0
+data= 0.00037318 prior= -0.001135 data/prior -0.328794
+data= 0.00037318 prior= 0.00121183 data/prior 0.307946
+data= 0.00677223 prior= 0.0019291 data/prior 3.51057
+data= 0.0736448 prior= -0.00103441 data/prior -71.1949
+data= 0.0036827 prior= 0.000351854 data/prior 10.4666
+data= 0.00341347 prior= 0.00185035 data/prior 1.84476
+data= 0.00398805 prior= -0.00205475 data/prior -1.9409
+data= -0.355373 prior= 0.00132674 data/prior -267.854
+
+Bezier Nb: 8
+Partial_Energy : 2.65328e+06
+SHIFT : 
+data= 0.0169838 prior= 0.00116287 data/prior 14.6051
+data= 0.0025209 prior= 0.00272084 data/prior 0.926517
+data= 0.00796567 prior= -0.00164775 data/prior -4.83426
+data= 0 prior= -0.000631863 data/prior -0
+data= 0 prior= -8.68691e-06 data/prior -0
+data= 0.00398814 prior= -0.00114951 data/prior -3.46942
+data= 0 prior= 0.00193082 data/prior 0
+data= -0.0391895 prior= -0.00126537 data/prior 30.9707
+data= -0.00386871 prior= -0.000647149 data/prior 5.97808
+data= -0.0152027 prior= 0.000935406 data/prior -16.2525
+
+Bezier Nb: 9
+Partial_Energy : 2.64304e+06
+SHIFT : 
+data= 0.0178047 prior= -0.00115624 data/prior -15.3988
+data= 0.00752638 prior= 0.000436861 data/prior 17.2283
+data= 0.0222808 prior= 0.00100846 data/prior 22.0938
+data= 0.0214251 prior= -0.000373365 data/prior -57.3838
+data= 0.0239136 prior= -0.000644536 data/prior -37.102
+data= 0.0170056 prior= -0.00112217 data/prior -15.1543
+data= -0.0127657 prior= 0.00191972 data/prior -6.64977
+data= 0.0240029 prior= -0.00109222 data/prior -21.9763
+data= 0 prior= -0.000276683 data/prior -0
+data= -0.00504131 prior= 0.00281804 data/prior -1.78894
+
+Bezier Nb: 10
+Partial_Energy : 2.56682e+06
+SHIFT : 
+data= 0.0186401 prior= -0.000552784 data/prior -33.7203
+data= -0.00902961 prior= -0.00222144 data/prior 4.06476
+data= 0.00875263 prior= -0.000256047 data/prior -34.1837
+data= 0 prior= 0.00228041 data/prior 0
+data= 0 prior= -0.000445416 data/prior -0
+data= 0 prior= -0.000518159 data/prior -0
+data= -0.00572605 prior= 0.00129252 data/prior -4.43016
+data= -0.0285832 prior= 0.00203844 data/prior -14.0221
+data= 0.00658197 prior= -0.000167152 data/prior -39.3773
+data= -0.0105349 prior= 0.00180255 data/prior -5.84446
+
+Bezier Nb: 11
+Partial_Energy : 2.19895e+06
+SHIFT : 
+data= -0.00295391 prior= 0.00300187 data/prior -0.984023
+data= 0.00229887 prior= -0.000489057 data/prior -4.70062
+data= -0.00664392 prior= 0.000147475 data/prior -45.0511
+data= -0.0119945 prior= -0.000311419 data/prior 38.5157
+data= -0.0030622 prior= 0.0004386 data/prior -6.98176
+data= -0.0198307 prior= 0.00111187 data/prior -17.8356
+data= 0 prior= 0.0033197 data/prior 0
+data= 0.0560622 prior= -0.00214928 data/prior -26.0842
+data= 0.00177805 prior= -0.000138876 data/prior -12.8031
+data= -3.27516e-05 prior= 0.000120383 data/prior -0.272062
+
+Bezier Nb: 12
+Partial_Energy : 2.21318e+06
+SHIFT : 
+data= -0.0151214 prior= -0.000334738 data/prior 45.1738
+data= -0.0122489 prior= 0.000338394 data/prior -36.1971
+data= -0.0649377 prior= -0.000453818 data/prior 143.092
+data= -0.0519423 prior= -0.000271557 data/prior 191.276
+data= -0.035559 prior= 0 data/prior -inf
+data= 0.0114318 prior= -0.000135148 data/prior -84.5875
+data= -0.0120981 prior= -6.23303e-05 data/prior 194.097
+data= -0.0338156 prior= 0.000110036 data/prior -307.315
+data= 0.00322712 prior= -0.000133779 data/prior -24.1227
+data= -0.00052869 prior= -0.00010589 data/prior 4.99281
+
+Bezier Nb: 13
+Partial_Energy : 2.07356e+06
+SHIFT : 
+data= -0.0465411 prior= -8.20463e-05 data/prior 567.254
+data= -0.0101799 prior= 0.00023628 data/prior -43.0839
+data= -0.105337 prior= -0.000193886 data/prior 543.293
+data= -0.00560285 prior= -0.000115654 data/prior 48.4449
+data= -0.0204964 prior= -5.50964e-05 data/prior 372.01
+data= 0.00479577 prior= -2.97644e-05 data/prior -161.124
+data= 0.0113692 prior= -9.77739e-05 data/prior -116.281
+data= 0.00855359 prior= -0.000191533 data/prior -44.6586
+data= 0.00289263 prior= 0.000121988 data/prior 23.7125
+data= 0.0189855 prior= 0 data/prior inf
+
+Bezier Nb: 14
+Partial_Energy : 1.98237e+06
+SHIFT : 
+data= -0.0547441 prior= -9.92871e-05 data/prior 551.372
+data= -0.0124455 prior= 5.25971e-06 data/prior -2366.19
+data= 0.0552006 prior= -0.000230117 data/prior -239.881
+data= 0.0849381 prior= 8.70965e-05 data/prior 975.218
+data= 0.0979849 prior= 4.34912e-05 data/prior 2252.99
+data= 0.0191631 prior= 3.01744e-05 data/prior 635.078
+data= 0.0324492 prior= -9.98118e-05 data/prior -325.104
+data= 0.115166 prior= 0.000157588 data/prior 730.806
+data= 0.0129574 prior= 0.000102659 data/prior 126.218
+data= -0.0186594 prior= -2.23408e-05 data/prior 835.215
+
+Bezier Nb: 15
+Partial_Energy : 1.83798e+06
+SHIFT : 
+data= 0.0726482 prior= 6.26969e-06 data/prior 11587.2
+data= 0.119762 prior= -3.26099e-05 data/prior -3672.58
+data= 0.12306 prior= -5.72353e-05 data/prior -2150.07
+data= 0.0611654 prior= 0 data/prior inf
+data= 0.0668283 prior= 0.000131475 data/prior 508.295
+data= 0.0262777 prior= 5.28119e-05 data/prior 497.572
+data= -0.0202435 prior= -8.90455e-05 data/prior 227.339
+data= -9.89677 prior= 0.000220019 data/prior -44981.5
+data= 0.00374658 prior= 0 data/prior inf
+data= -0.0381656 prior= 0.000134668 data/prior -283.405
+
+Bezier Nb: 16
+Partial_Energy : 1.81775e+06
+SHIFT : 
+data= 0.124741 prior= -7.18717e-05 data/prior -1735.61
+data= 0.071321 prior= 7.32734e-05 data/prior 973.354
+data= 0.0619612 prior= 0.000674606 data/prior 91.8479
+data= 0.00681823 prior= -5.6618e-05 data/prior -120.425
+data= 0.00678419 prior= -0.000440215 data/prior -15.4111
+data= -0.02603 prior= 3.85081e-05 data/prior -675.961
+data= -0.03727 prior= -8.18957e-05 data/prior 455.092
+data= -0.0840067 prior= 0.000483827 data/prior -173.63
+data= 0.0034797 prior= -0.000386414 data/prior -9.00511
+data= -8.06671e-05 prior= -0.000110957 data/prior 0.727009
+
+PROPAGATION : 1
+
+Bezier Nb: 0
+Partial_Energy : 1.63501e+06
+SHIFT : 
+data= 0.00523006 prior= 5.82723e-06 data/prior 897.522
+data= 0.00634912 prior= -0.000384005 data/prior -16.5339
+data= -0.00422177 prior= -0.000602319 data/prior 7.0092
+data= 0 prior= 0.000403272 data/prior 0
+data= 0 prior= -0.00113226 data/prior -0
+data= 0 prior= -0.000394422 data/prior -0
+data= 4.36219e-05 prior= -0.000139807 data/prior -0.312015
+data= 0.00997829 prior= -0.00185092 data/prior -5.391
+data= 0.0236592 prior= 0.00189216 data/prior 12.5038
+data= 0.0109582 prior= -0.000629273 data/prior -17.4141
+
+Bezier Nb: 1
+Partial_Energy : 1.61964e+06
+SHIFT : 
+data= 0.00261855 prior= 6.78134e-05 data/prior 38.614
+data= 0.00336746 prior= -0.00139997 data/prior -2.40538
+data= -0.023556 prior= 0.000566273 data/prior -41.5983
+data= -0.0452569 prior= 8.52753e-05 data/prior -530.715
+data= -0.0211243 prior= 0.000496367 data/prior -42.5578
+data= 0.0133657 prior= 0.000955611 data/prior 13.9865
+data= 0.00599312 prior= -0.00460544 data/prior -1.30131
+data= 0.00439129 prior= 0.00353168 data/prior 1.2434
+data= 0.00882953 prior= 0.0026489 data/prior 3.33328
+data= 0 prior= -0.0011246 data/prior -0
+
+Bezier Nb: 2
+Partial_Energy : 1.54276e+06
+SHIFT : 
+data= -0.0223841 prior= -0.000412459 data/prior 54.2698
+data= -0.0187656 prior= 0.00103332 data/prior -18.1606
+data= -0.0229355 prior= -0.000888193 data/prior 25.8226
+data= 0.00261686 prior= -0.000891439 data/prior -2.93555
+data= 0.00261686 prior= 0.000729063 data/prior 3.58935
+data= 0.00127843 prior= 0.00171637 data/prior 0.744843
+data= -0.0023625 prior= -0.00141905 data/prior 1.66485
+data= -0.00989713 prior= -2.18152e-05 data/prior 453.682
+data= -0.00640115 prior= 0.00059741 data/prior -10.7148
+data= -0.000565882 prior= -0.00109128 data/prior 0.51855
+
+Bezier Nb: 3
+Partial_Energy : 1.50103e+06
+SHIFT : 
+data= 0.000102567 prior= -0.000869872 data/prior -0.11791
+data= 0.00283119 prior= 0.000628438 data/prior 4.50512
+data= -0.00194963 prior= -2.23786e-05 data/prior 87.1206
+data= -0.0117236 prior= -0.000421064 data/prior 27.8429
+data= -0.0168811 prior= 0.000452112 data/prior -37.3383
+data= -0.00103476 prior= 0.000655357 data/prior -1.57892
+data= -0.000597513 prior= -0.000713727 data/prior 0.837173
+data= -0.00369832 prior= 0.000356187 data/prior -10.3831
+data= 1.90419e-05 prior= 0.000283654 data/prior 0.0671309
+data= 1.90419e-05 prior= -0.000184925 data/prior -0.102971
+
+Bezier Nb: 4
+Partial_Energy : 1.48968e+06
+SHIFT : 
+data= 0.00524236 prior= -0.000206939 data/prior -25.3329
+data= -0.00361265 prior= 0.000861355 data/prior -4.19414
+data= -0.0305463 prior= -0.000737275 data/prior 41.4314
+data= 0.00528677 prior= -0.000643938 data/prior -8.21006
+data= -0.00239108 prior= 0.00099325 data/prior -2.40733
+data= 0 prior= 0.000213102 data/prior 0
+data= 0 prior= -0.000548298 data/prior -0
+data= 0.000779679 prior= 0.000209532 data/prior 3.72106
+data= -0.0027443 prior= 1.94048e-06 data/prior -1414.24
+data= -0.0092868 prior= 0.000958732 data/prior -9.68654
+
+Bezier Nb: 5
+Partial_Energy : 1.4703e+06
+SHIFT : 
+data= -0.00346764 prior= -0.000754325 data/prior 4.59701
+data= 0.000684892 prior= 0.00138663 data/prior 0.493925
+data= -0.00226303 prior= -0.000579434 data/prior 3.90558
+data= 0.00553999 prior= -0.000596239 data/prior -9.29157
+data= 0.00724128 prior= -0.00194717 data/prior -3.71888
+data= -0.0101047 prior= -0.000116846 data/prior 86.479
+data= -0.0122915 prior= 0.00107497 data/prior -11.4343
+data= -0.0114731 prior= -0.00104363 data/prior 10.9935
+data= -0.00141455 prior= 3.25485e-05 data/prior -43.4599
+data= 0.00427337 prior= 0.00578597 data/prior 0.738574
+
+Bezier Nb: 6
+Partial_Energy : 1.45842e+06
+SHIFT : 
+data= -0.00351467 prior= -0.000679951 data/prior 5.169
+data= 0.00637052 prior= -0.000718653 data/prior -8.86453
+data= 0.0177711 prior= 0.000115915 data/prior 153.311
+data= 0 prior= 0.000706903 data/prior 0
+data= -0.00157998 prior= -0.000880299 data/prior 1.79482
+data= -0.00141986 prior= 3.36656e-05 data/prior -42.1754
+data= 0.000373471 prior= 0.00225565 data/prior 0.165571
+data= 0.0147339 prior= 0.000594793 data/prior 24.7715
+data= 0.0252621 prior= -0.000973631 data/prior -25.9462
+data= 0.00762241 prior= 0.000394989 data/prior 19.2978
+
+Bezier Nb: 7
+Partial_Energy : 1.41903e+06
+SHIFT : 
+data= 0 prior= 0.000883893 data/prior 0
+data= 0 prior= -0.000753046 data/prior -0
+data= 0.0241721 prior= -0.000302601 data/prior -79.881
+data= -0.00579339 prior= 0.00220525 data/prior -2.6271
+data= -0.00561391 prior= 0.000672981 data/prior -8.34185
+data= 0.000417976 prior= -0.00632146 data/prior -0.0661201
+data= 0.0130203 prior= 0.000559559 data/prior 23.269
+data= 0.00615646 prior= 0.00454892 data/prior 1.35339
+data= 0 prior= -0.00274848 data/prior -0
+data= 0 prior= 0.000460399 data/prior 0
+
+Bezier Nb: 8
+Partial_Energy : 1.40824e+06
+SHIFT : 
+data= -0.00639501 prior= 0.00121392 data/prior -5.26808
+data= -0.00584166 prior= 0.00062633 data/prior -9.32681
+data= -0.00696406 prior= 0.00182242 data/prior -3.82133
+data= 0.00355758 prior= -0.00286843 data/prior -1.24025
+data= 0.0012261 prior= 0.00386659 data/prior 0.3171
+data= 0 prior= -0.00310556 data/prior -0
+data= 0 prior= 0.000455516 data/prior 0
+data= 0.00698777 prior= -0.000241139 data/prior -28.9782
+data= -0.00278391 prior= -0.000507468 data/prior 5.48588
+data= -0.00695752 prior= 0.000405295 data/prior -17.1666
+
+Bezier Nb: 9
+Partial_Energy : 1.41129e+06
+SHIFT : 
+data= 0 prior= -0.00784335 data/prior -0
+data= 0 prior= 0.00217053 data/prior 0
+data= 0.00953969 prior= -0.00121415 data/prior -7.85707
+data= 0.00698559 prior= -0.000595116 data/prior -11.7382
+data= 0.0129076 prior= -0.000947682 data/prior -13.6202
+data= 0.00658634 prior= -0.000741392 data/prior -8.88374
+data= 0.000441559 prior= -0.000294117 data/prior -1.5013
+data= 0.00152117 prior= 0.000708855 data/prior 2.14595
+data= 0.00406477 prior= -0.000463985 data/prior -8.76055
+data= 0.00406477 prior= 0.000480095 data/prior 8.46659
+
+Bezier Nb: 10
+Partial_Energy : 1.41069e+06
+SHIFT : 
+data= 0.00931676 prior= -0.000543017 data/prior -17.1574
+data= 0.0116752 prior= -0.00089444 data/prior -13.0531
+data= 0.0131564 prior= -0.00612191 data/prior -2.14907
+data= -0.00420219 prior= 0.00231219 data/prior -1.81741
+data= -0.00178104 prior= 0.00136992 data/prior -1.30011
+data= 0.00325227 prior= -0.00061572 data/prior -5.28205
+data= 0.00123228 prior= 0.000575327 data/prior 2.14187
+data= 0.0119453 prior= 0.000674118 data/prior 17.7199
+data= 0.00706192 prior= -0.00538256 data/prior -1.312
+data= 0.0026259 prior= 0.0012555 data/prior 2.09151
+
+Bezier Nb: 11
+Partial_Energy : 1.40929e+06
+SHIFT : 
+data= -0.000849178 prior= 0.00149284 data/prior -0.568834
+data= -0.000849178 prior= 0.00120655 data/prior -0.703808
+data= 0.0113337 prior= -0.00158235 data/prior -7.16257
+data= -0.00985508 prior= 0.000321936 data/prior -30.612
+data= 0.00970833 prior= 8.96688e-05 data/prior 108.269
+data= 0.00287437 prior= -0.00437088 data/prior -0.657618
+data= 0.00173288 prior= 0.00233386 data/prior 0.742495
+data= 0.000893245 prior= -0.00329705 data/prior -0.270922
+data= -0.00351643 prior= -0.000229008 data/prior 15.3551
+data= -0.00682648 prior= -0.000320973 data/prior 21.2681
+
+Bezier Nb: 12
+Partial_Energy : 1.38969e+06
+SHIFT : 
+data= 0.00309296 prior= 0.000257939 data/prior 11.991
+data= -0.0063077 prior= -6.25027e-05 data/prior 100.919
+data= -0.0133257 prior= 0.000148599 data/prior -89.6758
+data= -0.023393 prior= -0.000141869 data/prior 164.892
+data= -0.00200628 prior= -9.2213e-05 data/prior 21.757
+data= 0 prior= -0.000178264 data/prior -0
+data= -0.00881093 prior= -0.000112613 data/prior 78.2406
+data= -0.021918 prior= 0.00020145 data/prior -108.801
+data= 0.00269786 prior= -0.000125925 data/prior -21.4243
+data= -0.00315685 prior= -6.63242e-05 data/prior 47.5973
+
+Bezier Nb: 13
+Partial_Energy : 1.36425e+06
+SHIFT : 
+data= -0.00207619 prior= -6.96292e-05 data/prior 29.8179
+data= 0.00296826 prior= -5.85739e-06 data/prior -506.754
+data= -0.034352 prior= 0.000187879 data/prior -182.841
+data= -0.0188428 prior= -0.0001589 data/prior 118.583
+data= -0.0212095 prior= -5.52701e-05 data/prior 383.743
+data= 0.00412763 prior= -8.72599e-05 data/prior -47.3028
+data= 0.00664862 prior= -7.1037e-05 data/prior -93.5937
+data= -0.000650958 prior= -0.000206422 data/prior 3.15353
+data= -0.00500572 prior= 7.52936e-05 data/prior -66.4827
+data= -0.00121951 prior= 0.000151246 data/prior -8.06309
+
+Bezier Nb: 14
+Partial_Energy : 1.35131e+06
+SHIFT : 
+data= 0.00636703 prior= -0.000113286 data/prior -56.203
+data= -0.00396771 prior= 7.18736e-06 data/prior -552.04
+data= 0.0456312 prior= -0.000242099 data/prior -188.481
+data= 0.100402 prior= 9.01067e-05 data/prior 1114.26
+data= 0.0904282 prior= 4.28505e-05 data/prior 2110.32
+data= 0.0198114 prior= 3.40108e-05 data/prior 582.503
+data= 0.0167564 prior= 5.19039e-05 data/prior 322.835
+data= 0.0668427 prior= -0.000150951 data/prior -442.811
+data= -0.0161771 prior= 0.000108929 data/prior -148.511
+data= -0.0185939 prior= -2.19404e-05 data/prior 847.473
+
+Bezier Nb: 15
+Partial_Energy : 1.21476e+06
+SHIFT : 
+data= 0.105202 prior= 8.82321e-06 data/prior 11923.3
+data= 0.0740561 prior= -4.22201e-05 data/prior -1754.05
+data= 0.148846 prior= -5.66666e-05 data/prior -2626.69
+data= 0.041871 prior= 0 data/prior inf
+data= 0.0681575 prior= 0.000130932 data/prior 520.558
+data= -0.0117563 prior= 3.91092e-05 data/prior -300.601
+data= -0.00614407 prior= -7.61011e-05 data/prior 80.7356
+data= -0.0168251 prior= 0.000212268 data/prior -79.2632
+data= -0.0272331 prior= 0 data/prior -inf
+data= -0.0663517 prior= -7.51067e-05 data/prior 883.433
+
+Bezier Nb: 16
+Partial_Energy : 1.08579e+06
+SHIFT : 
+data= 0.0868579 prior= -7.47725e-05 data/prior -1161.63
+data= 0.0532618 prior= 6.83187e-05 data/prior 779.608
+data= 0.0538618 prior= 0.000529055 data/prior 101.808
+data= 0.0101294 prior= -0.000106052 data/prior -95.5135
+data= 0.010304 prior= -0.000341864 data/prior -30.1407
+data= -0.0247346 prior= 4.08295e-05 data/prior -605.804
+data= -0.0393724 prior= -8.3696e-05 data/prior 470.421
+data= -0.0650191 prior= 0.000600482 data/prior -108.278
+data= -7.03198e-06 prior= -0.000434775 data/prior 0.0161739
+data= 1.27724e-05 prior= -0.000197097 data/prior -0.0648024
+
+PROPAGATION : 2
+
+Bezier Nb: 0
+Partial_Energy : 863257
+SHIFT : 
+data= 0.00831881 prior= -8.59326e-05 data/prior -96.8062
+data= 0.00827784 prior= -0.000326808 data/prior -25.3294
+data= 0.00693165 prior= 0.000243752 data/prior 28.4373
+data= 0.00192857 prior= 8.42357e-05 data/prior 22.895
+data= 0.00192857 prior= 0.000267629 data/prior 7.20616
+data= 0.000166008 prior= -0.000401374 data/prior -0.413599
+data= 0.00121701 prior= -0.000139503 data/prior -8.72388
+data= 0.00598527 prior= -0.000722535 data/prior -8.28372
+data= 0.0027569 prior= 0.000863489 data/prior 3.19274
+data= 0.0027569 prior= -0.00265721 data/prior -1.03752
+
+Bezier Nb: 1
+Partial_Energy : 859308
+SHIFT : 
+data= 0 prior= 3.49655e-05 data/prior 0
+data= 0.00193084 prior= 0.000216597 data/prior 8.91443
+data= -0.00824826 prior= -0.000257659 data/prior 32.0123
+data= -0.00327418 prior= -0.000720842 data/prior 4.54216
+data= -0.00250033 prior= 0.000173767 data/prior -14.389
+data= 0.000626512 prior= 0.000694013 data/prior 0.902737
+data= 0.00275814 prior= -0.00188113 data/prior -1.46621
+data= -0.00173534 prior= 0.00066357 data/prior -2.61516
+data= 0 prior= 0.00122484 data/prior 0
+data= 0 prior= -0.00182499 data/prior -0
+
+Bezier Nb: 2
+Partial_Energy : 857706
+SHIFT : 
+data= -0.00140986 prior= -0.000770811 data/prior 1.82906
+data= -0.00250298 prior= 0.000149918 data/prior -16.6957
+data= -0.00077281 prior= -7.11942e-06 data/prior 108.55
+data= 5.87976e-05 prior= -0.000846502 data/prior -0.0694596
+data= 0.00289997 prior= 0.000539746 data/prior 5.37284
+data= 0 prior= 0.00107387 data/prior 0
+data= 0 prior= -0.00185375 data/prior -0
+data= -0.00406548 prior= 0.00065817 data/prior -6.17694
+data= -0.00406548 prior= 0.000648211 data/prior -6.27185
+data= -0.00462685 prior= -0.000984986 data/prior 4.69737
+
+Bezier Nb: 3
+Partial_Energy : 852464
+SHIFT : 
+data= -0.000324576 prior= -0.000884953 data/prior 0.366772
+data= -0.000324576 prior= 0.0004122 data/prior -0.787423
+data= 0.00465946 prior= 6.90258e-05 data/prior 67.5031
+data= 0.000692819 prior= -8.46488e-05 data/prior -8.18463
+data= -0.00244455 prior= 4.70672e-05 data/prior -51.9376
+data= -0.00463053 prior= 0.000624492 data/prior -7.41489
+data= -0.000953253 prior= -0.000620488 data/prior 1.53629
+data= -0.00111289 prior= 0.000266599 data/prior -4.1744
+data= -0.000257427 prior= 0.000428505 data/prior -0.600756
+data= -0.000257427 prior= -0.0004439 data/prior 0.579922
+
+Bezier Nb: 4
+Partial_Energy : 851693
+SHIFT : 
+data= 0.00500128 prior= -7.51712e-05 data/prior -66.5319
+data= -0.00243537 prior= 4.21766e-05 data/prior -57.7421
+data= -0.00306047 prior= 0.000490903 data/prior -6.23438
+data= -5.15907e-06 prior= -0.000843659 data/prior 0.00611511
+data= 0 prior= 0.0010159 data/prior 0
+data= -0.000257667 prior= 0.000360204 data/prior -0.715336
+data= -0.000257667 prior= -0.000491073 data/prior 0.524701
+data= -0.00186128 prior= -0.000238056 data/prior 7.81865
+data= -0.000157065 prior= 0.00010343 data/prior -1.51856
+data= -5.6893e-05 prior= 0.000897831 data/prior -0.0633672
+
+Bezier Nb: 5
+Partial_Energy : 853874
+SHIFT : 
+data= -5.16245e-06 prior= -0.00083872 data/prior 0.00615515
+data= 0 prior= 0.000920621 data/prior 0
+data= 0.00229428 prior= -0.000149191 data/prior -15.3781
+data= 0.00204691 prior= -0.000659926 data/prior -3.10173
+data= 0.000861412 prior= -0.00241875 data/prior -0.35614
+data= -0.000139243 prior= 5.39238e-05 data/prior -2.58221
+data= -5.69303e-05 prior= 0.000822373 data/prior -0.0692269
+data= -0.00389665 prior= -0.000541927 data/prior 7.19034
+data= 0.000412996 prior= -0.000273282 data/prior -1.51125
+data= 0.000412996 prior= 0.00202752 data/prior 0.203696
+
+Bezier Nb: 6
+Partial_Energy : 854170
+SHIFT : 
+data= 0.00204918 prior= -0.000397496 data/prior -5.15521
+data= 0.000862365 prior= -0.00154689 data/prior -0.557483
+data= 0.00724964 prior= 0.00109099 data/prior 6.645
+data= 0 prior= 0.000417424 data/prior 0
+data= 0.00118164 prior= 0.000141325 data/prior 8.36118
+data= 0.000413453 prior= -0.000280024 data/prior -1.47649
+data= 0.000413453 prior= 0.00142411 data/prior 0.290323
+data= 0.00622433 prior= 0.00126313 data/prior 4.92771
+data= 0.0100327 prior= -0.00164524 data/prior -6.09802
+data= 0.00662659 prior= 0.000579674 data/prior 11.4316
+
+Bezier Nb: 7
+Partial_Energy : 842548
+SHIFT : 
+data= 0 prior= 0.000523956 data/prior 0
+data= -0.00340931 prior= 0.000179916 data/prior -18.9495
+data= -0.000882433 prior= -0.00117888 data/prior 0.748534
+data= 0 prior= 0.00110902 data/prior 0
+data= 0.00235732 prior= 0.000748831 data/prior 3.148
+data= 0.00620835 prior= -0.00258209 data/prior -2.40439
+data= 0.00621353 prior= 0.000441247 data/prior 14.0817
+data= -0.00105659 prior= 0.00160109 data/prior -0.659921
+data= 0 prior= -0.00186645 data/prior -0
+data= 0 prior= 0.000494569 data/prior 0
+
+Bezier Nb: 8
+Partial_Energy : 841682
+SHIFT : 
+data= 0 prior= 0.000965068 data/prior 0
+data= -0.00441821 prior= 0.000718315 data/prior -6.1508
+data= 0.00215428 prior= 0.00201498 data/prior 1.06913
+data= 0.00550879 prior= -0.00213051 data/prior -2.58567
+data= 0.00242746 prior= 0.00219012 data/prior 1.10837
+data= 0 prior= -0.00154877 data/prior -0
+data= 0 prior= 0.000681497 data/prior 0
+data= 0.00473853 prior= 8.53395e-05 data/prior 55.5256
+data= 0.00497679 prior= -0.000705479 data/prior -7.05448
+data= 0.000817825 prior= -9.04415e-05 data/prior -9.04258
+
+Bezier Nb: 9
+Partial_Energy : 846306
+SHIFT : 
+data= -0.000253239 prior= -0.0026585 data/prior 0.0952563
+data= -0.000253239 prior= 0.00211606 data/prior -0.119675
+data= -0.00124002 prior= -0.00122841 data/prior 1.00945
+data= 0.00431571 prior= -0.000502454 data/prior -8.58927
+data= -0.00214585 prior= -0.000469723 data/prior 4.56833
+data= 0.00498023 prior= -0.000511953 data/prior -9.7279
+data= -0.00187952 prior= 0.00013901 data/prior -13.5208
+data= -0.00453185 prior= 0.0005657 data/prior -8.01104
+data= 0.00386905 prior= -0.000837435 data/prior -4.62012
+data= 0.00128849 prior= 0.00167898 data/prior 0.767422
+
+Bezier Nb: 10
+Partial_Energy : 847384
+SHIFT : 
+data= 0.00178311 prior= -0.000479484 data/prior -3.71881
+data= -0.00159679 prior= -0.000333541 data/prior 4.78738
+data= -0.00038488 prior= -0.00111821 data/prior 0.344193
+data= 0.00483942 prior= 0.00186633 data/prior 2.59302
+data= 0.00483942 prior= -0.00103494 data/prior -4.67602
+data= 0.0038711 prior= -0.000944247 data/prior -4.09967
+data= 0.00128917 prior= 0.000559197 data/prior 2.30539
+data= 0.00344766 prior= 0.00228543 data/prior 1.50854
+data= -0.00483942 prior= -0.00354227 data/prior 1.36619
+data= -0.00396017 prior= 0.00485686 data/prior -0.815376
+
+Bezier Nb: 11
+Partial_Energy : 842908
+SHIFT : 
+data= 0 prior= 0.00120708 data/prior 0
+data= -0.000837012 prior= -0.000117926 data/prior 7.09775
+data= 0.0105757 prior= 9.46272e-05 data/prior 111.761
+data= -0.013886 prior= 0.000281725 data/prior -49.2891
+data= 0.0123533 prior= 8.56373e-05 data/prior 144.252
+data= -0.00151293 prior= -0.00259451 data/prior 0.583126
+data= 0.000837012 prior= 0.00283919 data/prior 0.294806
+data= -0.00481606 prior= -0.00312356 data/prior 1.54185
+data= 0 prior= -0.000287047 data/prior -0
+data= -8.99781e-05 prior= -0.000278825 data/prior 0.322705
+
+Bezier Nb: 12
+Partial_Energy : 834912
+SHIFT : 
+data= -0.00559691 prior= 0.00022627 data/prior -24.7355
+data= 0.00159811 prior= -3.36036e-05 data/prior -47.5578
+data= 0.00531812 prior= 0.00019994 data/prior 26.5986
+data= -0.00985595 prior= -0.000112205 data/prior 87.8387
+data= 0.00405861 prior= -0.000182623 data/prior -22.224
+data= 0 prior= -0.000269621 data/prior -0
+data= 0.0039374 prior= -0.000214414 data/prior -18.3636
+data= -0.00202715 prior= 0.000584522 data/prior -3.46805
+data= 0.00193412 prior= -0.000116958 data/prior -16.537
+data= 0.00441504 prior= -0.000114712 data/prior -38.488
+
+Bezier Nb: 13
+Partial_Energy : 832466
+SHIFT : 
+data= -0.000409433 prior= -6.41327e-05 data/prior 6.38416
+data= 0.00282047 prior= -0.00013814 data/prior -20.4175
+data= 0.0246516 prior= 0.000471162 data/prior 52.3209
+data= 0.0103242 prior= -0.000179996 data/prior -57.3579
+data= 0.000561479 prior= -4.76323e-05 data/prior -11.7878
+data= 0.00163285 prior= -7.64831e-05 data/prior -21.3491
+data= -0.00058318 prior= -6.5794e-05 data/prior 8.86373
+data= 0.00210422 prior= -0.000214852 data/prior -9.79381
+data= -0.000760375 prior= 6.54749e-05 data/prior -11.6132
+data= 0.000891871 prior= 0.000143399 data/prior 6.2195
+
+Bezier Nb: 14
+Partial_Energy : 820188
+SHIFT : 
+data= -0.00265733 prior= -0.000113445 data/prior 23.4239
+data= 0.000170299 prior= 1.03304e-05 data/prior 16.4852
+data= 0.022465 prior= -0.000236581 data/prior -94.9571
+data= 0.0709675 prior= 6.79717e-05 data/prior 1044.07
+data= 0.0423329 prior= 4.18805e-05 data/prior 1010.8
+data= 0.00964926 prior= 1.37982e-05 data/prior 699.315
+data= 0.0123306 prior= 6.21179e-05 data/prior 198.503
+data= 0.00704408 prior= -0.000348829 data/prior -20.1935
+data= 0.00339442 prior= 0.000116255 data/prior 29.198
+data= -0.00178864 prior= -2.01909e-05 data/prior 88.5868
+
+Bezier Nb: 15
+Partial_Energy : 716583
+SHIFT : 
+data= 0.0478781 prior= -5.52693e-06 data/prior -8662.69
+data= 0.0187189 prior= -4.35525e-05 data/prior -429.801
+data= 0.121719 prior= -8.56431e-05 data/prior -1421.23
+data= 0.0242012 prior= 0 data/prior inf
+data= 0.0609457 prior= 0.000125178 data/prior 486.87
+data= 0.00305593 prior= 5.21323e-05 data/prior 58.6188
+data= -0.00919834 prior= -6.92127e-05 data/prior 132.899
+data= -0.0175581 prior= 0.000211118 data/prior -83.1672
+data= 0.00596236 prior= 0 data/prior inf
+data= -0.0541168 prior= -0.000110545 data/prior 489.544
+
+Bezier Nb: 16
+Partial_Energy : 603357
+SHIFT : 
+data= 0.0558585 prior= -7.85777e-05 data/prior -710.869
+data= 0.0296362 prior= 6.12483e-05 data/prior 483.87
+data= 0.0475916 prior= 0.000589732 data/prior 80.7004
+data= 0.00400797 prior= -0.00018641 data/prior -21.5009
+data= 0.00908601 prior= -0.00027061 data/prior -33.576
+data= 0.00096255 prior= 4.04463e-05 data/prior 23.7982
+data= -0.0167155 prior= -8.99419e-05 data/prior 185.848
+data= -0.0117856 prior= 0.000886296 data/prior -13.2976
+data= -0.000640264 prior= -0.000544188 data/prior 1.17655
+data= 0.000637106 prior= -0.000190256 data/prior -3.34868
+
+PROPAGATION : 3
+
+Bezier Nb: 0
+Partial_Energy : 467740
+SHIFT : 
+data= -0.000110519 prior= -4.29579e-05 data/prior 2.57272
+data= -0.00289096 prior= -0.000299641 data/prior 9.64806
+data= -0.00961815 prior= 4.78742e-05 data/prior -200.905
+data= 0 prior= -0.000257343 data/prior -0
+data= 0.00198018 prior= 3.98728e-05 data/prior 49.6624
+data= -9.30535e-06 prior= -0.000263865 data/prior 0.0352655
+data= 1.27412e-05 prior= -0.000190401 data/prior -0.0669174
+data= -0.00340676 prior= -0.000745972 data/prior 4.56687
+data= 0.00468216 prior= 0.000615833 data/prior 7.60297
+data= 0.00300276 prior= -0.00196299 data/prior -1.52969
+
+Bezier Nb: 1
+Partial_Energy : 468796
+SHIFT : 
+data= -0.00079383 prior= -0.000274838 data/prior 2.88836
+data= 0 prior= -5.76533e-05 data/prior -0
+data= -0.00251973 prior= -8.13857e-05 data/prior 30.9603
+data= -0.00555467 prior= -0.00073627 data/prior 7.54433
+data= -0.00372112 prior= 0.000390952 data/prior -9.51812
+data= -0.00145771 prior= 0.000465824 data/prior -3.12933
+data= 0.00299849 prior= -0.00174417 data/prior -1.71915
+data= 0.00197736 prior= 0.000946457 data/prior 2.08922
+data= 0 prior= 0.00103807 data/prior 0
+data= 0 prior= -0.002261 data/prior -0
+
+Bezier Nb: 2
+Partial_Energy : 469126
+SHIFT : 
+data= -0.00255424 prior= -0.000853901 data/prior 2.99126
+data= -0.00205272 prior= 0.000370602 data/prior -5.53889
+data= -0.00233975 prior= -0.000110845 data/prior 21.1083
+data= 0.000237094 prior= -0.000766598 data/prior -0.309282
+data= -6.99693e-05 prior= 0.00050387 data/prior -0.138864
+data= 0 prior= 0.000833186 data/prior 0
+data= 0 prior= -0.00200497 data/prior -0
+data= -0.00142514 prior= 0.00040817 data/prior -3.49154
+data= -0.00504423 prior= 0.000897931 data/prior -5.61762
+data= -0.00095267 prior= -0.000761738 data/prior 1.25065
+
+Bezier Nb: 3
+Partial_Energy : 468066
+SHIFT : 
+data= 0 prior= -0.000779562 data/prior -0
+data= -0.000307306 prior= 0.000498459 data/prior -0.616512
+data= 0.00403693 prior= -2.32854e-05 data/prior -173.368
+data= 0.0057148 prior= 3.508e-05 data/prior 162.908
+data= -0.00258303 prior= 5.23748e-05 data/prior -49.3182
+data= -0.00120144 prior= 0.00106561 data/prior -1.12747
+data= -0.00120144 prior= -0.000633787 data/prior 1.89566
+data= -0.00236809 prior= 0.000225807 data/prior -10.4872
+data= -0.000261196 prior= 0.00043112 data/prior -0.605854
+data= -0.000412844 prior= -0.000509955 data/prior 0.809569
+
+Bezier Nb: 4
+Partial_Energy : 467692
+SHIFT : 
+data= 0.00454956 prior= -9.29939e-05 data/prior -48.9232
+data= -0.00255518 prior= 1.74674e-05 data/prior -146.283
+data= -0.00312858 prior= 0.000494615 data/prior -6.32528
+data= 0 prior= -0.000852822 data/prior -0
+data= 0 prior= 0.00105818 data/prior 0
+data= 0 prior= 0.000357999 data/prior 0
+data= -0.000412971 prior= -0.000555442 data/prior 0.7435
+data= 0.00564652 prior= -0.000189615 data/prior -29.7788
+data= -0.000139089 prior= 0.000435594 data/prior -0.31931
+data= 0.00604516 prior= 0.000652383 data/prior 9.26628
+
+Bezier Nb: 5
+Partial_Energy : 469512
+SHIFT : 
+data= -4.78166e-05 prior= -0.000691303 data/prior 0.0691688
+data= -5.15389e-06 prior= 0.000961008 data/prior -0.005363
+data= 0.00192455 prior= -0.00014856 data/prior -12.9547
+data= 0.000860413 prior= -0.00029424 data/prior -2.92419
+data= 0.00110579 prior= -0.00229249 data/prior -0.482355
+data= -0.000139012 prior= 0.000369222 data/prior -0.376499
+data= -6.72868e-05 prior= 0.000367126 data/prior -0.18328
+data= -0.000844092 prior= -8.53391e-05 data/prior 9.89104
+data= -3.49319e-05 prior= -0.000562885 data/prior 0.0620586
+data= 0.000658123 prior= 0.00120791 data/prior 0.544846
+
+Bezier Nb: 6
+Partial_Energy : 469797
+SHIFT : 
+data= 0.000860737 prior= -0.000128647 data/prior -6.69069
+data= 0.00110621 prior= -0.00169566 data/prior -0.652378
+data= 0.000658371 prior= 0.0011997 data/prior 0.548778
+data= 0 prior= 0.000272155 data/prior 0
+data= 0.0023101 prior= 0.000192033 data/prior 12.0297
+data= -0.000202366 prior= -0.000553052 data/prior 0.365908
+data= 0.000658371 prior= 0.00119766 data/prior 0.549716
+data= 0.00269206 prior= 0.00193977 data/prior 1.38782
+data= 0.00379684 prior= -0.00234927 data/prior -1.61618
+data= 0.00188517 prior= 0.000460073 data/prior 4.09755
+
+Bezier Nb: 7
+Partial_Energy : 467709
+SHIFT : 
+data= 0.00188565 prior= 0.00047042 data/prior 4.00845
+data= 0.00231069 prior= 0.000202062 data/prior 11.4356
+data= 0.00484672 prior= -0.000895568 data/prior -5.41189
+data= 0.000409277 prior= 0.000952333 data/prior 0.429763
+data= -0.00483182 prior= 0.000779559 data/prior -6.19815
+data= 0.00191216 prior= -0.00275701 data/prior -0.693563
+data= 0.00111896 prior= 0.000366596 data/prior 3.05229
+data= 0.00238318 prior= 0.00128062 data/prior 1.86095
+data= 0 prior= -0.00125881 data/prior -0
+data= 0 prior= 0.00093756 data/prior 0
+
+Bezier Nb: 8
+Partial_Energy : 466476
+SHIFT : 
+data= 0 prior= 0.000842088 data/prior 0
+data= 0 prior= 0.000707366 data/prior 0
+data= 0.00250708 prior= 0.00121638 data/prior 2.0611
+data= -0.00025201 prior= -0.0016225 data/prior 0.155322
+data= -0.00307192 prior= 0.00204672 data/prior -1.5009
+data= 0 prior= -0.00113254 data/prior -0
+data= 0 prior= 0.000958092 data/prior 0
+data= 0.00536176 prior= -0.000234931 data/prior -22.8227
+data= -0.000938204 prior= -0.000543893 data/prior 1.72498
+data= -0.00209794 prior= 0.00017107 data/prior -12.2636
+
+Bezier Nb: 9
+Partial_Energy : 467733
+SHIFT : 
+data= 0 prior= -0.00165695 data/prior -0
+data= -0.00307352 prior= 0.0019589 data/prior -1.569
+data= 0.00257926 prior= -0.00128003 data/prior -2.015
+data= 0.0013363 prior= -0.000503075 data/prior -2.65627
+data= 0.00409124 prior= -0.000532473 data/prior -7.68348
+data= -0.000732512 prior= -0.000565746 data/prior 1.29477
+data= 0.00193809 prior= 2.89274e-05 data/prior 66.9985
+data= -0.00150841 prior= 0.000911703 data/prior -1.6545
+data= 0 prior= -0.00110381 data/prior -0
+data= 0.000223505 prior= 0.0017372 data/prior 0.128658
+
+Bezier Nb: 10
+Partial_Energy : 468156
+SHIFT : 
+data= 0.000298279 prior= -0.000479006 data/prior -0.622703
+data= -0.00437346 prior= -0.000566818 data/prior 7.71581
+data= -0.000602431 prior= -0.000418355 data/prior 1.44
+data= -0.00083624 prior= 0.000973884 data/prior -0.858666
+data= -0.00083624 prior= 1.41061e-05 data/prior -59.282
+data= 0 prior= -0.00104891 data/prior -0
+data= 0.00128925 prior= 0.00141572 data/prior 0.910662
+data= 0.00846713 prior= 0.00118941 data/prior 7.11875
+data= 0.00419524 prior= -0.000859617 data/prior -4.88036
+data= 0.00168953 prior= 0.00342165 data/prior 0.493776
+
+Bezier Nb: 11
+Partial_Energy : 465385
+SHIFT : 
+data= 0 prior= 0.00104177 data/prior 0
+data= 0 prior= 0.000217829 data/prior 0
+data= 0.0121051 prior= -0.000722619 data/prior -16.7516
+data= -0.0196858 prior= 0.000204103 data/prior -96.4502
+data= 0.034477 prior= 8.74156e-05 data/prior 394.403
+data= 0.00171851 prior= -0.00101295 data/prior -1.69655
+data= 0.00171851 prior= 0.00163263 data/prior 1.0526
+data= -5.9259e-05 prior= -0.00128775 data/prior 0.0460174
+data= -0.000282664 prior= -0.000279682 data/prior 1.01066
+data= -0.000394438 prior= -0.000219956 data/prior 1.79326
+
+Bezier Nb: 12
+Partial_Energy : 471302
+SHIFT : 
+data= -0.0131444 prior= 0.00014692 data/prior -89.466
+data= -0.00668741 prior= -5.06029e-05 data/prior 132.155
+data= -0.00313676 prior= 0.000186042 data/prior -16.8605
+data= -0.00487654 prior= -0.000106515 data/prior 45.7828
+data= 0.00612847 prior= -0.000199131 data/prior -30.776
+data= 0 prior= -0.00024981 data/prior -0
+data= 0.00438227 prior= -0.000151715 data/prior -28.8848
+data= 0.00224532 prior= 0.000516858 data/prior 4.34417
+data= -0.00175719 prior= -0.000116104 data/prior 15.1347
+data= 0.00290048 prior= -0.000101627 data/prior -28.5404
+
+Bezier Nb: 13
+Partial_Energy : 459831
+SHIFT : 
+data= -0.0106888 prior= -5.40655e-05 data/prior 197.701
+data= 0.00180283 prior= -0.000143808 data/prior -12.5363
+data= 0.00267156 prior= 0.000456569 data/prior 5.85138
+data= -0.00646472 prior= -0.000177223 data/prior 36.478
+data= 0.00456993 prior= -4.28559e-05 data/prior -106.635
+data= 0.000847708 prior= -7.21229e-05 data/prior -11.7537
+data= -0.00292357 prior= -7.15465e-05 data/prior 40.8625
+data= 0.00170586 prior= -0.000203545 data/prior -8.38075
+data= -6.86519e-06 prior= 5.4039e-05 data/prior -0.127041
+data= -0.00714424 prior= 0.000142106 data/prior -50.2739
+
+Bezier Nb: 14
+Partial_Energy : 458891
+SHIFT : 
+data= -0.00355485 prior= -0.000110867 data/prior 32.0641
+data= -0.000741959 prior= 9.03993e-06 data/prior -82.0758
+data= 0.0184752 prior= -0.000226859 data/prior -81.4388
+data= 0.0450144 prior= 5.32587e-05 data/prior 845.204
+data= 0.00817901 prior= 4.22249e-05 data/prior 193.701
+data= 0.00477881 prior= -4.60485e-07 data/prior -10377.8
+data= 0.0103886 prior= 6.23417e-05 data/prior 166.639
+data= -0.0102807 prior= -0.000368993 data/prior 27.8615
+data= 0.00998956 prior= 0.000118548 data/prior 84.2663
+data= -0.00203059 prior= -1.83101e-05 data/prior 110.9
+
+Bezier Nb: 15
+Partial_Energy : 408162
+SHIFT : 
+data= 0.00353285 prior= -2.84705e-05 data/prior -124.088
+data= -0.000439339 prior= -4.02078e-05 data/prior 10.9267
+data= 0.0178178 prior= -9.87956e-05 data/prior -180.35
+data= 0.0161708 prior= 0 data/prior inf
+data= 0.0302561 prior= 0.000127226 data/prior 237.814
+data= 0.00697771 prior= 3.00256e-05 data/prior 232.392
+data= 0.000484901 prior= -7.75489e-05 data/prior -6.25284
+data= -0.00117447 prior= 0.000236738 data/prior -4.96107
+data= -0.00399033 prior= 0 data/prior -inf
+data= -0.0154288 prior= -0.000124834 data/prior 123.595
+
+Bezier Nb: 16
+Partial_Energy : 389103
+SHIFT : 
+data= -0.00947421 prior= -9.42425e-05 data/prior 100.53
+data= -0.00258363 prior= 3.24072e-05 data/prior -79.7239
+data= 0.00435379 prior= 0.000396815 data/prior 10.9718
+data= 0.00379212 prior= -0.000287746 data/prior -13.1787
+data= 0.00454839 prior= -0.000425989 data/prior -10.6773
+data= 0.0077841 prior= 4.40051e-05 data/prior 176.891
+data= 0.00110346 prior= -8.71503e-05 data/prior -12.6615
+data= -0.0101439 prior= 0.000958058 data/prior -10.588
+data= -0.000279058 prior= -0.000620124 data/prior 0.450004
+data= 4.25826e-07 prior= -0.000254232 data/prior -0.00167495
+
+PROPAGATION : 4
+
+Bezier Nb: 0
+Partial_Energy : 389520
+SHIFT : 
+data= 0.00454199 prior= -7.32266e-05 data/prior -62.0265
+data= 0.0107163 prior= -0.0003643 data/prior -29.4162
+data= 0.00541887 prior= 0.000655066 data/prior 8.27226
+data= 0 prior= -0.000332726 data/prior -0
+data= 0 prior= 0.000200908 data/prior 0
+data= 0.00614554 prior= -0.000270264 data/prior -22.739
+data= 2.15603e-05 prior= -0.000263572 data/prior -0.0818004
+data= -0.00718866 prior= -0.000562649 data/prior 12.7765
+data= 0.00103234 prior= 0.000462278 data/prior 2.23316
+data= -0.0033227 prior= -0.00172317 data/prior 1.92825
+
+Bezier Nb: 1
+Partial_Energy : 387338
+SHIFT : 
+data= 0 prior= -0.000312248 data/prior -0
+data= 0 prior= 7.59882e-06 data/prior 0
+data= -0.00050628 prior= 1.73742e-05 data/prior -29.1398
+data= -0.00050628 prior= -0.000789567 data/prior 0.641212
+data= 0.00381104 prior= 0.000358943 data/prior 10.6174
+data= -0.00333135 prior= 0.000360716 data/prior -9.2354
+data= -0.000865796 prior= -0.00135476 data/prior 0.639078
+data= -0.00436638 prior= 0.000306445 data/prior -14.2485
+data= 0 prior= 0.000644996 data/prior 0
+data= 0 prior= -0.00164849 data/prior -0
+
+Bezier Nb: 2
+Partial_Energy : 382623
+SHIFT : 
+data= 0.00385777 prior= -0.000769889 data/prior -5.01081
+data= -0.00210136 prior= 0.000166972 data/prior -12.5851
+data= 0.00226637 prior= 0.000121055 data/prior 18.7217
+data= -0.00605066 prior= -0.000648542 data/prior 9.32963
+data= -0.00605066 prior= 0.000422313 data/prior -14.3274
+data= 0 prior= 0.000715496 data/prior 0
+data= 0 prior= -0.0014716 data/prior -0
+data= -0.00126366 prior= -1.53737e-05 data/prior 82.1958
+data= 0.00581515 prior= 0.00107964 data/prior 5.38622
+data= 0.00523897 prior= -0.000798885 data/prior -6.55784
+
+Bezier Nb: 3
+Partial_Energy : 382077
+SHIFT : 
+data= 0.000235449 prior= -0.000457709 data/prior -0.514408
+data= -0.000323406 prior= 0.000603814 data/prior -0.535605
+data= -0.00538493 prior= -0.00015652 data/prior 34.4041
+data= 0.0106636 prior= -0.000389653 data/prior -27.3668
+data= 0.00386509 prior= 0.000262059 data/prior 14.749
+data= -0.00442807 prior= 0.000657642 data/prior -6.73326
+data= 0.00549406 prior= -0.00119719 data/prior -4.58914
+data= 0.0053271 prior= 0.00114673 data/prior 4.64546
+data= 0 prior= 0.000309582 data/prior 0
+data= 0 prior= -0.000288781 data/prior -0
+
+Bezier Nb: 4
+Partial_Energy : 382522
+SHIFT : 
+data= -0.00715354 prior= -0.000561615 data/prior 12.7375
+data= -0.00261433 prior= 0.00013108 data/prior -19.9445
+data= -0.0031636 prior= 0.000492083 data/prior -6.42901
+data= -4.7479e-05 prior= -0.000798079 data/prior 0.0594915
+data= -5.11749e-06 prior= 0.000987666 data/prior -0.0051814
+data= -0.000793353 prior= 0.000301729 data/prior -2.62935
+data= -0.000431149 prior= -0.000349245 data/prior 1.23452
+data= 0.00508153 prior= -0.000424177 data/prior -11.9797
+data= -9.52422e-05 prior= 0.000597742 data/prior -0.159337
+data= 0.0062985 prior= 0.000421379 data/prior 14.9473
+
+Bezier Nb: 5
+Partial_Energy : 383489
+SHIFT : 
+data= -7.37436e-05 prior= -0.000667481 data/prior 0.110481
+data= 0 prior= 0.000942395 data/prior 0
+data= -0.00428054 prior= -0.000159846 data/prior 26.7792
+data= 0.00205175 prior= -0.000389584 data/prior -5.26652
+data= 0.00116001 prior= -0.00184422 data/prior -0.628995
+data= -7.88588e-05 prior= 0.000522612 data/prior -0.150893
+data= -0.00856676 prior= 0.00024802 data/prior -34.5406
+data= 0.0057871 prior= -0.000107849 data/prior -53.6591
+data= -0.00144759 prior= 9.96639e-06 data/prior -145.247
+data= 0.000688416 prior= 0.00106485 data/prior 0.646491
+
+Bezier Nb: 6
+Partial_Energy : 383913
+SHIFT : 
+data= 0.00231138 prior= -0.000619223 data/prior -3.7327
+data= 0.000865009 prior= -0.00146919 data/prior -0.588765
+data= 0.000687833 prior= 0.000862355 data/prior 0.797622
+data= 0 prior= 0.000417726 data/prior 0
+data= 0 prior= 0.000197544 data/prior 0
+data= -0.000165392 prior= 6.31779e-05 data/prior -2.61788
+data= 0.000248018 prior= 0.00108616 data/prior 0.228344
+data= 0.00272393 prior= 0.00168078 data/prior 1.62063
+data= 0.0004675 prior= -0.00200003 data/prior -0.233747
+data= 0.00122092 prior= 0.000454931 data/prior 2.68375
+
+Bezier Nb: 7
+Partial_Energy : 384121
+SHIFT : 
+data= 0 prior= 0.000582187 data/prior 0
+data= 0 prior= 0.000197066 data/prior 0
+data= -0.00144449 prior= -0.000965931 data/prior 1.49543
+data= 0.000414049 prior= 0.000823301 data/prior 0.502913
+data= 0.00117087 prior= 0.000738474 data/prior 1.58552
+data= 0.00240776 prior= -0.00178835 data/prior -1.34636
+data= 0.00164044 prior= 0.000377824 data/prior 4.3418
+data= 0.0024948 prior= 0.000586716 data/prior 4.25215
+data= 0 prior= -0.000782204 data/prior -0
+data= 0 prior= 0.00114769 data/prior 0
+
+Bezier Nb: 8
+Partial_Energy : 383918
+SHIFT : 
+data= 0.000547198 prior= 0.000777934 data/prior 0.703399
+data= 0.00132455 prior= 0.000736619 data/prior 1.79815
+data= 0.00117944 prior= 0.000753042 data/prior 1.56624
+data= -0.000258123 prior= -0.00136488 data/prior 0.189118
+data= -0.00318607 prior= 0.00238099 data/prior -1.33813
+data= 0 prior= -0.000712553 data/prior -0
+data= 0 prior= 0.00107275 data/prior 0
+data= -0.000760597 prior= -0.000155848 data/prior 4.88038
+data= -0.0007508 prior= -0.000566321 data/prior 1.32575
+data= -0.00403285 prior= 7.69554e-05 data/prior -52.405
+
+Bezier Nb: 9
+Partial_Energy : 384675
+SHIFT : 
+data= 0 prior= -0.00124691 data/prior -0
+data= 0 prior= 0.0020041 data/prior 0
+data= 0.00264073 prior= -0.00115868 data/prior -2.27909
+data= 0.00626631 prior= -0.000510608 data/prior -12.2722
+data= -0.00462121 prior= -0.00065429 data/prior 7.06294
+data= -0.00113551 prior= -0.000565993 data/prior 2.00623
+data= -0.000846101 prior= -3.37476e-05 data/prior 25.0714
+data= -0.000588185 prior= 0.000993735 data/prior -0.591893
+data= 0 prior= -0.000967441 data/prior -0
+data= 0.00132008 prior= 0.00155209 data/prior 0.850521
+
+Bezier Nb: 10
+Partial_Energy : 383760
+SHIFT : 
+data= 0.00603492 prior= -0.000408957 data/prior -14.7569
+data= -0.00462186 prior= -0.000339574 data/prior 13.6108
+data= 0.00563281 prior= -0.000509818 data/prior -11.0487
+data= 8.55585e-05 prior= 0.00117432 data/prior 0.0728578
+data= -0.000862111 prior= -4.04238e-05 data/prior 21.3268
+data= 0 prior= -0.00088443 data/prior -0
+data= 0.000848916 prior= 0.00108306 data/prior 0.783816
+data= -0.0043632 prior= 0.00052567 data/prior -8.30026
+data= 0.0017045 prior= -0.00157135 data/prior -1.08474
+data= -0.00468131 prior= 0.00147504 data/prior -3.17368
+
+Bezier Nb: 11
+Partial_Energy : 381667
+SHIFT : 
+data= 0 prior= 0.00140296 data/prior 0
+data= 0 prior= -0.00020114 data/prior -0
+data= 0.0187545 prior= -0.000177462 data/prior -105.682
+data= -0.00871247 prior= 9.67187e-05 data/prior -90.0806
+data= -0.00901666 prior= 5.68092e-05 data/prior -158.718
+data= -0.00472307 prior= -0.00140779 data/prior 3.35496
+data= 0.0013114 prior= 0.000834803 data/prior 1.57091
+data= -0.00563025 prior= -0.000626288 data/prior 8.98987
+data= -0.00017579 prior= -0.000241917 data/prior 0.726654
+data= 0.00472718 prior= -0.000240577 data/prior -19.6494
+
+Bezier Nb: 12
+Partial_Energy : 380931
+SHIFT : 
+data= 0.0258205 prior= 9.98808e-05 data/prior 258.513
+data= -0.00940101 prior= -1.92331e-05 data/prior 488.792
+data= 0.0115183 prior= 0.000158484 data/prior 72.6777
+data= -0.00316898 prior= -8.60102e-05 data/prior 36.8443
+data= 0.00723309 prior= -0.000192559 data/prior -37.563
+data= -0.00170975 prior= -0.000269085 data/prior 6.35393
+data= 0.00467221 prior= -0.000218587 data/prior -21.3746
+data= -0.00408773 prior= 0.000581036 data/prior -7.03524
+data= 0.00369265 prior= -0.000109546 data/prior -33.7088
+data= -0.00260586 prior= -0.000105126 data/prior 24.788
+
+Bezier Nb: 13
+Partial_Energy : 386611
+SHIFT : 
+data= -0.0032435 prior= -3.49954e-05 data/prior 92.6834
+data= 0.00175398 prior= -0.000132314 data/prior -13.2562
+data= 0.00520368 prior= 0.000380263 data/prior 13.6844
+data= -0.000644343 prior= -0.000178562 data/prior 3.60851
+data= -0.00315906 prior= -3.21848e-05 data/prior 98.1539
+data= -0.00643509 prior= -6.28257e-05 data/prior 102.428
+data= -0.00230753 prior= -6.47132e-05 data/prior 35.6578
+data= -0.000927622 prior= -0.000198096 data/prior 4.68269
+data= 0.000353569 prior= 4.15574e-05 data/prior 8.50795
+data= -0.000772618 prior= 5.7181e-05 data/prior -13.5118
+
+Bezier Nb: 14
+Partial_Energy : 379864
+SHIFT : 
+data= 0.00369829 prior= -9.81709e-05 data/prior -37.6719
+data= 0.00277856 prior= 2.91646e-05 data/prior 95.2717
+data= 0.00501358 prior= -0.000227623 data/prior -22.0258
+data= -0.00137344 prior= 2.73494e-05 data/prior -50.2181
+data= -0.0143254 prior= 4.17936e-05 data/prior -342.767
+data= -0.00578546 prior= -8.78306e-06 data/prior 658.707
+data= 0.00540377 prior= -1.10261e-05 data/prior -490.089
+data= 0.0160021 prior= -0.000138217 data/prior -115.775
+data= -0.00622163 prior= 0.000120704 data/prior -51.5446
+data= 0.000721379 prior= -1.70976e-05 data/prior -42.1918
+
+Bezier Nb: 15
+Partial_Energy : 380546
+SHIFT : 
+data= 0.000956894 prior= -1.60185e-05 data/prior -59.7367
+data= 0.00155027 prior= -2.55221e-05 data/prior -60.7425
+data= -0.0265466 prior= -0.000115166 data/prior 230.507
+data= -0.00554089 prior= 0 data/prior -inf
+data= 0.00446602 prior= 0.000102526 data/prior 43.5599
+data= 0.00785168 prior= 4.88673e-05 data/prior 160.673
+data= 0.000834686 prior= -7.30789e-05 data/prior -11.4217
+data= 0.0200044 prior= 0.000242582 data/prior 82.4643
+data= 0.000601291 prior= 0 data/prior inf
+data= -0.00277645 prior= -0.000128991 data/prior 21.5244
+
+Bezier Nb: 16
+Partial_Energy : 366891
+SHIFT : 
+data= -0.00496189 prior= -9.65368e-05 data/prior 51.399
+data= 0.00419745 prior= 3.15018e-05 data/prior 133.245
+data= 0.00596277 prior= 0.00050537 data/prior 11.7988
+data= 0.00683062 prior= -0.000380404 data/prior -17.9562
+data= 0.00299583 prior= -0.000445207 data/prior -6.72908
+data= 0.000120842 prior= 3.86634e-05 data/prior 3.12549
+data= -0.000739927 prior= -8.15966e-05 data/prior 9.06812
+data= 0.0147719 prior= 0.000939049 data/prior 15.7307
+data= 0 prior= -0.000681202 data/prior -0
+data= 0 prior= -0.000356806 data/prior -0
+
+PROPAGATION : 5
+
+Bezier Nb: 0
+Partial_Energy : 368038
+SHIFT : 
+data= 0.00819037 prior= -4.9835e-05 data/prior -164.35
+data= -0.00107707 prior= -0.000386095 data/prior 2.78966
+data= -0.0124663 prior= 0.000409034 data/prior -30.4775
+data= -0.000790461 prior= -0.000256276 data/prior 3.08441
+data= 0.00202409 prior= -1.73075e-05 data/prior -116.949
+data= -0.00346754 prior= -0.000309443 data/prior 11.2058
+data= 0 prior= -0.000386119 data/prior -0
+data= 0.00222195 prior= -0.000341788 data/prior -6.50098
+data= 0.00225885 prior= 0.000492174 data/prior 4.58953
+data= 0.00641714 prior= -0.00143547 data/prior -4.47041
+
+Bezier Nb: 1
+Partial_Energy : 366749
+SHIFT : 
+data= -0.000788947 prior= -0.000265371 data/prior 2.973
+data= 0.00202021 prior= -7.66875e-05 data/prior -26.3434
+data= 0.00535059 prior= 8.25474e-05 data/prior 64.8184
+data= 0.00322062 prior= -0.000780567 data/prior -4.126
+data= -0.00376829 prior= 0.000622363 data/prior -6.05481
+data= -0.00109875 prior= 0.000388432 data/prior -2.82869
+data= -0.0027702 prior= -0.00182162 data/prior 1.52074
+data= 0.00202021 prior= 0.000921031 data/prior 2.19342
+data= 0 prior= 0.00069308 data/prior 0
+data= 0 prior= -0.00162547 data/prior -0
+
+Bezier Nb: 2
+Partial_Energy : 367253
+SHIFT : 
+data= -0.00047097 prior= -0.000663756 data/prior 0.709553
+data= -0.00207801 prior= 0.000636078 data/prior -3.26691
+data= -0.00412731 prior= -0.000257743 data/prior 16.0133
+data= 0 prior= -0.000508146 data/prior -0
+data= 0 prior= 0.000313764 data/prior 0
+data= 0 prior= 0.000635261 data/prior 0
+data= 0 prior= -0.00154371 data/prior -0
+data= -0.00448288 prior= 0.000102886 data/prior -43.5715
+data= -0.00151282 prior= 0.000635874 data/prior -2.37911
+data= 0.00501539 prior= -0.00106808 data/prior -4.69572
+
+Bezier Nb: 3
+Partial_Energy : 366620
+SHIFT : 
+data= 0 prior= -0.000574292 data/prior -0
+data= 0 prior= 0.000346411 data/prior 0
+data= 0.00257131 prior= 0.000136596 data/prior 18.8242
+data= 0.00449207 prior= -0.000324653 data/prior -13.8365
+data= 0.00324349 prior= 0.000339626 data/prior 9.5502
+data= -0.00126224 prior= 0.000612484 data/prior -2.06085
+data= -0.000805144 prior= -0.00127578 data/prior 0.631101
+data= 0.00384394 prior= 0.000650541 data/prior 5.90883
+data= 0 prior= 0.000533901 data/prior 0
+data= -0.00026691 prior= -0.0001303 data/prior 2.04843
+
+Bezier Nb: 4
+Partial_Energy : 366242
+SHIFT : 
+data= -0.00661473 prior= -0.000292256 data/prior 22.6333
+data= 0.00324638 prior= 0.000230493 data/prior 14.0846
+data= 0.00276951 prior= 0.000601624 data/prior 4.60339
+data= -4.24588e-05 prior= -0.000545129 data/prior 0.0778876
+data= 0 prior= 0.000392665 data/prior 0
+data= 0 prior= 0.000618676 data/prior 0
+data= -0.00206367 prior= -7.12913e-05 data/prior 28.947
+data= 0.00213206 prior= -0.000625388 data/prior -3.40918
+data= 0.00573863 prior= 0.000623735 data/prior 9.20043
+data= -0.00852851 prior= 0.000916988 data/prior -9.30057
+
+Bezier Nb: 5
+Partial_Energy : 367116
+SHIFT : 
+data= -3.14706e-05 prior= -0.000517147 data/prior 0.0608541
+data= -3.14706e-05 prior= 0.000682936 data/prior -0.0460813
+data= -0.00393539 prior= 0.00037205 data/prior -10.5776
+data= -0.00409687 prior= -0.000819128 data/prior 5.0015
+data= 0.00211907 prior= -0.00160358 data/prior -1.32146
+data= 0.00496765 prior= 0.000409988 data/prior 12.1166
+data= -0.001784 prior= 0.000766721 data/prior -2.32679
+data= -0.00822848 prior= -0.000646757 data/prior 12.7227
+data= -0.00118976 prior= -0.000113053 data/prior 10.5239
+data= 0.000672559 prior= 0.000983001 data/prior 0.684189
+
+Bezier Nb: 6
+Partial_Energy : 367108
+SHIFT : 
+data= -0.00418704 prior= -0.000718264 data/prior 5.82939
+data= 0.000385159 prior= -0.00141906 data/prior -0.271419
+data= 0.00108867 prior= 0.000746739 data/prior 1.4579
+data= 0 prior= 0.000439771 data/prior 0
+data= 0 prior= 0.000212805 data/prior 0
+data= -0.000804932 prior= -8.40713e-05 data/prior 9.5744
+data= 0.000801086 prior= 0.000998177 data/prior 0.802549
+data= 0.000662349 prior= 0.00105375 data/prior 0.628566
+data= -0.00573793 prior= -0.00170495 data/prior 3.36546
+data= -0.0057385 prior= 0.000457866 data/prior -12.5331
+
+Bezier Nb: 7
+Partial_Energy : 366624
+SHIFT : 
+data= 0 prior= 0.000573004 data/prior 0
+data= 0 prior= 0.000200098 data/prior 0
+data= -0.000612003 prior= -0.000847165 data/prior 0.722413
+data= -0.0047769 prior= 0.000765476 data/prior -6.24043
+data= -0.00420944 prior= 0.000721092 data/prior -5.83759
+data= 0 prior= -0.00111262 data/prior -0
+data= -0.00460653 prior= 0.000451768 data/prior -10.1967
+data= -0.0034433 prior= 0.00030642 data/prior -11.2372
+data= 0 prior= -0.000893325 data/prior -0
+data= 0 prior= 0.00103592 data/prior 0
+
+Bezier Nb: 8
+Partial_Energy : 366725
+SHIFT : 
+data= 0 prior= 0.000809303 data/prior 0
+data= -0.00467609 prior= 0.000648796 data/prior -7.20733
+data= -0.00263685 prior= 0.000560328 data/prior -4.7059
+data= -0.000202429 prior= -0.00130347 data/prior 0.1553
+data= -0.000202429 prior= 0.00168124 data/prior -0.120404
+data= 0 prior= -0.000826662 data/prior -0
+data= 0 prior= 0.00100911 data/prior 0
+data= 0.00485359 prior= -6.71925e-05 data/prior -72.2342
+data= 0.00449973 prior= -0.00070787 data/prior -6.35672
+data= 0.00470558 prior= -4.4527e-05 data/prior -105.679
+
+Bezier Nb: 9
+Partial_Energy : 368139
+SHIFT : 
+data= 0 prior= -0.00118981 data/prior -0
+data= 0 prior= 0.00223217 data/prior 0
+data= 0.00261453 prior= -0.00145719 data/prior -1.79423
+data= 0.00543472 prior= -0.00035433 data/prior -15.338
+data= -0.00406209 prior= -2.42936e-05 data/prior 167.208
+data= -0.000950195 prior= -0.000608567 data/prior 1.56136
+data= 0.00316127 prior= 0.000201941 data/prior 15.6544
+data= -0.00155288 prior= 0.000433108 data/prior -3.58543
+data= 0 prior= -0.000854953 data/prior -0
+data= 0.00130299 prior= 0.000883521 data/prior 1.47476
+
+Bezier Nb: 10
+Partial_Energy : 367012
+SHIFT : 
+data= 0.00313345 prior= -0.000289471 data/prior -10.8248
+data= -0.00406432 prior= 3.39651e-05 data/prior -119.662
+data= 0.00476029 prior= -0.00100113 data/prior -4.75491
+data= -0.00084662 prior= 0.00107391 data/prior -0.788352
+data= -0.00084662 prior= -8.33862e-05 data/prior 10.153
+data= 0 prior= -0.000802513 data/prior -0
+data= 0.00224856 prior= 0.000752383 data/prior 2.98859
+data= 0.00559606 prior= 0.00086201 data/prior 6.49188
+data= -0.00413672 prior= -0.000932538 data/prior 4.43598
+data= 0.00201367 prior= 0.00078677 data/prior 2.55941
+
+Bezier Nb: 11
+Partial_Energy : 363447
+SHIFT : 
+data= -0.000847184 prior= 0.000819197 data/prior -1.03416
+data= -0.000847184 prior= -3.15533e-05 data/prior 26.8493
+data= -0.00977984 prior= -0.000336961 data/prior 29.0237
+data= -0.00808161 prior= 0.000140324 data/prior -57.5923
+data= -0.00375996 prior= 0.000120751 data/prior -31.138
+data= 0.00342746 prior= -0.000636637 data/prior -5.38369
+data= -0.00274131 prior= 0.000892571 data/prior -3.07125
+data= -0.00271973 prior= -0.000670886 data/prior 4.05394
+data= -0.00180225 prior= -0.000284934 data/prior 6.32514
+data= -0.00166579 prior= -0.000286241 data/prior 5.81953
+
+Bezier Nb: 12
+Partial_Energy : 363674
+SHIFT : 
+data= 0.0158263 prior= 0.000132717 data/prior 119.249
+data= -0.00800894 prior= 3.31373e-05 data/prior -241.69
+data= 0.00679741 prior= 7.68657e-05 data/prior 88.4323
+data= -2.46636e-05 prior= -7.82472e-05 data/prior 0.315201
+data= -0.0106928 prior= -0.000187803 data/prior 56.9363
+data= 0 prior= -0.000290794 data/prior -0
+data= -0.00167168 prior= -0.000275957 data/prior 6.05774
+data= -0.00244242 prior= 0.000639558 data/prior -3.81891
+data= 0.00188777 prior= -0.000107803 data/prior -17.5113
+data= 0.00244543 prior= -8.4892e-05 data/prior -28.8063
+
+Bezier Nb: 13
+Partial_Energy : 359316
+SHIFT : 
+data= -0.000202175 prior= -2.4221e-05 data/prior 8.34709
+data= -0.000293161 prior= -1.71635e-05 data/prior 17.0805
+data= -0.0115788 prior= 0.000167125 data/prior -69.2827
+data= 0.00810748 prior= -0.000179051 data/prior -45.2803
+data= -0.00116591 prior= -3.66593e-05 data/prior 31.8039
+data= 0.000292874 prior= -6.15785e-05 data/prior -4.75611
+data= -0.0025552 prior= -6.49117e-05 data/prior 39.3642
+data= 0.00464701 prior= -0.000219177 data/prior -21.2021
+data= -0.00229456 prior= 7.02096e-05 data/prior -32.6816
+data= -0.00860955 prior= 0.000129505 data/prior -66.4805
+
+Bezier Nb: 14
+Partial_Energy : 369405
+SHIFT : 
+data= -0.00680766 prior= -0.000117445 data/prior 57.9649
+data= -0.0042428 prior= 1.55558e-05 data/prior -272.748
+data= 0.00265118 prior= -0.00022551 data/prior -11.7564
+data= -0.000163185 prior= 3.43068e-05 data/prior -4.75662
+data= 0.00739355 prior= 4.33676e-05 data/prior 170.486
+data= -0.00417638 prior= 1.54655e-05 data/prior -270.046
+data= -0.0034754 prior= 5.77917e-05 data/prior -60.1367
+data= -0.0211635 prior= -0.000372576 data/prior 56.803
+data= 0.00937653 prior= 1.78998e-05 data/prior 523.834
+data= 0.00329475 prior= -1.78421e-05 data/prior -184.662
+
+Bezier Nb: 15
+Partial_Energy : 369762
+SHIFT : 
+data= 0.00237875 prior= -3.01357e-05 data/prior -78.9344
+data= 0.00567056 prior= -4.14751e-05 data/prior -136.722
+data= 0.0179598 prior= -9.28664e-05 data/prior -193.394
+data= -0.00824188 prior= 0 data/prior -inf
+data= -0.00492237 prior= 9.29994e-05 data/prior -52.9291
+data= -0.00683605 prior= -0.000125074 data/prior 54.6559
+data= -0.00437034 prior= -7.95344e-05 data/prior 54.949
+data= -0.00594364 prior= 0.000237149 data/prior -25.0628
+data= -0.00265326 prior= 0 data/prior -inf
+data= -0.0101363 prior= -0.000144408 data/prior 70.1924
+
+Bezier Nb: 16
+Partial_Energy : 377386
+SHIFT : 
+data= -0.0156068 prior= -8.57618e-05 data/prior 181.979
+data= 0.0041259 prior= 2.89398e-05 data/prior 142.568
+data= -0.00453203 prior= 0.000428126 data/prior -10.5857
+data= 0.00395657 prior= -0.000378325 data/prior -10.4581
+data= 0.0050075 prior= -0.00037429 data/prior -13.3786
+data= 0.00329559 prior= 4.23493e-05 data/prior 77.8194
+data= -0.00146149 prior= -8.93058e-05 data/prior 16.365
+data= -0.0180353 prior= 0.000818844 data/prior -22.0253
+data= -0.000725589 prior= -0.000746121 data/prior 0.972482
+data= 0 prior= -0.000394671 data/prior -0
+Propagation time : 4.40134 minutes

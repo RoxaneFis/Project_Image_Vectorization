@@ -1,0 +1,815 @@
+Hyperparameters : 
+Epsilon : 1
+Alpha : 0.0001
+Taille Image 238x232
+Lambda_data :40
+Lambda_handles: 30000
+Lamda_angles :10000
+Lamda_legnth :1500
+
+Energies intialization:
+E_data :1.03236e+07
+E_handes :11653.9
+E_angles :4387.97
+E_length :953254
+
+PROPAGATION : 0
+
+Bezier Nb: 0
+Partial_Energy : 1.0452e+07
+Grad: -78766.2
+Grad: -58977.7
+Grad: -22205.1
+Grad: 30106.6
+Grad: -6942.26
+Grad: 104502
+Grad: 76335.1
+Grad: 185315
+Grad: 2756.39
+Grad: -2411.26
+
+Bezier Nb: 1
+Partial_Energy : 7.3129e+06
+Grad: 711.269
+Grad: 1182.43
+Grad: 205668
+Grad: 1289.05
+Grad: 1010.76
+Grad: 238.566
+Grad: 408.766
+Grad: 6857.71
+Grad: -851.681
+Grad: 45611.9
+
+Bezier Nb: 2
+Partial_Energy : 6.63958e+06
+Grad: 1479.15
+Grad: 770.77
+Grad: 2014.46
+Grad: -10765.6
+Grad: -39913.1
+Grad: 25398.9
+Grad: 26348
+Grad: -12112.2
+Grad: 26981.8
+Grad: -9980.37
+
+Bezier Nb: 3
+Partial_Energy : 6.33563e+06
+Grad: -9283.83
+Grad: -35049.6
+Grad: -58379.7
+Grad: -11086.1
+Grad: -9775.52
+Grad: -33.6623
+Grad: -241.358
+Grad: 26788.7
+Grad: 1494.95
+Grad: 2945.83
+
+Bezier Nb: 4
+Partial_Energy : 6.25037e+06
+Grad: -1953.5
+Grad: -1842.49
+Grad: 35904.9
+Grad: 67624.1
+Grad: 90336.6
+Grad: 6780.2
+Grad: 11236.9
+Grad: 51157.9
+Grad: 49038.9
+Grad: 51216.5
+
+Bezier Nb: 5
+Partial_Energy : 4.29375e+06
+Grad: 47524.7
+Grad: 72011.5
+Grad: -3070.32
+Grad: -73099.3
+Grad: -21202.2
+Grad: -271.006
+Grad: 43173.2
+Grad: 74812.9
+Grad: 35774.3
+Grad: 6169.85
+
+PROPAGATION : 1
+
+Bezier Nb: 0
+Partial_Energy : 2.46929e+06
+Grad: -5375.87
+Grad: -2628.16
+Grad: -1688.41
+Grad: 361.911
+Grad: 464.593
+Grad: 5138.1
+Grad: 549.172
+Grad: -32304.1
+Grad: -61958.1
+Grad: 744.883
+
+Bezier Nb: 1
+Partial_Energy : 2.32871e+06
+Grad: 839.723
+Grad: 749.537
+Grad: 68.0757
+Grad: 2314.24
+Grad: 1830.05
+Grad: 796.748
+Grad: 775.038
+Grad: 293.116
+Grad: -1599.78
+Grad: -1648.5
+
+Bezier Nb: 2
+Partial_Energy : 2.46314e+06
+Grad: 2130.28
+Grad: 1097.2
+Grad: 5704.64
+Grad: -367.68
+Grad: -1359.12
+Grad: -1411.47
+Grad: 26772.1
+Grad: 33776.5
+Grad: 56439.8
+Grad: 24834.7
+
+Bezier Nb: 3
+Partial_Energy : 2.30548e+06
+Grad: -415.299
+Grad: -1264.89
+Grad: 25420.9
+Grad: 23313
+Grad: -2129.5
+Grad: -2774.91
+Grad: -981.952
+Grad: -2136.03
+Grad: 951.001
+Grad: 1094.45
+
+Bezier Nb: 4
+Partial_Energy : 2.08106e+06
+Grad: -1554.91
+Grad: -974.345
+Grad: 1524.18
+Grad: 14628.8
+Grad: -5540.16
+Grad: 506.816
+Grad: -23555.8
+Grad: 2890.81
+Grad: 9607.02
+Grad: 14193.5
+
+Bezier Nb: 5
+Partial_Energy : 2.05265e+06
+Grad: -19319.4
+Grad: 16717.1
+Grad: -21197
+Grad: 24327.1
+Grad: -4986.59
+Grad: 4874.6
+Grad: 11655.5
+Grad: -5634.92
+Grad: 5645.25
+Grad: -19129.5
+
+PROPAGATION : 2
+
+Bezier Nb: 0
+Partial_Energy : 2.10729e+06
+Grad: -10394
+Grad: -5970.51
+Grad: -1762.66
+Grad: 925.014
+Grad: 826.359
+Grad: 5566.95
+Grad: -20894.6
+Grad: -22503.5
+Grad: -22059.4
+Grad: 616.477
+
+Bezier Nb: 1
+Partial_Energy : 2e+06
+Grad: 1229.29
+Grad: -22484.7
+Grad: -23039.8
+Grad: -16704.3
+Grad: -4235.02
+Grad: 2010.12
+Grad: 1249.45
+Grad: -8771.55
+Grad: 9738.33
+Grad: -19392.8
+
+Bezier Nb: 2
+Partial_Energy : 2.09153e+06
+Grad: -5732.94
+Grad: -7119.73
+Grad: 8955.3
+Grad: 20772.2
+Grad: 20183.4
+Grad: 1291.21
+Grad: 8386.75
+Grad: -69659.2
+Grad: -712.18
+Grad: -3969.55
+
+Bezier Nb: 3
+Partial_Energy : 2.02258e+06
+Grad: -1373.78
+Grad: -8918.56
+Grad: 14173.6
+Grad: -7048.68
+Grad: -4904.02
+Grad: -3395.43
+Grad: -7426.13
+Grad: -18180.5
+Grad: 2814.36
+Grad: 3248.97
+
+Bezier Nb: 4
+Partial_Energy : 1.90272e+06
+Grad: -3007.72
+Grad: -2718.09
+Grad: -710.044
+Grad: 5848.52
+Grad: 15119.7
+Grad: 549.118
+Grad: -22548.1
+Grad: -20354.4
+Grad: -23230.4
+Grad: 6743.46
+
+Bezier Nb: 5
+Partial_Energy : 1.86323e+06
+Grad: 2351.86
+Grad: 4366.41
+Grad: 55.9849
+Grad: 14048.9
+Grad: -18310.7
+Grad: -25211.8
+Grad: 4405.93
+Grad: -10753.7
+Grad: -6321.05
+Grad: 311.474
+
+PROPAGATION : 3
+
+Bezier Nb: 0
+Partial_Energy : 1.85912e+06
+Grad: -21002.4
+Grad: 16082.8
+Grad: -5187.4
+Grad: -21008.2
+Grad: 6279.25
+Grad: 15857.8
+Grad: 7857.33
+Grad: -16368.6
+Grad: 8392.39
+Grad: 6261.04
+
+Bezier Nb: 1
+Partial_Energy : 1.8172e+06
+Grad: 7382.1
+Grad: 2276.76
+Grad: -4662.22
+Grad: 36251.6
+Grad: -24156.1
+Grad: 7390.35
+Grad: 422.41
+Grad: 21504.9
+Grad: -7449.07
+Grad: 19900.1
+
+Bezier Nb: 2
+Partial_Energy : 1.92991e+06
+Grad: -7820.34
+Grad: -10157.7
+Grad: 3663.49
+Grad: 44393.9
+Grad: 8170.42
+Grad: -23263.4
+Grad: -3953.66
+Grad: 41901.1
+Grad: 15184.1
+Grad: -15656.5
+
+Bezier Nb: 3
+Partial_Energy : 1.70754e+06
+Grad: 10708.7
+Grad: -3027.41
+Grad: -42386.9
+Grad: 11876.7
+Grad: -15678.4
+Grad: 16869.2
+Grad: -783.053
+Grad: -1743.52
+Grad: 2282.71
+Grad: 6777.72
+
+Bezier Nb: 4
+Partial_Energy : 1.63299e+06
+Grad: -2260.82
+Grad: -2400.8
+Grad: -6655.84
+Grad: 3898.27
+Grad: 7336.5
+Grad: 1506.47
+Grad: 2951.72
+Grad: -10071.9
+Grad: 1645.32
+Grad: 5360.62
+
+Bezier Nb: 5
+Partial_Energy : 1.62558e+06
+Grad: 882.392
+Grad: 3305.01
+Grad: 3869.85
+Grad: -4238.82
+Grad: -5071.77
+Grad: 543.111
+Grad: 1434.76
+Grad: 6618.07
+Grad: -16845.9
+Grad: 10010.6
+
+PROPAGATION : 4
+
+Bezier Nb: 0
+Partial_Energy : 1.63526e+06
+Grad: -4576.03
+Grad: -3837.05
+Grad: -21933.7
+Grad: 7509.91
+Grad: -19647.2
+Grad: 1154.73
+Grad: 1865.34
+Grad: -13837.3
+Grad: 9046.24
+Grad: -14842.1
+
+Bezier Nb: 1
+Partial_Energy : 1.58062e+06
+Grad: 7694.33
+Grad: -14974.3
+Grad: -16391.9
+Grad: 7807.41
+Grad: -10893.7
+Grad: 9696.17
+Grad: -11748
+Grad: -7663.68
+Grad: 4615.92
+Grad: -9676.56
+
+Bezier Nb: 2
+Partial_Energy : 1.69175e+06
+Grad: -849.517
+Grad: -7862.56
+Grad: -526.327
+Grad: 17716.9
+Grad: 16463.9
+Grad: -16497.5
+Grad: 16186.3
+Grad: -27404.9
+Grad: 16906.7
+Grad: -1750.72
+
+Bezier Nb: 3
+Partial_Energy : 1.6253e+06
+Grad: 16911.7
+Grad: 15877.8
+Grad: 8900.27
+Grad: 14968.6
+Grad: 13153.3
+Grad: -5447.79
+Grad: -13363.8
+Grad: 12475.3
+Grad: 10049.4
+Grad: -6129.01
+
+Bezier Nb: 4
+Partial_Energy : 1.46972e+06
+Grad: 7559.53
+Grad: -16045.9
+Grad: -9460.47
+Grad: -16837.5
+Grad: 818.104
+Grad: 2790.59
+Grad: -14200.9
+Grad: 2034.52
+Grad: 1646.21
+Grad: 1722.65
+
+Bezier Nb: 5
+Partial_Energy : 1.44808e+06
+Grad: 1196.84
+Grad: 559.066
+Grad: 1637.72
+Grad: 16675.7
+Grad: -6387.63
+Grad: 798.177
+Grad: 1393.07
+Grad: 5501.44
+Grad: -13612.5
+Grad: 9069.76
+
+PROPAGATION : 5
+
+Bezier Nb: 0
+Partial_Energy : 1.46463e+06
+Grad: -5869.64
+Grad: 13594.1
+Grad: 1331.79
+Grad: -5910.74
+Grad: 8312.52
+Grad: 8194.91
+Grad: -11525.1
+Grad: -9129.56
+Grad: 14372.9
+Grad: 7299.57
+
+Bezier Nb: 1
+Partial_Energy : 1.4467e+06
+Grad: 7460.38
+Grad: -16245
+Grad: -27527.1
+Grad: 29222.7
+Grad: -14918.8
+Grad: 8663.68
+Grad: 2615.07
+Grad: -4329.97
+Grad: -7826.53
+Grad: 15239.8
+
+Bezier Nb: 2
+Partial_Energy : 1.54734e+06
+Grad: 10637.1
+Grad: -16479.5
+Grad: 618.526
+Grad: -7814.7
+Grad: -19130.8
+Grad: 12255.4
+Grad: 10122.7
+Grad: 26366.8
+Grad: -3350.99
+Grad: -2624.39
+
+Bezier Nb: 3
+Partial_Energy : 1.53572e+06
+Grad: -1897.04
+Grad: 14065.3
+Grad: 4257.06
+Grad: 8196.98
+Grad: 1171.87
+Grad: 11264.9
+Grad: -7302.34
+Grad: -4439.85
+Grad: 11729.4
+Grad: 11120.2
+
+Bezier Nb: 4
+Partial_Energy : 1.39143e+06
+Grad: 11673.6
+Grad: -7512.86
+Grad: -8538.06
+Grad: -14269.3
+Grad: 304.675
+Grad: 2701.4
+Grad: 2546.35
+Grad: -15704.6
+Grad: 2175.51
+Grad: -14106.4
+
+Bezier Nb: 5
+Partial_Energy : 1.3806e+06
+Grad: 3878.21
+Grad: 3354.24
+Grad: -1610.37
+Grad: -9828.91
+Grad: -6287.52
+Grad: -14275.8
+Grad: 10892.1
+Grad: 5918.24
+Grad: -13463.6
+Grad: 10562.8
+
+PROPAGATION : 6
+
+Bezier Nb: 0
+Partial_Energy : 1.37893e+06
+Grad: 11857.8
+Grad: -7883.13
+Grad: -1527.42
+Grad: 4626
+Grad: -14411.7
+Grad: 6593.47
+Grad: 4882.3
+Grad: -13720.3
+Grad: 11181.4
+Grad: 3032.86
+
+Bezier Nb: 1
+Partial_Energy : 1.36057e+06
+Grad: 3905.84
+Grad: 2339.32
+Grad: -299.235
+Grad: 30162.7
+Grad: -11724
+Grad: -13830.7
+Grad: 8641.88
+Grad: 16018
+Grad: 9189.87
+Grad: -8997.75
+
+Bezier Nb: 2
+Partial_Energy : 1.48134e+06
+Grad: -4594.15
+Grad: 13135.1
+Grad: -3035.73
+Grad: 12032.6
+Grad: 3065.52
+Grad: -5304.87
+Grad: 12502.2
+Grad: -41352
+Grad: 12639.2
+Grad: 7214.36
+
+Bezier Nb: 3
+Partial_Energy : 1.47822e+06
+Grad: 10049
+Grad: -28733.5
+Grad: 29207.4
+Grad: -11975.7
+Grad: -3021.26
+Grad: -3626.34
+Grad: -14124.6
+Grad: -20174.3
+Grad: 2861.76
+Grad: 3683.57
+
+Bezier Nb: 4
+Partial_Energy : 1.34341e+06
+Grad: 13224
+Grad: -7898.85
+Grad: -7249.32
+Grad: 2950.75
+Grad: -16804.4
+Grad: 1718.4
+Grad: 1568.53
+Grad: 9145.84
+Grad: -4099.7
+Grad: -6143.88
+
+Bezier Nb: 5
+Partial_Energy : 1.33792e+06
+Grad: -6666.63
+Grad: 15670.4
+Grad: 3299.61
+Grad: 12614.5
+Grad: 10501.7
+Grad: -5997.02
+Grad: 13576.6
+Grad: -9610.21
+Grad: 21234.2
+Grad: -11196.7
+
+PROPAGATION : 7
+
+Bezier Nb: 0
+Partial_Energy : 1.34688e+06
+Grad: -8659.53
+Grad: -5743.96
+Grad: -278.366
+Grad: -9610.83
+Grad: 7736.95
+Grad: -13042.7
+Grad: 10219
+Grad: -8382.06
+Grad: 8757.13
+Grad: 3664.94
+
+Bezier Nb: 1
+Partial_Energy : 1.32161e+06
+Grad: 7659.62
+Grad: -16029.3
+Grad: -12898.2
+Grad: -6673.35
+Grad: -6352.07
+Grad: 7842.19
+Grad: -3810.79
+Grad: -10289
+Grad: -11486.1
+Grad: 10314.7
+
+Bezier Nb: 2
+Partial_Energy : 1.43928e+06
+Grad: 9929.92
+Grad: -16209.7
+Grad: 3959.08
+Grad: 11854.9
+Grad: -17363.5
+Grad: -6516.17
+Grad: 14528.6
+Grad: 12850.4
+Grad: 11092.2
+Grad: -2458.09
+
+Bezier Nb: 3
+Partial_Energy : 1.37079e+06
+Grad: 10874
+Grad: 9554.66
+Grad: -17338.2
+Grad: 10771.4
+Grad: -5194.15
+Grad: 11627.8
+Grad: -1540.09
+Grad: -2200.64
+Grad: 1890.59
+Grad: 1356.21
+
+Bezier Nb: 4
+Partial_Energy : 1.24789e+06
+Grad: -3720.67
+Grad: -1400.59
+Grad: -715.759
+Grad: 3257.96
+Grad: 2096.86
+Grad: 836.764
+Grad: 543.16
+Grad: 5510.61
+Grad: -8966.64
+Grad: -6037
+
+Bezier Nb: 5
+Partial_Energy : 1.22436e+06
+Grad: 12681.1
+Grad: -10132.5
+Grad: 3588.27
+Grad: -5961.19
+Grad: -4374.34
+Grad: 609.311
+Grad: -3522.78
+Grad: -1178.57
+Grad: 5371.79
+Grad: -9797.8
+
+PROPAGATION : 8
+
+Bezier Nb: 0
+Partial_Energy : 1.23222e+06
+Grad: -5811.58
+Grad: -3529.47
+Grad: -550.149
+Grad: 5625.64
+Grad: -10455.2
+Grad: 3757.25
+Grad: -10152.9
+Grad: -8941.88
+Grad: -5428.07
+Grad: -3665.48
+
+Bezier Nb: 1
+Partial_Energy : 1.20919e+06
+Grad: -251.016
+Grad: -2400.12
+Grad: -2261.94
+Grad: 8847.47
+Grad: -6332.81
+Grad: 14337.3
+Grad: -10209.6
+Grad: 13809.1
+Grad: -6789.14
+Grad: 4496.92
+
+Bezier Nb: 2
+Partial_Energy : 1.3476e+06
+Grad: 7193.97
+Grad: -6267.55
+Grad: 2964.08
+Grad: 12091.5
+Grad: -3391.77
+Grad: -11481.1
+Grad: 9609.72
+Grad: 14644.5
+Grad: 5851.46
+Grad: -2423.31
+
+Bezier Nb: 3
+Partial_Energy : 1.33391e+06
+Grad: 7875.15
+Grad: 10220.9
+Grad: 6546.38
+Grad: -3225.94
+Grad: -1625.17
+Grad: -9604.65
+Grad: -4737.89
+Grad: 8191.54
+Grad: 813.107
+Grad: 504.318
+
+Bezier Nb: 4
+Partial_Energy : 1.19821e+06
+Grad: -1824.35
+Grad: 12421.3
+Grad: 1165.97
+Grad: 12187.1
+Grad: 5306.65
+Grad: 1025.91
+Grad: -10885.3
+Grad: 693.331
+Grad: 3926.97
+Grad: -10653.6
+
+Bezier Nb: 5
+Partial_Energy : 1.18643e+06
+Grad: 6067.8
+Grad: 2412.12
+Grad: -1470.41
+Grad: -4632.41
+Grad: 7428.56
+Grad: 2887.83
+Grad: -10809.7
+Grad: 8825.9
+Grad: -6612.59
+Grad: 1595.05
+
+PROPAGATION : 9
+
+Bezier Nb: 0
+Partial_Energy : 1.19669e+06
+Grad: -7235.56
+Grad: 6118.71
+Grad: -939.154
+Grad: 12159
+Grad: -9724.49
+Grad: -5057.88
+Grad: 15737.6
+Grad: -9244.3
+Grad: 10704.3
+Grad: 3074.43
+
+Bezier Nb: 1
+Partial_Energy : 1.16642e+06
+Grad: -9685.14
+Grad: 8354.97
+Grad: -6560.46
+Grad: 17616.8
+Grad: -8618.25
+Grad: 4592.01
+Grad: 3400.78
+Grad: 12001.3
+Grad: -8110.06
+Grad: 7603.44
+
+Bezier Nb: 2
+Partial_Energy : 1.31382e+06
+Grad: -3723.54
+Grad: 13460.5
+Grad: -20321
+Grad: 7802.27
+Grad: -13886.4
+Grad: 6817.49
+Grad: -6308.65
+Grad: -29678.3
+Grad: -1649.14
+Grad: -2271.01
+
+Bezier Nb: 3
+Partial_Energy : 1.32999e+06
+Grad: 11561.2
+Grad: 10587.6
+Grad: -1732.92
+Grad: 10833.3
+Grad: -8033.92
+Grad: 12162.6
+Grad: -7770.76
+Grad: -4102.64
+Grad: 2949.18
+Grad: 2975.6
+
+Bezier Nb: 4
+Partial_Energy : 1.18862e+06
+Grad: -6701.89
+Grad: -1180.07
+Grad: -2057.95
+Grad: 4039.39
+Grad: -12645.6
+Grad: 927.248
+Grad: 617.193
+Grad: 3482.68
+Grad: -3971.85
+Grad: 11585.9
+
+Bezier Nb: 5
+Partial_Energy : 1.2004e+06
+Grad: -9596.74
+Grad: -5940.63
+Grad: 3247
+Grad: -3944.11
+Grad: -4111.57
+Grad: -1580.02
+Grad: 11586.1
+Grad: -7641.63
+Grad: -10762.1
+Grad: 9930.89
+Propagation time : 16.3806 minutes

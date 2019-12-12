@@ -58,12 +58,14 @@ array<Point2d, 2> Bezier::get_bounding_box() {
 Bezigon::Bezigon() {
 }
 
-Bezigon::Bezigon(MatrixXd _Bx, MatrixXd _By) {
-	Bx = _Bx;
-	By = _By;
+Bezigon::Bezigon(MatrixXd _Bx, MatrixXd _By, double scale) {
+	Bx = scale*_Bx;
+	By = scale*_By;
 	lo = get_arclength();
 	C = Vec3b(0, 0, 0);
 };
+
+
 
 Bezigon::Bezigon(vector<Point> vp) {
 	int nb_bezier = vp.size();
@@ -187,6 +189,19 @@ void Bezigon::update(array<double, 10> vals_inp, int j) {
 	}
 }
 
+void Bezigon::rescale(double scale){
+	Bx = scale*Bx;
+	By = scale*By;
+	lo = scale*lo;
+	// for(int j=0; j <Bx.rows(); j++){
+	// 	for(int i=0;i<3;i++){
+	// 		cv::Point2d point = get_pt(j, i);
+	// 		set_point_x( j,  i, scale*point.x);
+	// 		set_point_y( j,  i, scale*point.y);
+	// 	}
+	// }
+}
+
 array<double, 10> Bezigon::input_propagation(int j) {
 	Point2d p1 = get_pt(j, 1);
 	Point2d p2 = get_pt(j, 2);
@@ -214,10 +229,14 @@ void Bezigon::plot_curve(Image<Vec3b> I, std::string nom) {
 	}
 }
 
+
+
 VectorizationData::VectorizationData(Bezigon _B, Image<Vec3b> _I) {
 	B = _B;
 	I = _I;
 }
+
+
 
 int intersect(Bezier bez1, Bezier bez2, vector<array<double, 2>>* vector_ts, array<double, 2> ts, int n_rec) {
 	double thres = 1;
@@ -253,3 +272,4 @@ vector<array<double, 2>> intersect(Bezier bez1, Bezier bez2) {
 	}
 	return final_vector_ts;
 }
+

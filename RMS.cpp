@@ -340,10 +340,11 @@ Image<Vec3b> get_rasterized_fast(VectorizationData vd) {
 	return I_int;
 }
 
-void rms(VectorizationData vd, string name) {
+void rms(VectorizationData vd, string name, double resize) {
+	vd.B.rescale(resize);
+	cv::resize(vd.I, vd.I, cv::Size(vd.I.cols * resize,vd.I.rows * resize), 0, 0, INTER_LINEAR);
 	Image<Vec3b> I_int = get_rasterized(vd);
-	//Image<Vec3b> I_int = get_rasterized_fast(vd);
-	namedWindow(name, WINDOW_NORMAL);
-	resizeWindow(name, 200, 200);
+	namedWindow(name, WINDOW_AUTOSIZE);
+	resizeWindow(name, resize*200, resize*200);
 	imshow(name, I_int);
 }

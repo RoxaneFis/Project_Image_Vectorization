@@ -20,6 +20,7 @@
 struct VectorPoints {
 	std::vector<cv::Point>* vector_points;
 	Image<Vec3b> image;
+	Image<Vec3b> image_copy;
 };
 
 const std::string WINDOW_NAME = "Init";

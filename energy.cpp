@@ -63,6 +63,7 @@ double Energy::energy_curve_length(Bezigon B, int point){
 	return lambda_length*B.get_arclength(point);
 }
 double Energy::energy_curve_length(Bezigon B){
+	cout<<B.get_arclength()<<endl;
 	return lambda_length*B.get_arclength();
 }
 
@@ -83,16 +84,17 @@ double Energy::energy_data(VectorizationData vd) {
 
 
 double Energy::energy_partial(VectorizationData vd, int j) {
-	double energy_prior = energy_angles(vd.B, j) + energy_bezier_handles(vd.B, j)+energy_curve_length(vd.B,j);
-	//double energy = energy_data(vd);
+	double energy_prior =  energy_bezier_handles(vd.B, j);
+	//energy_angles(vd.B, j) ++energy_curve_length(vd.B,j);
+	double energy = energy_data(vd);
 	//cout << "angles"<<lambda_angles * energy_angles(vd.B, j)<<endl;
 	//cout << "hangles "<<lambda_handles * energy_bezier_handles(vd.B, j)<<endl;
 	//cout << "data"<<energy<<endl;
 	//return energy_curve_length(vd.B,j);
-	//return energy + energy_prior;
+	//return energy;
 	//return energy_bezier_handles(vd.B,j);
 	//return  energy_angles(vd.B, j);
-	return energy_prior ;
+	return energy_prior +energy ;
 
 };
 
@@ -103,7 +105,17 @@ double Energy::energy_to_minimize(VectorizationData vd, int j,array<double, 10> 
 	Bezigon * B_prime = new Bezigon(Bx_prime,By_prime);
 	B_prime->update(vals_inp,j);
 	VectorizationData* vd_prime = new VectorizationData(*B_prime,vd.I);
-	double E= energy_partial(*vd_prime,j);
+	double E= energy_data(*vd_prime);
+	return E;
+}
+
+double Energy::energy_to_minimize_prior(VectorizationData vd, int j,array<double, 10> vals_inp){
+	Eigen::MatrixXd Bx_prime = vd.B.Bx;
+	Eigen::MatrixXd By_prime = vd.B.By;
+	Bezigon * B_prime = new Bezigon(Bx_prime,By_prime);
+	B_prime->update(vals_inp,j);
+	VectorizationData* vd_prime = new VectorizationData(*B_prime,vd.I);
+	double E= energy_bezier_handles(vd_prime->B, j)+energy_angles(vd_prime->B, j) +energy_curve_length(vd_prime->B,j);
 	return E;
 }
 

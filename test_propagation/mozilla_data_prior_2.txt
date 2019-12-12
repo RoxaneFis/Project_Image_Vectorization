@@ -1,0 +1,59 @@
+Hyperparameters : 
+Epsilon : 1
+Alpha : 0.0001
+Taille Image 75x85
+Lambda_data :40
+Lambda_handles: 3000
+Lamda_angles :1000
+Lamda_legnth :150
+
+Energies intialization:
+E_data :1.1273e+08
+E_handes :3573.66
+E_angles :1924.38
+E_length :6769.45
+
+PROPAGATION : 0
+
+Bezier Nb: 0
+Partial_Energy : 1.12733e+08
+SHIFT : 
+data= 0.0202741 prior= 0.000166263 data/prior 121.94
+data= 0.109533 prior= -4.557e-05 data/prior -2403.62
+data= 0.31764 prior= 0.000241931 data/prior 1312.94
+data= 0.067314 prior= 3.19847e-06 data/prior 21045.7
+data= 0 prior= -7.86438e-05 data/prior -0
+data= 0.577373 prior= 0.00034487 data/prior 1674.18
+data= 0.041139 prior= 1.07468e-05 data/prior 3828.02
+data= 12.107 prior= 0.000101974 data/prior 118726
+data= -0.0443559 prior= 2.01229e-08 data/prior -2.20425e+06
+data= -0.0394242 prior= -6.25773e-05 data/prior 630.008
+
+Bezier Nb: 1
+Partial_Energy : 1.12672e+08
+SHIFT : 
+data= 0.0984289 prior= -4.15143e-05 data/prior -2370.96
+data= 0.0355048 prior= -0.000111496 data/prior -318.441
+data= -0.0821481 prior= 0.000170143 data/prior -482.819
+data= -0.160459 prior= 0 data/prior -inf
+data= -0.142537 prior= -0.000489825 data/prior 290.995
+data= -0.0361137 prior= -6.95801e-05 data/prior 519.024
+data= -0.662841 prior= -2.01291e-05 data/prior 32929.4
+data= -0.0985201 prior= -6.74817e-05 data/prior 1459.95
+data= -0.165985 prior= 0 data/prior -inf
+data= 0.506786 prior= -7.81723e-05 data/prior -6482.93
+
+Bezier Nb: 2
+Partial_Energy : 1.12204e+08
+SHIFT : 
+data= -0.184926 prior= 7.82128e-05 data/prior -2364.4
+data= -0.123049 prior= -0.000394168 data/prior 312.174
+data= -0.0917152 prior= -0.000313999 data/prior 292.088
+data= 0 prior= 2.84826e-05 data/prior 0
+data= 0.0772656 prior= -5.18284e-06 data/prior -14908
+data= -0.170221 prior= 4.20984e-05 data/prior -4043.4
+data= 0.0226828 prior= 8.99563e-05 data/prior 252.153
+data= 0.464921 prior= 0.000115284 data/prior 4032.85
+data= -0.00499625 prior= 1.42471e-05 data/prior -350.684
+data= 0.0507746 prior= 0.000144914 data/prior 350.377
+Propagation time : 0.0551094 minutes

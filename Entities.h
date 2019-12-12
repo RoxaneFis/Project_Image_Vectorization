@@ -36,7 +36,7 @@ public:
 	Vec3b C;
 	double lo;
 	Bezigon();
-	Bezigon(Eigen::MatrixXd _Bx, Eigen::MatrixXd _By);
+	Bezigon(Eigen::MatrixXd _Bx, Eigen::MatrixXd _By, double scale=1.0);
 	Bezigon(std::vector<cv::Point> vector_points);
 
 	//SET 
@@ -53,6 +53,7 @@ public:
 
 	//PROPAGATION FUNCTIONS
 	void update(std::array<double, 10> vals_inp, int j);
+	void rescale(double scale);
 	std::array<double, 10> input_propagation(int j);
 
 	//PLOT
