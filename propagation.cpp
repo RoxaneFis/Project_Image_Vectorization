@@ -10,6 +10,7 @@ Propagation::Propagation(VectorizationData _vd) {
 
 
 void Propagation::propagate(int nb_iterations, double alpha, double eps, string name) {
+	vector<VectorizationData> vector_vd;
 	cout << ">>>Enter Propragation" << std::endl;
 	clock_t begin = clock();
 
@@ -89,12 +90,16 @@ void Propagation::propagate(int nb_iterations, double alpha, double eps, string 
 		}
 		if(iter%1==0){
 			vd->B.plot_curve(vd->I," Iter :"+to_string(iter)+" "+name);
-			rms(*vd, to_string(iter)+" RMS "+name);
+			vector_vd.push_back(*vd);
+			
+			//rms(*vd, to_string(iter)+" RMS "+name);
 		}
 	}
-
+	bool svg =to_svg(vector_vd, name);
 	clock_t end = clock();
   	double elapsed_secs = double(end - begin) / CLOCKS_PER_SEC;
+
+
 	rms(*vd, " Grande Taille "+name, 5);
 
 	out<<"Propagation time : "<<elapsed_secs/60.0<<" minutes"<<endl;

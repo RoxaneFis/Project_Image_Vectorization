@@ -69,5 +69,6 @@ struct VectorizationData
 
 int intersect(Bezier bez1, Bezier bez2, std::vector<std::array<double, 2>>* vector_ts, std::array<double, 2> ts, int n_rec);
 std::vector<std::array<double, 2>> intersect(Bezier bez1, Bezier bez2);
+bool to_svg(vector<VectorizationData> vector_vd, string name);
 
 #endif
