@@ -135,16 +135,13 @@ array< vector<double>, 2 > Bezigon::get_tangent(int point) {
 
 }
 
-
-
-
-double Bezigon::get_arclength(int j) {
-	Bezier bezier_j = get_bezier(j);
+double Bezigon::get_arclength(int j, double t0, double t1) {
+	Bezier bez = get_bezier(j);
 	double length = 0.0;
-	Point2d previous_point = get_pt(j);
+	Point2d previous_point = bez.cubic_interpolation(t0);
 	Point2d actual_point;
 	for (double t = 0.2; t <= 1.0; t += 0.2) {
-		actual_point = bezier_j.cubic_interpolation(t);
+		actual_point = bez.cubic_interpolation(t0 + t * (t1 - t0));
 		length += distance(actual_point, previous_point);
 		previous_point = actual_point;
 	}

@@ -48,7 +48,7 @@ public:
 	cv::Point2d get_pt(int j, int i);
 	array<vector<double>, 2> get_tangent(int point);
 	//COMPUTE
-	double get_arclength(int j);
+	double get_arclength(int j, double t0 = 0., double t1 = 1.);
 	double get_arclength();
 
 	//PROPAGATION FUNCTIONS
