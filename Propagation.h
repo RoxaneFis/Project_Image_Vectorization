@@ -12,12 +12,6 @@
 #include "Entities.h"
 #include "Energy.h"
 
-class Propagation {
-public:
-	VectorizationData* vd;
-	Energy *energy;
-	Propagation(VectorizationData _vd);
-	void propagate(int nb_iterations, double alpha, double eps, string name);
-};
+void propagate(VectorizationData* vd, int nb_iterations, double alpha, double eps, string name);
 
 #endif

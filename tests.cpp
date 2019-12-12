@@ -45,25 +45,25 @@ using namespace Eigen;
 //	std::cout << std::endl;
 //};
 
-void test_rms(VectorizationData vd) {
-	cout << ">>> testing rms" << endl;
-	rms(vd, "test_rms");
-};
-
-void test_espilon(VectorizationData vd){
-	Propagation * p = new Propagation(vd);
-	cout << ">>> testing epsilon" << endl;
-	for (int i = 0; i <10; i++){
-		p->propagate(2, 0.2, pow(10,-i), " eps" + to_string(i));
-	}
-
-}
-
-void test_alpha(VectorizationData vd){
-	Propagation * p = new Propagation(vd);
-	cout << ">>> testing alpha" << endl;
-	for (int i = 2; i <5; i++){
-		p->propagate(3, pow(10,i), 1, " alpha 10^^" + to_string(i));
-	}
-
-}
+//void test_rms(VectorizationData vd) {
+//	cout << ">>> testing rms" << endl;
+//	rms(vd, "test_rms");
+//};
+//
+//void test_espilon(VectorizationData vd){
+//	Propagation * p = new Propagation(vd);
+//	cout << ">>> testing epsilon" << endl;
+//	for (int i = 0; i <10; i++){
+//		p->propagate(2, 0.2, pow(10,-i), " eps" + to_string(i));
+//	}
+//
+//}
+//
+//void test_alpha(VectorizationData vd){
+//	Propagation * p = new Propagation(vd);
+//	cout << ">>> testing alpha" << endl;
+//	for (int i = 2; i <5; i++){
+//		p->propagate(3, pow(10,i), 1, " alpha 10^^" + to_string(i));
+//	}
+//
+//}

@@ -227,7 +227,12 @@ bool is_interior(Point p, Bezigon B) {
 	int count_left = 0;
 	int count_right = 0;
 	Bezier bez;
-	double c0, c1, c2, c3;
+	Bezier bez_previous;
+
+	double c3, c2, c1, c0;
+	vector<double> roots;
+	Point2f interpolated;
+	double y0, y1;
 	for (size_t jj = 0; jj < B.Bx.rows(); jj++) {
 		bez = B.get_bezier(jj);
 		c3 = -bez.control_points[0].y + 3 * bez.control_points[1].y - 3 * bez.control_points[2].y + bez.control_points[3].y;
@@ -235,54 +240,71 @@ bool is_interior(Point p, Bezigon B) {
 		c1 = -3 * bez.control_points[0].y + 3 * bez.control_points[1].y;
 		c0 = bez.control_points[0].y;
 		vector<double> roots = get_roots(c3, c2, c1, c0 - p.y);
-		unique(roots.begin(), roots.end());
 		for (double root : roots) {
-			if (root < 1 && root >= 0) {
-				if (bez.cubic_interpolation(root).x < p.x)  count_left++;
-				else count_right++;
+			if (root <= 1 - 1e-8 && root >= -1e-08) {
+				bez_previous = (jj != 0) ? B.get_bezier(jj - 1) : B.get_bezier(B.Bx.rows() - 1);
+				y0 = (root < 0.01) ? bez_previous.cubic_interpolation(1 - 0.01).y : bez.cubic_interpolation(root - 0.01).y;
+				y1 = bez.cubic_interpolation(root + 0.01).y;
+				interpolated = bez.cubic_interpolation(root);
+				if ((y1 - interpolated.y) * (y0 - interpolated.y) < 0) {
+					if (bez.cubic_interpolation(root).x < p.x)  count_left++;
+					else if (bez.cubic_interpolation(root).x > p.x)  count_right++;
+				};
 			}
+
 		}
 	}
 	return count_left % 2 == 1 && count_right % 2 == 1;
 };
 
-Image<cv::Vec3b> get_rasterized(VectorizationData vd) {
-	Vec3b white = { 255,255,255 };
-	Vec3b black = { 0,0,0 };
+//Image<Vec3b> get_rasterized(VectorizationData vd) {
+//	Vec3b white = { 255,255,255 };
+//	Vec3b black = { 0,0,0 };
+//
+//	Vec3f aux_color = { 0,0,0 };
+//	Vec3b color = { 0,0,255 };
+//
+//	Image<Vec3b> I_int(vd.I.width(), vd.I.height());
+//	int count_int = 0;
+//	for (size_t xx = 0; xx < vd.I.width(); xx++) {
+//		for (size_t yy = 0; yy < vd.I.height(); yy++) {
+//			if (is_interior(Point(xx, yy), vd.B)) {
+//				I_int(xx, yy) = black;
+//				count_int++;
+//				aux_color += vd.I(xx, yy);
+//			}
+//			else {
+//				I_int(xx, yy) = white;
+//			}
+//		}
+//	};
+//	color = aux_color / count_int;
+//	for (size_t xx = 0; xx < vd.I.width(); xx++) {
+//		for (size_t yy = 1; yy < vd.I.height() - 1; yy++) {
+//			if (I_int(xx, yy) == black) {
+//				I_int(xx, yy) = color;
+//			}
+//		}
+//	};
+//	blur(I_int, I_int, Size(2, 2));
+//	return I_int;
+//}
 
-	Vec3f aux_color = { 0,0,0 };
-	Vec3b color = { 0,0,255 };
+Image<Vec3b> get_rasterized(VectorizationData vd) {
+	Vec3b white = { 255,255,255 };
+	Vec3b color = vd.B.C;
 
 	Image<Vec3b> I_int(vd.I.width(), vd.I.height());
 	int count_int = 0;
 	for (size_t xx = 0; xx < vd.I.width(); xx++) {
 		for (size_t yy = 0; yy < vd.I.height(); yy++) {
-			if (is_interior(Point(xx, yy), vd.B)) {
-				I_int(xx, yy) = black;
-				count_int++;
-				aux_color += vd.I(xx, yy);
-			}
-			else {
-				I_int(xx, yy) = white;
-			}
+			if (is_interior(Point(xx, yy), vd.B)) I_int(xx, yy) = color;
+			else  I_int(xx, yy) = white;
 		}
 	};
-	color = aux_color / count_int;
-	for (size_t xx = 0; xx < vd.I.width(); xx++) {
-		for (size_t yy = 1; yy < vd.I.height() - 1; yy++) {
-			if (I_int(xx, yy) == black) {
-				I_int(xx, yy) = color;
-			}
-			else if (I_int(xx, yy - 1) == color && I_int(xx, yy + 1) == black) {
-				I_int(xx, yy) = color;
-			}
-		}
-	};
-	blur(I_int, I_int, Size(2, 2));
+	//blur(I_int, I_int, Size(2, 2));
 	return I_int;
 }
-
-
 
 bool is_interior(Point p, map<int, vector<double>> map_intersect) {
 	int count_left = 0;

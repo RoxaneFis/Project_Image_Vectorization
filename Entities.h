@@ -25,6 +25,7 @@ public:
 	cv::Point2d cubic_interpolation(double t);
 	std::array<Bezier, 2> subdivide(double t0);
 	Bezier subdivide(double t0, double t1);
+	std::array<cv::Point2d, 2> get_bounding_box();
 };
 
 class Bezigon
@@ -35,8 +36,8 @@ public:
 	Vec3b C;
 	double lo;
 	Bezigon();
-	Bezigon(Eigen::MatrixXd _Bx, Eigen::MatrixXd _By);
-	Bezigon(std::vector<cv::Point> vector_points);
+	Bezigon(Eigen::MatrixXd _Bx, Eigen::MatrixXd _By, Vec3b _C = Vec3b(0, 0, 0));
+	Bezigon(std::vector<cv::Point2d> vector_points, Vec3b _C = Vec3b(0, 0, 0));
 
 	//SET 
 	void set_point_x(int j, int i, double coord_x);
@@ -45,9 +46,9 @@ public:
 	//GET
 	Bezier get_bezier(int j);
 	cv::Point2d get_pt(int j, int i);
-	array<vector<double>, 2> get_tangent(int point);
+	array<Point2d, 2> get_tangent(int j);
 	//COMPUTE
-	double get_arclength(int j);
+	double get_arclength(int j, double t0 = 0., double t1 = 1.);
 	double get_arclength();
 
 	//PROPAGATION FUNCTIONS
@@ -55,7 +56,7 @@ public:
 	std::array<double, 10> input_propagation(int j);
 
 	//PLOT
-	void plot_curve(Image<Vec3b> I,std::string nom);
+	void plot_curve(Image<Vec3b> I, std::string nom);
 };
 
 struct VectorizationData
@@ -64,5 +65,9 @@ struct VectorizationData
 	Image<Vec3b> I;
 	VectorizationData(Bezigon _B, Image<Vec3b> _I);
 };
+
+int intersect(Bezier bez1, Bezier bez2, std::vector<std::array<double, 2>>* vector_ts, std::array<double, 2> ts, int n_rec);
+std::vector<std::array<double, 2>> intersect(Bezier bez1, Bezier bez2);
+bool to_svg(vector<VectorizationData> vector_vd, string name);
 
 #endif

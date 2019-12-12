@@ -23,6 +23,15 @@ double det(Point2d A, Point2d B) {
 	return A.x * B.y - A.x * B.y;
 }
 
+double overlap(array<Point2d, 2> bbox1, array<Point2d, 2> bbox2) {
+	Point2d corner_min1 = bbox1[0];
+	Point2d corner_max1 = bbox1[1];
+	Point2d corner_min2 = bbox2[0];
+	Point2d corner_max2 = bbox2[1];
+	return MAX(0, (MIN(corner_max1.x, corner_max2.x) - MAX(corner_min1.x, corner_min2.x)))
+		* MAX(0, (MIN(corner_max1.y, corner_max2.y) - MAX(corner_min1.y, corner_min2.y)));
+}
+
 /***********************
 * Credits to ufoymtest *
 ***********************/
@@ -150,6 +159,24 @@ int solveCubic(double c3, double c2, double c1, double c0, double& s0, double& s
 	return num;
 }
 
+/********************************************************
+*                                                       *
+* end of credits										*
+*                                                       *
+********************************************************/
+
+vector<double> get_roots(double c2, double c1, double c0) {
+	vector<double> roots;
+	double s0, s1;
+	int num = solveQuadric(c2, c1, c0, s0, s1);
+	if (num == 0) return roots;
+	else {
+		roots.push_back(s0);
+		roots.push_back(s1);
+	}
+	return roots;
+}
+
 vector<double> get_roots(double c3, double c2, double c1, double c0) {
 	vector<double> roots;
 	double s0, s1, s2;
@@ -162,4 +189,3 @@ vector<double> get_roots(double c3, double c2, double c1, double c0) {
 	}
 	return roots;
 }
-
