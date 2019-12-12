@@ -29,6 +29,32 @@ Point2d Bezier::cubic_interpolation(double t) {
 	return  s * s * s * control_points[0] + 3 * s * s * t * control_points[1] + 3 * s * t * t * control_points[2] + t * t * t * control_points[3];
 }
 
+array<Point2d, 2> Bezier::get_bounding_box() {
+	vector<Point2d> pts;
+	Point2d c3 = -control_points[0] + 3 * control_points[1] - 3 * control_points[2] + control_points[3];
+	Point2d c2 = 3 * control_points[0] - 6 * control_points[1] + 3 * control_points[2];
+	Point2d c1 = -3 * control_points[0] + 3 * control_points[1];
+	vector<double> roots_dx = get_roots(3 * c3.x, 2 * c2.x, c1.x);
+	vector<double> roots_dy = get_roots(3 * c3.y, 2 * c2.y, c1.y);
+	for (double root : roots_dx) {
+		if (0 <= root && root <= 1) pts.push_back(cubic_interpolation(root));
+	}
+	for (double root : roots_dy) {
+		if (0 <= root && root <= 1) pts.push_back(cubic_interpolation(root));
+	}
+	pts.push_back(control_points[0]);
+	pts.push_back(control_points[3]);
+	Point2d corner_min(INFINITY, INFINITY);
+	Point2d corner_max(0., 0.);
+	for (Point2d pt : pts) {
+		if (pt.x < corner_min.x) corner_min.x = pt.x;
+		if (pt.y < corner_min.y) corner_min.y = pt.y;
+		if (pt.x > corner_max.x) corner_max.x = pt.x;
+		if (pt.y > corner_max.y) corner_max.y = pt.y;
+	}
+	return { corner_min, corner_max };
+}
+
 Bezigon::Bezigon() {
 }
 
@@ -191,4 +217,39 @@ void Bezigon::plot_curve(Image<Vec3b> I, std::string nom) {
 VectorizationData::VectorizationData(Bezigon _B, Image<Vec3b> _I) {
 	B = _B;
 	I = _I;
+}
+
+int intersect(Bezier bez1, Bezier bez2, vector<array<double, 2>>* vector_ts, array<double, 2> ts, int n_rec) {
+	double thres = 1;
+	array<Point2d, 2> bbox1 = bez1.get_bounding_box();
+	array<Point2d, 2> bbox2 = bez2.get_bounding_box();
+	if (overlap(bbox1, bbox2) < 1e-8) return 0;
+	else {
+		if (n_rec > 6) {
+			vector_ts->push_back(ts);
+			return 1;
+		}
+		else {
+			array<Bezier, 2> bbez1 = bez1.subdivide(0.5);
+			array<Bezier, 2> bbez2 = bez2.subdivide(0.5);
+			n_rec++;
+			return intersect(bbez1[0], bbez2[0], vector_ts, { ts[0],ts[1] }, n_rec)
+				+ intersect(bbez1[0], bbez2[1], vector_ts, { ts[0], ts[1] + 1 / pow(2,n_rec) }, n_rec)
+				+ intersect(bbez1[1], bbez2[0], vector_ts, { ts[0] + 1 / pow(2,n_rec), ts[1] }, n_rec)
+				+ intersect(bbez1[1], bbez2[1], vector_ts, { ts[0] + 1 / pow(2,n_rec), ts[1] + 1 / pow(2,n_rec) }, n_rec);
+		}
+	}
+}
+
+vector<array<double, 2>> intersect(Bezier bez1, Bezier bez2) {
+	vector<array<double, 2>> vector_ts;
+	int n_int = intersect(bez1, bez2, &vector_ts, { 0.,0. }, 0);
+	if (n_int == 0) return vector_ts;
+
+	double eps = 0.05;
+	vector<array<double, 2>> final_vector_ts = { vector_ts[0] };
+	for (int ii = 1; ii < n_int; ii++) {
+		if (abs(vector_ts[ii][0] - vector_ts[ii - 1][0]) > eps&& abs(vector_ts[ii][1] - vector_ts[ii - 1][1]) > eps) final_vector_ts.push_back(vector_ts[ii]);
+	}
+	return final_vector_ts;
 }

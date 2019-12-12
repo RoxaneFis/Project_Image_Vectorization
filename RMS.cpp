@@ -74,7 +74,7 @@ vector<Bezier> clip(Bezier bez, int left, int right, int bottom, int top) {
 
 	for (auto it = ts.begin(); it != ts.end(); ++it) {
 		Point p_root = bez.cubic_interpolation(*it);
-		if (!(0 <= *it <= 1 && left <= p_root.x && p_root.x <= right && top <= p_root.y && p_root.y <= bottom)) ts.erase(it);
+		if (!(0 <= *it && *it <= 1 && left <= p_root.x && p_root.x <= right && top <= p_root.y && p_root.y <= bottom)) ts.erase(it);
 	}
 	sort(ts.begin(), ts.end());
 	unique(ts.begin(), ts.end());

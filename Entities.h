@@ -25,6 +25,7 @@ public:
 	cv::Point2d cubic_interpolation(double t);
 	std::array<Bezier, 2> subdivide(double t0);
 	Bezier subdivide(double t0, double t1);
+	std::array<cv::Point2d, 2> get_bounding_box();
 };
 
 class Bezigon
@@ -64,5 +65,8 @@ struct VectorizationData
 	Image<Vec3b> I;
 	VectorizationData(Bezigon _B, Image<Vec3b> _I);
 };
+
+int intersect(Bezier bez1, Bezier bez2, std::vector<std::array<double, 2>>* vector_ts, std::array<double, 2> ts, int n_rec);
+std::vector<std::array<double, 2>> intersect(Bezier bez1, Bezier bez2);
 
 #endif
