@@ -5,11 +5,43 @@ using namespace std;
 using namespace Eigen;
 
 double energy_spt(Bezigon B, int j) {
-	return 0.;
+	double energy = 0.;
+	vector<array<double, 2>> intersections;
+	Bezier bez = B.get_bezier(j);
+	intersections = self_intersect(bez);
+	if (intersections.size() != 0) energy += B.get_length(j, intersections[0][0], intersections[0][1]);
+
+	Bezier bez_prev = B.get_bezier(j - 1);
+	intersections = intersect(bez_prev, bez);
+	if (intersections.size() == 1) {
+		energy += B.get_length(j - 1, intersections[0][0], 1);
+		energy += B.get_length(j, 0, intersections[0][1]);
+	}
+	if (intersections.size() == 2) {
+		energy += B.get_length(j - 1, intersections[0][0], intersections[1][0]);
+		energy += B.get_length(j, intersections[0][1], intersections[1][1]);
+	}
+
+	Bezier bez_next = B.get_bezier(j + 1);
+	intersections = intersect(bez, bez_next);
+	if (intersections.size() == 1) {
+		energy += B.get_length(j, intersections[0][0], 1);
+		energy += B.get_length(j + 1, 0, intersections[0][1]);
+	}
+	if (intersections.size() == 2) {
+		energy += B.get_length(j, intersections[0][0], intersections[1][0]);
+		energy += B.get_length(j + 1, intersections[0][1], intersections[1][1]);
+	}
+
+	return energy;
 }
 
 double energy_spt(Bezigon B) {
-	return 0.;
+	double energy = 0.0;
+	for (int j = 0; j < B.Bx.rows(); j++) {
+		energy = energy + energy_spt(B, j);
+	}
+	return energy;
 }
 
 double energy_apt(Bezigon B, int j) {
@@ -54,11 +86,11 @@ double energy_hpt(Bezigon B) {
 //};
 
 double energy_lpt(Bezigon B, int j) {
-	return B.get_arclength(j);
+	return B.get_length(j);
 }
 
 double energy_lpt(Bezigon B) {
-	return B.get_arclength();
+	return B.get_length();
 }
 
 double energy_data(VectorizationData vd) {
@@ -100,7 +132,7 @@ array<double, 2> energy_to_minimize(VectorizationData vd, int j, array<double, 1
 	//double e_data = 0;
 	double e_prior = lambda_spt * (energy_spt(vd_prime.B, j))
 		+ lambda_apt * (energy_apt(vd_prime.B, j) + energy_apt(vd_prime.B, j + 1) + energy_apt(vd_prime.B, j + 2))
-		+ lambda_hpt * (energy_hpt(vd_prime.B, j) + energy_hpt(vd_prime.B, j + 1))
+		+ lambda_hpt * (energy_hpt(vd_prime.B, j) + energy_hpt(vd_prime.B, j + 1) + energy_hpt(vd_prime.B, j + 2))
 		+ lambda_lpt * (energy_lpt(vd_prime.B, j) + energy_lpt(vd_prime.B, j + 1));
 	return { lambda_data * e_data, e_prior };
 }

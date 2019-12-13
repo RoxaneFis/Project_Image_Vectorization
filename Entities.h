@@ -48,8 +48,8 @@ public:
 	cv::Point2d get_pt(int j, int i);
 	array<Point2d, 2> get_tangent(int j);
 	//COMPUTE
-	double get_arclength(int j, double t0 = 0., double t1 = 1.);
-	double get_arclength();
+	double get_length(int j, double t0 = 0., double t1 = 1.);
+	double get_length();
 
 	//PROPAGATION FUNCTIONS
 	void update(std::array<double, 10> vals_inp, int j);
@@ -68,6 +68,8 @@ struct VectorizationData
 
 int intersect(Bezier bez1, Bezier bez2, std::vector<std::array<double, 2>>* vector_ts, std::array<double, 2> ts, int n_rec);
 std::vector<std::array<double, 2>> intersect(Bezier bez1, Bezier bez2);
+std::vector<std::array<double, 2>> self_intersect(Bezier bez);
+
 bool to_svg(vector<VectorizationData> vector_vd, string name);
 
 #endif

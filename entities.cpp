@@ -66,7 +66,7 @@ Bezigon::Bezigon() {
 Bezigon::Bezigon(MatrixXd _Bx, MatrixXd _By, Vec3b _C) {
 	Bx = _Bx;
 	By = _By;
-	lo = get_arclength();
+	lo = get_length();
 	C = _C;
 };
 
@@ -103,8 +103,26 @@ Bezigon::Bezigon(vector<Point2d> vp, Vec3b _C) {
 	By.row(nb_bezier - 2)[2] = tangent_prev.y;
 	By.row(nb_bezier - 1)[0] = double(vp[nb_bezier - 1].y);
 	By.row(nb_bezier - 1)[1] = tangent_next.y;
-	lo = get_arclength();
+	lo = get_length();
 }
+
+//Bezigon::Bezigon(vector<Point2d> vp, Vec3b _C) {
+//	int nb_bezier = vp.size();
+//	Bx = MatrixXd(nb_bezier, 3);
+//	By = MatrixXd(nb_bezier, 3);
+//	C = _C;
+//	for (int jj = 0; jj < nb_bezier - 1; jj++) {
+//		Point2d pt1 = barycenter(0.33, vp[jj], vp[jj + 1]);
+//		Point2d pt2 = barycenter(0.66, vp[jj], vp[jj + 1]);
+//		Bx.row(jj) << vp[jj].x, pt1.x, pt2.x;
+//		By.row(jj) << vp[jj].y, pt1.y, pt2.y;
+//	}
+//	Point2d pt1 = barycenter(0.33, vp[nb_bezier - 1], vp[0]);
+//	Point2d pt2 = barycenter(0.66, vp[nb_bezier - 1], vp[0]);
+//	Bx.row(nb_bezier - 1) << vp[nb_bezier - 1].x, pt1.x, pt2.x;
+//	By.row(nb_bezier - 1) << vp[nb_bezier - 1].y, pt1.y, pt2.y;
+//	lo = get_length();
+//}
 
 void Bezigon::set_point_x(int j, int i, double coord_x) {
 	Bx.row(j)[i] = coord_x;
@@ -135,11 +153,11 @@ array< Point2d, 2 > Bezigon::get_tangent(int j) {
 	Point2d p_prev = get_pt(j - 1, 2);
 	Point2d p_1 = get_pt(j, 0);
 	Point2d p_2 = get_pt(j, 1);
-	return { p_1 - p_prev, p_2 - p_1 };
+	return { p_prev - p_1, p_2 - p_1 };
 
 }
 
-double Bezigon::get_arclength(int j, double t0, double t1) {
+double Bezigon::get_length(int j, double t0, double t1) {
 	Bezier bez = get_bezier(j);
 	double length = 0.0;
 	Point2d previous_point = bez.cubic_interpolation(t0);
@@ -152,10 +170,10 @@ double Bezigon::get_arclength(int j, double t0, double t1) {
 	return length;
 };
 
-double Bezigon::get_arclength() {
+double Bezigon::get_length() {
 	double length = 0.0;
 	for (int jj = 0; jj < Bx.rows(); jj++) {
-		length += get_arclength(jj);
+		length += get_length(jj);
 	}
 	return length;
 };
@@ -264,6 +282,19 @@ vector<array<double, 2>> intersect(Bezier bez1, Bezier bez2) {
 	int n_int = intersect(bez1, bez2, &vector_ts, { 0.,0. }, 0);
 	if (n_int == 0) return vector_ts;
 
+	double eps = 0.05;
+	vector<array<double, 2>> final_vector_ts = { vector_ts[0] };
+	for (int ii = 1; ii < n_int; ii++) {
+		if (abs(vector_ts[ii][0] - vector_ts[ii - 1][0]) > eps&& abs(vector_ts[ii][1] - vector_ts[ii - 1][1]) > eps) final_vector_ts.push_back(vector_ts[ii]);
+	}
+	return final_vector_ts;
+}
+
+vector<array<double, 2>> self_intersect(Bezier bez) {
+	vector<array<double, 2>> vector_ts;
+	array<Bezier, 2> subdivided = bez.subdivide(0.5);
+	int n_int = intersect(subdivided[0], subdivided[1], &vector_ts, { 0.,0.5 }, 1);
+	if (n_int == 0) return vector_ts;
 	double eps = 0.05;
 	vector<array<double, 2>> final_vector_ts = { vector_ts[0] };
 	for (int ii = 1; ii < n_int; ii++) {

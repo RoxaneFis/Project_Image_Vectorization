@@ -32,14 +32,10 @@ double energy_data(VectorizationData vd);
 array<double, 2> energy_to_minimize(VectorizationData vd, int j, array<double, 10> vals_inp);
 //double energy_to_minimize_prior(VectorizationData vd, int j, array<double, 10> vals_inp);
 
-//const double lambda_spt = 1.0;
-//const double lambda_apt = 0.08;
-//const double lambda_hpt = 0.1;
-//const double lambda_lpt = 0.1; 
 const double lambda_spt = 1.0;
-const double lambda_apt = 0.1;
-const double lambda_hpt = 0.3;
-const double lambda_lpt = 0.0015;
-const double lambda_data = 1e-3;
+const double lambda_apt = 0.08;
+const double lambda_hpt = 0.1;
+const double lambda_lpt = 0.1;
+const double lambda_data = 1e-2;
 
 #endif
