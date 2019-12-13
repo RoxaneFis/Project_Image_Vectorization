@@ -33,7 +33,7 @@ VectorizationData initialisation(Image<Vec3b> I) {
 	destroyWindow(COLOR_NAME);
 
 	cout << vector_points->size() << " points have been entered" << endl;
-	Bezigon firstBezigon = Bezigon(*vector_points, *C);
+	Bezigon firstBezigon = Bezigon(*vector_points, *C, 0);
 	firstBezigon.plot_curve(I, "Initialisation");
 
 	VectorizationData initData = VectorizationData(firstBezigon, I);

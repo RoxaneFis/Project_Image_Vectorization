@@ -70,59 +70,74 @@ Bezigon::Bezigon(MatrixXd _Bx, MatrixXd _By, Vec3b _C) {
 	C = _C;
 };
 
-Bezigon::Bezigon(vector<Point2d> vp, Vec3b _C) {
-	int nb_bezier = vp.size();
-	Bx = MatrixXd(nb_bezier, 3);
-	By = MatrixXd(nb_bezier, 3);
-	C = _C;
-	Point2f tangent_next, tangent_prev;
-	for (int jj = 1; jj < nb_bezier - 1; jj++) {
-		tangent_next = vp[jj] + 0.33 * norm(vp[jj + 1] - vp[jj]) * (vp[jj + 1] - vp[jj - 1]) / norm(vp[jj + 1] - vp[jj - 1]);
-		tangent_prev = vp[jj] + 0.33 * norm(vp[jj - 1] - vp[jj]) * (vp[jj - 1] - vp[jj + 1]) / norm(vp[jj - 1] - vp[jj + 1]);
-		Bx.row(jj - 1)[2] = tangent_prev.x;
-		Bx.row(jj)[0] = double(vp[jj].x);
-		Bx.row(jj)[1] = tangent_next.x;
-		By.row(jj - 1)[2] = tangent_prev.y;
-		By.row(jj)[0] = double(vp[jj].y);
-		By.row(jj)[1] = tangent_next.y;
+Bezigon::Bezigon(vector<Point2d> vp, Vec3b _C, int method) {
+	if (method == 0) {
+		int nb_bezier = vp.size() / 3;
+		cout << nb_bezier << endl;
+		Bx = MatrixXd(nb_bezier, 3);
+		By = MatrixXd(nb_bezier, 3);
+		C = _C;
+		for (int jj = 0; jj < nb_bezier; jj++) {
+			Point2d pt1 = vp[3 * jj + 1];
+			Point2d pt2 = vp[3 * jj + 2];
+			Bx.row(jj) << vp[3 * jj].x, pt1.x, pt2.x;
+			By.row(jj) << vp[3 * jj].y, pt1.y, pt2.y;
+		}
+		lo = get_length();
 	}
-	tangent_next = vp[0] + 0.33 * norm(vp[1] - vp[0]) * (vp[1] - vp[nb_bezier - 1]) / norm(vp[1] - vp[nb_bezier - 1]);
-	tangent_prev = vp[0] + 0.33 * norm(vp[nb_bezier - 1] - vp[0]) * (vp[nb_bezier - 1] - vp[1]) / norm(vp[1] - vp[nb_bezier - 1]);
-	Bx.row(nb_bezier - 1)[2] = tangent_prev.x;
-	Bx.row(0)[0] = double(vp[0].x);
-	Bx.row(0)[1] = tangent_next.x;
-	By.row(nb_bezier - 1)[2] = tangent_prev.y;
-	By.row(0)[0] = double(vp[0].y);
-	By.row(0)[1] = tangent_next.y;
+	else if (method == 1) {
+		int nb_bezier = vp.size();
+		Bx = MatrixXd(nb_bezier, 3);
+		By = MatrixXd(nb_bezier, 3);
+		C = _C;
+		for (int jj = 0; jj < nb_bezier - 1; jj++) {
+			Point2d pt1 = barycenter(0.33, vp[jj], vp[jj + 1]);
+			Point2d pt2 = barycenter(0.66, vp[jj], vp[jj + 1]);
+			Bx.row(jj) << vp[jj].x, pt1.x, pt2.x;
+			By.row(jj) << vp[jj].y, pt1.y, pt2.y;
+		}
+		Point2d pt1 = barycenter(0.33, vp[nb_bezier - 1], vp[0]);
+		Point2d pt2 = barycenter(0.66, vp[nb_bezier - 1], vp[0]);
+		Bx.row(nb_bezier - 1) << vp[nb_bezier - 1].x, pt1.x, pt2.x;
+		By.row(nb_bezier - 1) << vp[nb_bezier - 1].y, pt1.y, pt2.y;
+		lo = get_length();
+	}
+	else if (method == 2) {
+		int nb_bezier = vp.size();
+		Bx = MatrixXd(nb_bezier, 3);
+		By = MatrixXd(nb_bezier, 3);
+		C = _C;
+		Point2f tangent_next, tangent_prev;
+		for (int jj = 1; jj < nb_bezier - 1; jj++) {
+			tangent_next = vp[jj] + 0.33 * norm(vp[jj + 1] - vp[jj]) * (vp[jj + 1] - vp[jj - 1]) / norm(vp[jj + 1] - vp[jj - 1]);
+			tangent_prev = vp[jj] + 0.33 * norm(vp[jj - 1] - vp[jj]) * (vp[jj - 1] - vp[jj + 1]) / norm(vp[jj - 1] - vp[jj + 1]);
+			Bx.row(jj - 1)[2] = tangent_prev.x;
+			Bx.row(jj)[0] = double(vp[jj].x);
+			Bx.row(jj)[1] = tangent_next.x;
+			By.row(jj - 1)[2] = tangent_prev.y;
+			By.row(jj)[0] = double(vp[jj].y);
+			By.row(jj)[1] = tangent_next.y;
+		}
+		tangent_next = vp[0] + 0.33 * norm(vp[1] - vp[0]) * (vp[1] - vp[nb_bezier - 1]) / norm(vp[1] - vp[nb_bezier - 1]);
+		tangent_prev = vp[0] + 0.33 * norm(vp[nb_bezier - 1] - vp[0]) * (vp[nb_bezier - 1] - vp[1]) / norm(vp[1] - vp[nb_bezier - 1]);
+		Bx.row(nb_bezier - 1)[2] = tangent_prev.x;
+		Bx.row(0)[0] = double(vp[0].x);
+		Bx.row(0)[1] = tangent_next.x;
+		By.row(nb_bezier - 1)[2] = tangent_prev.y;
+		By.row(0)[0] = double(vp[0].y);
+		By.row(0)[1] = tangent_next.y;
 
-	tangent_next = vp[nb_bezier - 1] + 0.33 * norm(vp[nb_bezier - 1] - vp[0]) * (vp[0] - vp[nb_bezier - 2]) / norm(vp[0] - vp[nb_bezier - 2]);
-	tangent_prev = vp[nb_bezier - 1] + 0.33 * norm(vp[nb_bezier - 1] - vp[nb_bezier - 2]) * (vp[nb_bezier - 2] - vp[0]) / norm(vp[0] - vp[nb_bezier - 2]);
-	Bx.row(nb_bezier - 2)[2] = tangent_prev.x;
-	Bx.row(nb_bezier - 1)[0] = double(vp[nb_bezier - 1].x);
-	Bx.row(nb_bezier - 1)[1] = tangent_next.x;
-	By.row(nb_bezier - 2)[2] = tangent_prev.y;
-	By.row(nb_bezier - 1)[0] = double(vp[nb_bezier - 1].y);
-	By.row(nb_bezier - 1)[1] = tangent_next.y;
-	lo = get_length();
+		tangent_next = vp[nb_bezier - 1] + 0.33 * norm(vp[nb_bezier - 1] - vp[0]) * (vp[0] - vp[nb_bezier - 2]) / norm(vp[0] - vp[nb_bezier - 2]);
+		tangent_prev = vp[nb_bezier - 1] + 0.33 * norm(vp[nb_bezier - 1] - vp[nb_bezier - 2]) * (vp[nb_bezier - 2] - vp[0]) / norm(vp[0] - vp[nb_bezier - 2]);
+		Bx.row(nb_bezier - 2)[2] = tangent_prev.x;
+		Bx.row(nb_bezier - 1)[0] = double(vp[nb_bezier - 1].x);
+		Bx.row(nb_bezier - 1)[1] = tangent_next.x;
+		By.row(nb_bezier - 2)[2] = tangent_prev.y;
+		By.row(nb_bezier - 1)[0] = double(vp[nb_bezier - 1].y);
+		By.row(nb_bezier - 1)[1] = tangent_next.y;
+		lo = get_length();
+	}
 }
-
-//Bezigon::Bezigon(vector<Point2d> vp, Vec3b _C) {
-//	int nb_bezier = vp.size();
-//	Bx = MatrixXd(nb_bezier, 3);
-//	By = MatrixXd(nb_bezier, 3);
-//	C = _C;
-//	for (int jj = 0; jj < nb_bezier - 1; jj++) {
-//		Point2d pt1 = barycenter(0.33, vp[jj], vp[jj + 1]);
-//		Point2d pt2 = barycenter(0.66, vp[jj], vp[jj + 1]);
-//		Bx.row(jj) << vp[jj].x, pt1.x, pt2.x;
-//		By.row(jj) << vp[jj].y, pt1.y, pt2.y;
-//	}
-//	Point2d pt1 = barycenter(0.33, vp[nb_bezier - 1], vp[0]);
-//	Point2d pt2 = barycenter(0.66, vp[nb_bezier - 1], vp[0]);
-//	Bx.row(nb_bezier - 1) << vp[nb_bezier - 1].x, pt1.x, pt2.x;
-//	By.row(nb_bezier - 1) << vp[nb_bezier - 1].y, pt1.y, pt2.y;
-//	lo = get_length();
-//}
 
 void Bezigon::set_point_x(int j, int i, double coord_x) {
 	Bx.row(j)[i] = coord_x;
@@ -153,7 +168,7 @@ array< Point2d, 2 > Bezigon::get_tangent(int j) {
 	Point2d p_prev = get_pt(j - 1, 2);
 	Point2d p_1 = get_pt(j, 0);
 	Point2d p_2 = get_pt(j, 1);
-	return { p_prev - p_1, p_2 - p_1 };
+	return { p_1 - p_prev , p_2 - p_1 };
 
 }
 
@@ -170,10 +185,27 @@ double Bezigon::get_length(int j, double t0, double t1) {
 	return length;
 };
 
+double Bezigon::get_length_gl(int j, double t0, double t1) {
+	Bezier bez = get_bezier(j);
+	double length = 0.;
+	Point2d c3 = -bez.control_points[0] + 3 * bez.control_points[1] - 3 * bez.control_points[2] + bez.control_points[3];
+	Point2d c2 = 3 * bez.control_points[0] - 6 * bez.control_points[1] + 3 * bez.control_points[2];
+	Point2d c1 = -3 * bez.control_points[0] + 3 * bez.control_points[1];
+	array<double, 3> ws = { 0.888888, 0.5555555555555556 , 0.5555555555555556 };
+	array<double, 3> xs = { 0., -0.7745966692414834 , 0.7745966692414834 };
+	double t;
+	for (int ii = 0; ii < 3; ii++) {
+		t = (t1 - t0) / 2. * xs[ii] + (t1 + t0) / 2.;
+		length += (t1 - t0) / 2. * ws[ii] * sqrt(pow(3 * c3.x * t * t + 2 * c2.x * t + c1.x, 2) + pow(3 * c3.y * t * t + 2 * c2.y * t + c1.y, 2));
+	}
+	return length;
+};
+
 double Bezigon::get_length() {
 	double length = 0.0;
 	for (int jj = 0; jj < Bx.rows(); jj++) {
-		length += get_length(jj);
+		//length += get_length(jj);
+		length += get_length_gl(jj);
 	}
 	return length;
 };
@@ -237,7 +269,7 @@ void Bezigon::plot_curve(Image<Vec3b> I, string nom) {
 		bezier_j = get_bezier(jj);
 		for (double t = 0.0; t <= 1.0; t += 0.05) {
 			Point2d m1 = bezier_j.cubic_interpolation(t);
-			circle(I_copy, m1, 1, Scalar(0, 255, 0), 2);
+			circle(I_copy, m1, 0, Scalar(0, 255, 0), 2);
 			namedWindow(nom, WINDOW_NORMAL);
 			resizeWindow(nom, 200, 200);
 			imshow(nom, I_copy);
@@ -256,12 +288,12 @@ VectorizationData::VectorizationData(Bezigon _B, Image<Vec3b> _I) {
 
 
 int intersect(Bezier bez1, Bezier bez2, vector<array<double, 2>>* vector_ts, array<double, 2> ts, int n_rec) {
-	double thres = 1;
+	double thres = 0.1;
 	array<Point2d, 2> bbox1 = bez1.get_bounding_box();
 	array<Point2d, 2> bbox2 = bez2.get_bounding_box();
 	if (overlap(bbox1, bbox2) < 1e-8) return 0;
 	else {
-		if (n_rec > 6) {
+		if ((bbox1[1].x - bbox1[0].x) < thres && (bbox1[1].y - bbox1[0].y) < thres) {
 			vector_ts->push_back(ts);
 			return 1;
 		}

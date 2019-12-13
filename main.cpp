@@ -11,7 +11,7 @@ int main(int argc, char* argv[]) {
 	//string nom = string(argv[4]);
 	//string path = string(argv[5]);
 	int nb_etapes = 10;
-	double alpha = 30.; //learning rate
+	double alpha = 15.; //learning rate
 	double epsilon = 1.;
 	string name = "test";
 	string path = "../data/heart.png";

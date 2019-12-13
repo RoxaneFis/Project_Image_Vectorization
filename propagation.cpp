@@ -66,9 +66,9 @@ void propagate(VectorizationData* vd, int nb_iterations, double alpha, double ep
 				//	//cout<<"update "<<norm(alpha*grad)/scale_img<<endl;
 				//	//cout<<"rescale_max "<<rescale_max<<endl;
 				//}
-				// while(norm(alpha*grad)>min(width,height)/15)	{
-				// 	grad=grad/10;
-				// }	
+				while (norm(alpha * grad) > min(vd->I.width(), vd->I.height()) / 10) {
+					grad = grad / 10;
+				}
 				// cout << "energy_plus: "<<engy_plus_data<<" "<<engy_plus_prior<<endl;	
 				// cout << "energy_moins: "<<engy_moins_data<<" "<<engy_moins_prior<<endl;	
 				//cout << endl;	

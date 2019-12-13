@@ -4,25 +4,30 @@ using namespace cv;
 using namespace Eigen;
 
 
-//void test_compute_angles(VectorizationData vd) {
-//	std::cout << "TEST Angles" << std::endl;
-//	for (int j = 0; j < vd.B->nb_points(); j++) {
-//		std::array<std::vector<double>, 2> tangents_j = vd.B->get_tangents(j);
-//		std::vector<double> a_j = tangents_j[0];
-//		std::vector<double> b_j = tangents_j[1];
-//		double scalar_multiplication = inner_product(begin(a_j), end(a_j), begin(b_j), 0.0);
-//		double angle = acos(scalar_multiplication / (norm(a_j) * norm(b_j)));
-//		if (isnan(angle)) {
-//			std::cout << "The angle of point " << j << " is not defined : it may come from duplicates " << std::endl;
-//		}
-//		else {
-//			std::cout << "The angle of point " << j << " is (in degres) : " << angle * 380 / (2 * M_PI) << std::endl;
-//
-//		}
-//	}
-//	std::cout << std::endl;
-//
-//};
+void test_intersect_bez() {
+	std::cout << ">>> TEST Bezier intersections" << std::endl;
+	Bezier bez1(Point2d(10, 100), Point2d(90, 30), Point2d(40, 140), Point2d(220, 220));
+	Bezier bez2(Point2d(5, 150), Point2d(180, 20), Point2d(80, 250), Point2d(210, 190));
+	vector<array<double, 2>> vector_ts = intersect(bez1, bez2);
+	for (auto ts : vector_ts) {
+		cout << "t bez 1 : " << ts[0] << " , t bez 2 : " << ts[1] << endl;
+	}
+}
+
+void test_compute_angles(VectorizationData vd) {
+	std::cout << " >>> TEST Angles" << std::endl;
+	for (int j = 0; j < vd.B.Bx.rows(); j++) {
+		cout << energy_apt(vd.B, j);
+	}
+	std::cout << std::endl;
+};
+
+void test_rms(VectorizationData vd) {
+	cout << ">>> TEST rms" << endl;
+	rms(vd, "test_rms");
+	cout << endl;
+};
+
 //
 //
 //void test_compute_energy_angles(VectorizationData vd) {
@@ -43,11 +48,6 @@ using namespace Eigen;
 //	Energy* E = new Energy();
 //	std::cout << "TEST The Bezier Handles Energy is " << E->energy_bezier_handles(*vd.B) << std::endl;
 //	std::cout << std::endl;
-//};
-
-//void test_rms(VectorizationData vd) {
-//	cout << ">>> testing rms" << endl;
-//	rms(vd, "test_rms");
 //};
 //
 //void test_espilon(VectorizationData vd){

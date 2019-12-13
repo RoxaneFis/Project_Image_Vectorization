@@ -17,6 +17,7 @@
 #include "Entities.h"
 #include "Propagation.h"
 #include "Tests.h"
+#include "Energy.h"
 
 int main(int argc, char* argv[]);
 

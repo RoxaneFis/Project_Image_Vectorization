@@ -37,7 +37,7 @@ public:
 	double lo;
 	Bezigon();
 	Bezigon(Eigen::MatrixXd _Bx, Eigen::MatrixXd _By, Vec3b _C = Vec3b(0, 0, 0));
-	Bezigon(std::vector<cv::Point2d> vector_points, Vec3b _C = Vec3b(0, 0, 0));
+	Bezigon(std::vector<cv::Point2d> vector_points, Vec3b _C = Vec3b(0, 0, 0), int method = 2);
 
 	//SET 
 	void set_point_x(int j, int i, double coord_x);
@@ -49,6 +49,7 @@ public:
 	array<Point2d, 2> get_tangent(int j);
 	//COMPUTE
 	double get_length(int j, double t0 = 0., double t1 = 1.);
+	double get_length_gl(int j, double t0 = 0., double t1 = 1.);
 	double get_length();
 
 	//PROPAGATION FUNCTIONS
