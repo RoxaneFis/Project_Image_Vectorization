@@ -48,14 +48,6 @@ void Propagation::propagate(int nb_iterations, double alpha, double eps, string 
 				out << "Grad: "<<grad<<endl;
 				int width = vd->I.width();
 				int height = vd->I.height();
-				// while(norm(alpha*grad)>min(width,height)/15)	{
-				// 	grad=grad/10;
-				// }	
-				cout << "energy_plus: "<<engy_plus<<endl;	
-				cout << "energy_moins: "<<engy_moins<<endl;	
-				cout << endl;	
-				
-				// cout << endl;
 				vals_copy_plus[var_index]=vals_inp[var_index]-alpha*grad;
 				vals_copy_moins[var_index]=vals_inp[var_index]-alpha*grad;
 				vals_out[var_index]=vals_inp[var_index]-alpha*grad;

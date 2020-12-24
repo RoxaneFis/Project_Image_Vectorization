@@ -50,9 +50,13 @@ cmake .. && make
 
 * Lauch the executable : 
 ```js
-./image_vect 
+./image_vect <int_nb_steps> <alpha_value> <epsilon_value>  <name_test> <path_image>
 ```
-* An image appears (change it in main.cpp) 
+For example launch :
+```js
+./image_vect 15 0.0001 1. "test_5" "../data/coeur.jpg"
+```
+* An image appears 
 * CLICK on several points ![](./data_readme/init.png)
 * END by pressing 0
 * WAIT : The bezier curve will be drawn as well as the rasterized image, and the results will be saved in a svg format.
