@@ -17,17 +17,19 @@ The implemented algorithm uses "bezigons", i.e. a closed path made up of Bezier 
 ## Steps
 To implement the paper, we proceed according to the following steps:
 1. Find a first correct approximation of the image and initialise the bezigons to be optimised.
-2. Optimise each of the fragments $P_j$ of bezigon $B$ according to the equation :
+2. Optimise each of the fragments   <img src="https://render.githubusercontent.com/render/math?math=P_j"> of bezigon  <img src="https://render.githubusercontent.com/render/math?math=B"> according to the equation :
    
-    $Pj_{*}= argmin_{Pj} [E_{data}(P_j,B) +E_{prior}(P_j,B)]$
+   <img src="https://render.githubusercontent.com/render/math?math=Pj_{*}= argmin_{Pj} [E_{data}(P_j,B) +E_{prior}(P_j,B)]">
+
 
 with :
-* $E_{data}$ the energy which represents the difference between the original image and the image obtained by rasterizing the bezigon. A major challenge is therefore to find a rasterization function that allows the parameters to be optimised. The function used in the paper uses a discrete wavelet decomposition which gives a differentiable $E_{data}$.
+*  <img src="https://render.githubusercontent.com/render/math?math=E_{Data}"> the energy which represents the difference between the original image and the image obtained by rasterizing the bezigon. A major challenge is therefore to find a rasterization function that allows the parameters to be optimised. The function used in the paper uses a discrete wavelet decomposition which gives a differentiable <img src="https://render.githubusercontent.com/render/math?math=E_{Data}">.
 
-* $E_{prior}$ the energy designed according to pre-established criteria and penalizing bezigons with certain aspects. It can be broken down into 4 energies: 
-   - $E_{spt}$ penalises bezigons that are self-intersecting
-   -  $E_{apt}$ penalises small variations in angle, - $E_{hpt}$ penalises handles that are too close to the knots, 
-   -  $E_{lpt}$ penalises twisted curves that add length to the bezigon. 
+* <img src="https://render.githubusercontent.com/render/math?math=E_{Prior}">  the energy designed according to pre-established criteria and penalizing bezigons with certain aspects. It can be broken down into 4 energies: 
+   - <img src="https://render.githubusercontent.com/render/math?math=E_{spt}"> penalises bezigons that are self-intersecting
+   -  <img src="https://render.githubusercontent.com/render/math?math=E_{apt}">  penalises small variations in angle, 
+   - <img src="https://render.githubusercontent.com/render/math?math=E_{hpt}">  penalises handles that are too close to the knots, 
+   - <img src="https://render.githubusercontent.com/render/math?math=E_{lpt}">  penalises twisted curves that add length to the bezigon. 
 
 
 
