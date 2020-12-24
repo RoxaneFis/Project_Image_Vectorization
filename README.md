@@ -48,13 +48,13 @@ mkdir build && cd build/
 cmake .. && make
 ```
 
-* Lauch the executable : 
+* In the "build" folder lauch the executable : 
 ```js
 ./image_vect <int_nb_steps> <alpha_value> <epsilon_value>  <name_test> <path_image>
 ```
 For example launch :
 ```js
-./image_vect 15 0.0001 1. "test_5" "../data/coeur.jpg"
+./image_vect 15 0.0001 1. "test_1" "../data/coeur.jpg"
 ```
 * An image appears 
 * CLICK on several points ![](./data_readme/init.png)
