@@ -1,7 +1,0 @@
-C:/Users/pierr/Documents/Polytechnique/Info/INF574 - Digital Analysis of Shapes/Project/Image_Vectorization/build/CMakeFiles/image_vect.dir
-C:/Users/pierr/Documents/Polytechnique/Info/INF574 - Digital Analysis of Shapes/Project/Image_Vectorization/build/CMakeFiles/ALL_BUILD.dir
-C:/Users/pierr/Documents/Polytechnique/Info/INF574 - Digital Analysis of Shapes/Project/Image_Vectorization/build/CMakeFiles/ZERO_CHECK.dir
-C:/Users/pierr/Documents/Polytechnique/Info/INF574 - Digital Analysis of Shapes/Project/Image_Vectorization/build/glad/CMakeFiles/glad.dir
-C:/Users/pierr/Documents/Polytechnique/Info/INF574 - Digital Analysis of Shapes/Project/Image_Vectorization/build/glad/CMakeFiles/ALL_BUILD.dir
-C:/Users/pierr/Documents/Polytechnique/Info/INF574 - Digital Analysis of Shapes/Project/Image_Vectorization/build/glfw/CMakeFiles/ALL_BUILD.dir
-C:/Users/pierr/Documents/Polytechnique/Info/INF574 - Digital Analysis of Shapes/Project/Image_Vectorization/build/glfw/src/CMakeFiles/glfw.dir
